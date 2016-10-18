@@ -3,6 +3,7 @@
 # * base_setup
 # 
 # Translators:
+# Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>, 2016
 # Marcin Młynarczyk <mlynarczyk@gmail.com>, 2016
 # Martin Trigaux <mat@odoo.com>, 2016
 # Piotr Szlązak <szlazakpiotr@gmail.com>, 2016
@@ -31,11 +32,13 @@ msgid ""
 "<span>(*) This configuration is related to the company you're logged "
 "into.</span>"
 msgstr ""
+"<span>(*) To konfiguracja związana z firmą, do której jesteś "
+"zalogowany.</span>"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_base_config_settings_module_portal
 msgid "Activate the customer portal"
-msgstr "Aktywuje portal klientów"
+msgstr "Aktywuj portal klientów"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_base_config_settings_module_share
@@ -55,12 +58,12 @@ msgstr "Pozwala użytkownikom synchronizować kalendarz z Google Calendar"
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_base_config_settings_module_base_import
 msgid "Allow users to import data from CSV/XLS/XLSX/ODS files"
-msgstr "Pozwala importować dane z plików CSV/XLS/XLSX/ODS"
+msgstr "Pozwala użytkownikom importować dane z plików CSV/XLS/XLSX/ODS"
 
 #. module: base_setup
 #: model:ir.model.fields,help:base_setup.field_base_config_settings_group_multi_currency
 msgid "Allows to work in a multi currency environment"
-msgstr ""
+msgstr "Pozwala działać wielowalutowo"
 
 #. module: base_setup
 #: model:ir.ui.view,arch_db:base_setup.view_general_configuration
@@ -107,7 +110,7 @@ msgstr "Konfiguruj dane swojej firmy"
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_base_config_settings_create_uid
 msgid "Created by"
-msgstr "Utworzona przez"
+msgstr "Utworzone przez"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_base_config_settings_create_date
@@ -190,7 +193,7 @@ msgstr "Import / Eksport"
 #. module: base_setup
 #: model:ir.ui.view,arch_db:base_setup.view_general_configuration
 msgid "Inter company"
-msgstr "pomiędzy firmami"
+msgstr "Wielofirmowość"
 
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_base_config_settings___last_update
@@ -299,7 +302,7 @@ msgstr ""
 #. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_base_config_settings_company_share_partner
 msgid "Share partners to all companies"
-msgstr "rozdziel partnerów do wszystkich firm"
+msgstr "Współdziel partnerów we wszystkich firmch"
 
 #. module: base_setup
 #: model:ir.model.fields,help:base_setup.field_base_config_settings_company_share_partner
@@ -364,7 +367,7 @@ msgid ""
 "You will find more options in your company details: address for the header "
 "and footer, overdue payments texts, etc."
 msgstr ""
-"Znajdziesz więcej opcji w szczegółach twojej firmy, adres w nagłowku i "
+"Znajdziesz więcej opcji w szczegółach twojej firmy, adres w nagłówku i "
 "stopce, tekst przeterminowanych płatności, itp."
 
 #. module: base_setup

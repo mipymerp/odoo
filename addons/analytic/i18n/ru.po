@@ -7,19 +7,16 @@
 # KingOPl Slav <87slava13@gmail.com>, 2016
 # Masha Koc <mariya.kos.ua@gmail.com>, 2016
 # Sergey Vilizhanin <sv@grimmette.ru>, 2016
-# Max Belyanin <maxbelyanin@gmail.com>, 2016
 # Martin Trigaux <mat@odoo.com>, 2016
 # Viktor Pogrebniak <vp@aifil.ru>, 2016
-# Gennady Marchenko <gennadym@gmail.com>, 2016
 # Denis Trepalin <zekarious@gmail.com>, 2016
-# Эдуард Манятовский <manyatovskiy@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:56+0000\n"
 "PO-Revision-Date: 2016-09-07 08:56+0000\n"
-"Last-Translator: Эдуард Манятовский <manyatovskiy@gmail.com>, 2016\n"
+"Last-Translator: Denis Trepalin <zekarious@gmail.com>, 2016\n"
 "Language-Team: Russian (https://www.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +32,7 @@ msgstr "Валюта счёта"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_active
 msgid "Active"
-msgstr "Актив"
+msgstr "Активно"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_amount
@@ -51,25 +48,25 @@ msgstr "Количество"
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Analytic Account"
-msgstr "Аналитический счет"
+msgstr "Аналитический счёт"
 
 #. module: analytic
 #: model:res.groups,name:analytic.group_analytic_accounting
 msgid "Analytic Accounting"
-msgstr "Аналитический учет"
+msgstr "Аналитический учёт"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.action_account_analytic_account_form
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_list
 msgid "Analytic Accounts"
-msgstr "Счета аналитики"
+msgstr "Аналитические счета"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.account_analytic_tag_action
 #: model:ir.ui.view,arch_db:analytic.account_analytic_tag_form_view
 #: model:ir.ui.view,arch_db:analytic.account_analytic_tag_tree_view
 msgid "Analytic Accounts Tags"
-msgstr "Теги счетов аналитики"
+msgstr "Теги аналитических счетов"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.account_analytic_line_action_entries
@@ -97,17 +94,17 @@ msgstr "Позиции аналитики"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_name
 msgid "Analytic Tag"
-msgstr "Тэг аналитики"
+msgstr "Тег аналитики"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_tag
 msgid "Analytic Tags"
-msgstr "Тэги аналитики"
+msgstr "Теги аналитики"
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
 msgid "Archived"
-msgstr "Помещено в архив "
+msgstr "Архивировано "
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
@@ -127,7 +124,7 @@ msgstr "План аналитических счетов"
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_tag_action
 msgid "Click to add a new tag."
-msgstr "Кликните, чтобы создать новый тэг."
+msgstr "Кликните, чтобы создать новый тег."
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.action_analytic_account_form
@@ -163,21 +160,21 @@ msgid ""
 "                invoices, expenses or timesheets."
 msgstr ""
 "Расходы будут создаваться автоматически при регистрации\n"
-"инвойсов, расходов или табелей поставщика."
+"счетов, расходов или расписаний."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_create_uid
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_create_uid
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_create_uid
 msgid "Created by"
-msgstr "Создано"
+msgstr "Создал"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_create_date
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_create_date
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_create_date
 msgid "Created on"
-msgstr "Создан"
+msgstr "Создано"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_credit
@@ -246,9 +243,9 @@ msgid ""
 "                analytic accounts. You can track costs and revenues to analyse\n"
 "                your margins easily."
 msgstr ""
-"В Odoo, заказы и проекты реализованы с использованием\n"
-"аналитических счетов. Вы можете следить за расходами и\n"
-"доходами, чтобы легко анализировать остатки"
+"В Odoo заказы и проекты реализованы с использованием\n"
+"аналитических счетов. Вы можете следить за ценами и\n"
+"ожидаемыми доходами для анализа разницы."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account___last_update
@@ -262,7 +259,7 @@ msgstr "Последний раз изменено"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_write_uid
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_write_uid
 msgid "Last Updated by"
-msgstr "Последний раз обновлено"
+msgstr "Последний раз обновил"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_write_date
@@ -274,12 +271,12 @@ msgstr "Последний раз обновлено"
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action
 msgid "No activity yet on this account."
-msgstr "Пока нет никакой активности на этом аккаунте"
+msgstr "Пока нет активности по счёту."
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid "No activity yet."
-msgstr "Пока нет никакой активности"
+msgstr "Пока нет активности."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_partner_id
@@ -308,8 +305,8 @@ msgid ""
 msgstr ""
 "Доходы будут создаваться автоматически при создании клиентских\n"
 "счетов-фактур. Клиентские счета-фактуры могут быть созданы на\n"
-"основе заказов (накладные), на основе табеля учета рабочего\n"
-"времени (на основе проделанной работы) или на основе расходов (коммандировочные расходы)"
+"основе заказов (счетов), на основе табеля учёта рабочего\n"
+"времени (на основе проделанной работы) или на основе расходов (командировочные расходы)."
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
@@ -325,12 +322,12 @@ msgstr "Теги"
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Tasks Month"
-msgstr "Месячный план"
+msgstr "Задачи месяца"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_line_currency_id
 msgid "The related account currency if not equal to the company one."
-msgstr "Валюта связанного счета, если не одинакова с валютой компании."
+msgstr "Валюта связанного счёта, если отличается от валюты компании."
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_tree
@@ -345,4 +342,4 @@ msgstr "Пользователь"
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
 msgid "e.g. Project XYZ"
-msgstr "Например \"Проект АБВ\""
+msgstr "Например «Проект АБВ»"

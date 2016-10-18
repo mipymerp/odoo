@@ -13,7 +13,7 @@
 # Viktor Pogrebniak <vp@aifil.ru>, 2016
 # Эдуард Манятовский <manyatovskiy@gmail.com>, 2016
 # Harry <harrierr@mail.ru>, 2016
-# Ivan Ivan <kolobok2048@gmail.com>, 2016
+# Русский «kolobok2048» Ивашка <kolobok2048@gmail.com>, 2016
 # Alex Puchkov <ap@alteco.co>, 2016
 msgid ""
 msgstr ""
@@ -517,7 +517,7 @@ msgstr "Создано"
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_definition_create_uid
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_wizard_create_uid
 msgid "Created by"
-msgstr "Создано"
+msgstr "Создал"
 
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_badge_create_date
@@ -528,7 +528,7 @@ msgstr "Создано"
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_definition_create_date
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_wizard_create_date
 msgid "Created on"
-msgstr "Создан"
+msgstr "Создано"
 
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_badge_user_create_uid
@@ -1019,7 +1019,7 @@ msgstr "Последнее обновление"
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_wizard_write_uid
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_write_uid
 msgid "Last Updated by"
-msgstr "Последний раз обновлено"
+msgstr "Последний раз обновил"
 
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_badge_user_wizard_write_date
@@ -1098,7 +1098,7 @@ msgstr "Ежемесячно ограниченная отправка"
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_badge_stat_this_month
 msgid "Monthly total"
-msgstr "Всего помесячно"
+msgstr "Итого помесячно"
 
 #. module: gamification
 #: model:ir.ui.view,arch_db:gamification.goal_search_view

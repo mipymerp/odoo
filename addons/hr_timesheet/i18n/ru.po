@@ -6,19 +6,20 @@
 # Masha Koc <mariya.kos.ua@gmail.com>, 2016
 # Martin Trigaux <mat@odoo.com>, 2016
 # Sergey Vilizhanin <sv@grimmette.ru>, 2016
+# dr&mx <dronmax@gmail.com>, 2016
 # Max Belyanin <maxbelyanin@gmail.com>, 2016
 # Denis Trepalin <zekarious@gmail.com>, 2016
 # Gennady Marchenko <gennadym@gmail.com>, 2016
 # Alex Puchkov <ap@alteco.co>, 2016
-# Эдуард Манятовский <manyatovskiy@gmail.com>, 2016
 # Danil Bochevkin <danil.borchevkin@gmail.com>, 2016
+# Эдуард Манятовский <manyatovskiy@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-29 13:59+0000\n"
 "PO-Revision-Date: 2016-09-29 13:59+0000\n"
-"Last-Translator: Danil Bochevkin <danil.borchevkin@gmail.com>, 2016\n"
+"Last-Translator: Эдуард Манятовский <manyatovskiy@gmail.com>, 2016\n"
 "Language-Team: Russian (https://www.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,12 +47,12 @@ msgstr "<strong>Итого</strong>"
 #: model:ir.actions.act_window,name:hr_timesheet.act_hr_timesheet_line_by_project
 #: model:ir.actions.act_window,name:hr_timesheet.act_hr_timesheet_report
 msgid "Activities"
-msgstr "Действия"
+msgstr "Мероприятия"
 
 #. module: hr_timesheet
 #: model:ir.ui.menu,name:hr_timesheet.menu_hr_activity_analysis
 msgid "Activity Analysis"
-msgstr ""
+msgstr "Анализ мероприятия"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_project_project_allow_timesheets
@@ -92,7 +93,7 @@ msgstr ""
 #: model:ir.actions.act_window,help:hr_timesheet.act_hr_timesheet_line_by_project
 #: model:ir.actions.act_window,help:hr_timesheet.act_hr_timesheet_report
 msgid "Click to record activities."
-msgstr "Нажмите, чтобы записать действия"
+msgstr "Нажмите, чтобы записать мероприятие"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,help:hr_timesheet.field_project_task_delay_hours
@@ -146,7 +147,7 @@ msgstr "Описание"
 #. module: hr_timesheet
 #: model:ir.ui.menu,name:hr_timesheet.menu_hr_working_hours
 msgid "Detailed Activities"
-msgstr ""
+msgstr "Удалённые мероприятия"
 
 #. module: hr_timesheet
 #: model:ir.ui.view,arch_db:hr_timesheet.hr_timesheet_line_tree
@@ -209,7 +210,7 @@ msgstr "Проект"
 #. module: hr_timesheet
 #: model:ir.ui.view,arch_db:hr_timesheet.report_timesheet
 msgid "Project -"
-msgstr ""
+msgstr "Проект -"
 
 #. module: hr_timesheet
 #: model:ir.model.fields,field_description:hr_timesheet.field_report_project_task_user_remaining_hours
@@ -332,12 +333,12 @@ msgstr "Итого"
 #: model:ir.model.fields,field_description:hr_timesheet.field_project_task_total_hours_spent
 #: model:ir.model.fields,field_description:hr_timesheet.field_report_project_task_user_total_hours
 msgid "Total Hours"
-msgstr "Общее время"
+msgstr "Итого часов"
 
 #. module: hr_timesheet
 #: model:ir.ui.view,arch_db:hr_timesheet.hr_timesheet_line_tree
 msgid "Total time"
-msgstr "Суммарное время"
+msgstr "Итого времени"
 
 #. module: hr_timesheet
 #: model:ir.ui.view,arch_db:hr_timesheet.hr_timesheet_line_search

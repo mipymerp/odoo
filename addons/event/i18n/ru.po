@@ -14,16 +14,17 @@
 # Max Belyanin <maxbelyanin@gmail.com>, 2016
 # Evgeny <transingularity@gmail.com>, 2016
 # Вадим Кунгурцев <kvadim@aport.ru>, 2016
-# Ivan Ivan <kolobok2048@gmail.com>, 2016
+# Русский «kolobok2048» Ивашка <kolobok2048@gmail.com>, 2016
 # Gennady Marchenko <gennadym@gmail.com>, 2016
 # Alex Puchkov <ap@alteco.co>, 2016
+# Эдуард Манятовский <manyatovskiy@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0c\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-29 14:00+0000\n"
-"PO-Revision-Date: 2016-09-29 14:00+0000\n"
-"Last-Translator: Alex Puchkov <ap@alteco.co>, 2016\n"
+"POT-Creation-Date: 2016-10-10 08:43+0000\n"
+"PO-Revision-Date: 2016-10-10 08:43+0000\n"
+"Last-Translator: Эдуард Манятовский <manyatovskiy@gmail.com>, 2016\n"
 "Language-Team: Russian (https://www.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,7 +65,7 @@ msgid ""
 "                    <p style=\"font-size:16px;\">\n"
 "                        Please keep in mind that the event\n"
 "                        % if 'website_url' in object.event_id and object.event_id.website_url:\n"
-"                            <a href=\"${object.event_id.website_url}\" style=\"color:#a24689;text-decoration:none;\">${object.event_id.name}</a>\n"
+"                            <a href=\"${object.event_id.website_url}\" style=\"color:#875A7B;text-decoration:none;\">${object.event_id.name}</a>\n"
 "                        % else:\n"
 "                            <strong>${object.event_id.name}</strong>\n"
 "                        % endif\n"
@@ -121,7 +122,7 @@ msgid ""
 "                            <tr>\n"
 "                                <td style=\"padding:10px 0px 25px 0px;\">\n"
 "                                    <h2 style=\"font-weight:300;margin:10px 0px\">Questions about this event?</h2>\n"
-"                                    <div>Please contact the organizer at <a href=\"mailto:${object.event_id.organizer_id.email}\" style=\"text-decoration:none;color:#a24689;\">${object.event_id.organizer_id.email}</a></div>\n"
+"                                    <div>Please contact the organizer at <a href=\"mailto:${object.event_id.organizer_id.email}\" style=\"text-decoration:none;color:#875A7B;\">${object.event_id.organizer_id.email}</a></div>\n"
 "                                </td>\n"
 "                            </tr>\n"
 "                        </table>\n"
@@ -130,9 +131,9 @@ msgid ""
 "                        <tr>\n"
 "                            <td style=\"padding:25px 0px;\">\n"
 "                                <strong>Add this event to your calendar</strong>\n"
-"                                <a href=\"https://www.google.com/calendar/render?action=TEMPLATE&text=${object.event_id.name}&dates=${date_begin}/${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #a24689;color:#a24689;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(162,70,137)/16\" style=\"vertical-align:middle;\" height=\"16\"> Google</a>\n"
-"                                <a href=\"https://bay02.calendar.live.com/calendar/calendar.aspx?rru=addevent&summary=${object.event_id.name}&dtstart=${date_begin}&dtend=${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #a24689;color:#a24689;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(162,70,137)/16\" style=\"vertical-align:middle;\" height=\"16\"> Outlook</a>\n"
-"                                <a href=\"https://calendar.yahoo.com/?v=60&view=d&type=20&title=${object.event_id.name}&in_loc=${location}&st=${format_tz(object.event_id.date_begin, tz='UTC', format='%Y%m%dT%H%M%S')}&et=${format_tz(object.event_id.date_end, tz='UTC', format='%Y%m%dT%H%M%S')}\" style=\"padding:3px 5px;border:1px solid #a24689;color:#a24689;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(162,70,137)/16\" style=\"vertical-align:middle;\" height=\"16\"> Yahoo</a>\n"
+"                                <a href=\"https://www.google.com/calendar/render?action=TEMPLATE&text=${object.event_id.name}&dates=${date_begin}/${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Google</a>\n"
+"                                <a href=\"https://bay02.calendar.live.com/calendar/calendar.aspx?rru=addevent&summary=${object.event_id.name}&dtstart=${date_begin}&dtend=${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Outlook</a>\n"
+"                                <a href=\"https://calendar.yahoo.com/?v=60&view=d&type=20&title=${object.event_id.name}&in_loc=${location}&st=${format_tz(object.event_id.date_begin, tz='UTC', format='%Y%m%dT%H%M%S')}&et=${format_tz(object.event_id.date_end, tz='UTC', format='%Y%m%dT%H%M%S')}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Yahoo</a>\n"
 "                            </td>\n"
 "                        </tr>\n"
 "                    </table>\n"
@@ -149,7 +150,7 @@ msgid ""
 "        <tbody>\n"
 "            <tr>\n"
 "                <td style=\"padding-top:10px;font-size: 12px;\">\n"
-"                    <div>This email was sent to <a href=\"mailto:${object.email}\" style=\"text-decoration:none;color:#a24689;\">${object.email}</a></div>\n"
+"                    <div>This email was sent to <a href=\"mailto:${object.email}\" style=\"text-decoration:none;color:#875A7B;\">${object.email}</a></div>\n"
 "                    <p style=\"margin:0px 0px 9px 0px;padding-top:10px;\">Copyright © ${object.company_id.name}</p>\n"
 "                </td>\n"
 "            </tr>\n"
@@ -189,7 +190,7 @@ msgid ""
 "                    <h2 style=\"font-weight:300;\">\n"
 "                        Hi ${object.name}, here is your order confirmation for\n"
 "                        % if 'website_url' in object.event_id and object.event_id.website_url:\n"
-"                            <a href=\"${object.event_id.website_url}\" style=\"color:#a24689;text-decoration:none;\">${object.event_id.name}</a>\n"
+"                            <a href=\"${object.event_id.website_url}\" style=\"color:#875A7B;text-decoration:none;\">${object.event_id.name}</a>\n"
 "                        % else:\n"
 "                            <strong>${object.event_id.name}</strong>\n"
 "                        % endif\n"
@@ -244,7 +245,7 @@ msgid ""
 "                            <tr>\n"
 "                                <td style=\"padding:10px 0px 25px 0px;\">\n"
 "                                    <h2 style=\"font-weight:300;margin:10px 0px\">Questions about this event?</h2>\n"
-"                                    <div>Please contact the organizer at <a href=\"mailto:${object.event_id.organizer_id.email}\" style=\"text-decoration:none;color:#a24689;\">${object.event_id.organizer_id.email}</a></div>\n"
+"                                    <div>Please contact the organizer at <a href=\"mailto:${object.event_id.organizer_id.email}\" style=\"text-decoration:none;color:#875A7B;\">${object.event_id.organizer_id.email}</a></div>\n"
 "                                </td>\n"
 "                            </tr>\n"
 "                        </table>\n"
@@ -253,9 +254,9 @@ msgid ""
 "                        <tr>\n"
 "                            <td style=\"padding:25px 0px;\">\n"
 "                                <strong>Add this event to your calendar</strong>\n"
-"                                <a href=\"https://www.google.com/calendar/render?action=TEMPLATE&text=${object.event_id.name}&dates=${date_begin}/${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #a24689;color:#a24689;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(162,70,137)/16\" style=\"vertical-align:middle;\" height=\"16\"> Google</a>\n"
-"                                <a href=\"https://bay02.calendar.live.com/calendar/calendar.aspx?rru=addevent&summary=${object.event_id.name}&dtstart=${date_begin}&dtend=${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #a24689;color:#a24689;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(162,70,137)/16\" style=\"vertical-align:middle;\" height=\"16\"> Outlook</a>\n"
-"                                <a href=\"https://calendar.yahoo.com/?v=60&view=d&type=20&title=${object.event_id.name}&in_loc=${location}&st=${format_tz(object.event_id.date_begin, tz='UTC', format='%Y%m%dT%H%M%S')}&et=${format_tz(object.event_id.date_end, tz='UTC', format='%Y%m%dT%H%M%S')}\" style=\"padding:3px 5px;border:1px solid #a24689;color:#a24689;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(162,70,137)/16\" style=\"vertical-align:middle;\" height=\"16\"> Yahoo</a>\n"
+"                                <a href=\"https://www.google.com/calendar/render?action=TEMPLATE&text=${object.event_id.name}&dates=${date_begin}/${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Google</a>\n"
+"                                <a href=\"https://bay02.calendar.live.com/calendar/calendar.aspx?rru=addevent&summary=${object.event_id.name}&dtstart=${date_begin}&dtend=${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Outlook</a>\n"
+"                                <a href=\"https://calendar.yahoo.com/?v=60&view=d&type=20&title=${object.event_id.name}&in_loc=${location}&st=${format_tz(object.event_id.date_begin, tz='UTC', format='%Y%m%dT%H%M%S')}&et=${format_tz(object.event_id.date_end, tz='UTC', format='%Y%m%dT%H%M%S')}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Yahoo</a>\n"
 "                            </td>\n"
 "                        </tr>\n"
 "                    </table>\n"
@@ -272,7 +273,7 @@ msgid ""
 "        <tbody>\n"
 "            <tr>\n"
 "                <td style=\"padding-top:10px;font-size: 12px;\">\n"
-"                    <div>This email was sent to <a href=\"mailto:${object.email}\" style=\"text-decoration:none;color:#a24689;\">${object.email}</a></div>\n"
+"                    <div>This email was sent to <a href=\"mailto:${object.email}\" style=\"text-decoration:none;color:#875A7B;\">${object.email}</a></div>\n"
 "                    <p style=\"margin:0px 0px 9px 0px;padding-top:10px;\">Copyright © ${object.company_id.name}</p>\n"
 "                </td>\n"
 "            </tr>\n"
@@ -292,21 +293,27 @@ msgid ""
 "<p>If you have any questions, please let us know.</p>\n"
 "<p>Best regards,</p>"
 msgstr ""
+"\n"
+"<p>Уважаемый(-я) ${object.name},</p>\n"
+"<p>Спасибо за проявленный интерес.</p>\n"
+"<p>Получите свой бейдж для события ${object.event_id.name}.</p>\n"
+"<p>Если будут вопросы — дайте знать.</p>\n"
+"<p>С наилучшими пожеланиями,</p>"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_report_event_registration_cancel_state
 msgid " # No of Cancelled Registrations"
-msgstr "# Число Отмененных Регистраций"
+msgstr "# Число отменённых регистраций"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_report_event_registration_confirm_state
 msgid " # No of Confirmed Registrations"
-msgstr "# Количество подтверждённых регистраций"
+msgstr "# Кол-во подтверждённых регистраций"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_report_event_registration_draft_state
 msgid " # No of Draft Registrations"
-msgstr "# Количество неподтверждённых регистраций"
+msgstr "# Кол-во неподтверждённых регистраций"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_kanban
@@ -399,7 +406,7 @@ msgstr "<i>до</i>"
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "<small>John Doe, CEO</small>"
-msgstr "<small>Джон Дои, Генеральный директор</small>"
+msgstr "<small>Василий Пупкин, генеральный директор</small>"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_form
@@ -432,7 +439,7 @@ msgstr "<strong>Конференция по бизнес-приложениям<
 msgid ""
 "<strong>Having attended this course, participants should be able "
 "to:</strong>"
-msgstr "<strong>Посетив этот курс ученикам следует знать о:</strong>"
+msgstr "<strong>Посетившие этот курс ученики будут знать о:</strong>"
 
 #. module: event
 #: model:event.event,description:event.event_0
@@ -469,14 +476,14 @@ msgstr "<strong>Где нас найти:</strong>"
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_active
 msgid "Active"
-msgstr "Актив"
+msgstr "Активный"
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Advanced JQuery"
-msgstr "Дополнительно JQuery"
+msgstr "Расширенный JQuery"
 
 #. module: event
 #: selection:event.mail,interval_type:0
@@ -486,12 +493,12 @@ msgstr "После каждой регистрации"
 #. module: event
 #: selection:event.mail,interval_type:0
 msgid "After the event"
-msgstr "После мероприятия "
+msgstr "После события "
 
 #. module: event
 #: selection:event.config.settings,module_event_sale:0
 msgid "All events are free"
-msgstr "Все мероприятия бесплатные"
+msgstr "Все события бесплатны"
 
 #. module: event
 #: selection:event.config.settings,module_website_event_questions:0
@@ -516,7 +523,7 @@ msgstr "Применить "
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_search
 msgid "Archived"
-msgstr "Помещено в архив "
+msgstr "Архивировано"
 
 #. module: event
 #: model:event.event,description:event.event_0
@@ -540,7 +547,7 @@ msgstr "Дата посещения"
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_registration_tree
 msgid "Attended the Event"
-msgstr "Посещено событие"
+msgstr "Посещённое событие"
 
 #. module: event
 #: model:ir.model,name:event.model_event_registration
@@ -552,7 +559,7 @@ msgstr "Участник"
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_report_event_registration_search
 msgid "Attendee / Contact"
-msgstr "Слушатель / Контактная информация"
+msgstr "Слушатель / Контакт"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_registration_name
@@ -607,7 +614,7 @@ msgstr "Штрих-Код Интерфейс"
 #. module: event
 #: selection:event.mail,interval_type:0
 msgid "Before the event"
-msgstr "Перед мероприятием"
+msgstr "До события"
 
 #. module: event
 #: model:event.event,description:event.event_2
@@ -619,28 +626,28 @@ msgstr "С наилучшими пожеланиями,"
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Bootstrap CSS"
-msgstr ""
+msgstr "Bootstrap CSS"
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Bring your own laptop."
-msgstr ""
+msgstr "Принесите свой собственный ноутбук."
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Building a Full Application"
-msgstr ""
+msgstr "Создание полного приложения"
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Calling the ORM"
-msgstr ""
+msgstr "Вызов ORM"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_configuration
@@ -775,7 +782,7 @@ msgstr "Контакт"
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Controllers and Views"
-msgstr ""
+msgstr "Контроллеры и представления"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_country_id
@@ -798,7 +805,7 @@ msgstr "Краткое описание курса"
 #: model:ir.model.fields,field_description:event.field_event_registration_create_uid
 #: model:ir.model.fields,field_description:event.field_event_type_create_uid
 msgid "Created by"
-msgstr "Создано"
+msgstr "Создал"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_config_settings_create_date
@@ -809,7 +816,7 @@ msgstr "Создано"
 #: model:ir.model.fields,field_description:event.field_event_registration_create_date
 #: model:ir.model.fields,field_description:event.field_event_type_create_date
 msgid "Created on"
-msgstr "Создан"
+msgstr "Создано"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_report_event_registration_create_date
@@ -1209,7 +1216,7 @@ msgstr "Час(ов)"
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "How to Debug"
-msgstr ""
+msgstr "Как выполнить отладку"
 
 #. module: event
 #: model:event.event,description:event.event_0
@@ -1282,7 +1289,7 @@ msgstr ""
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Integrated Help"
-msgstr ""
+msgstr "Встроенная справка"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_mail_interval_nbr
@@ -1294,21 +1301,21 @@ msgstr "Интервал"
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Introduction to JQuery"
-msgstr ""
+msgstr "Введение в JQuery"
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Introduction to Javascript"
-msgstr ""
+msgstr "Введение в Javascript"
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Introduction to QWeb"
-msgstr ""
+msgstr "Введение в QWeb"
 
 #. module: event
 #: model:event.event,description:event.event_2
@@ -1355,7 +1362,7 @@ msgstr "Последний раз изменено"
 #: model:ir.model.fields,field_description:event.field_event_registration_write_uid
 #: model:ir.model.fields,field_description:event.field_event_type_write_uid
 msgid "Last Updated by"
-msgstr "Последний раз обновлено"
+msgstr "Последний раз обновил"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_config_settings_write_date
@@ -1383,7 +1390,7 @@ msgstr "Место хранения"
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Loops"
-msgstr ""
+msgstr "Петли"
 
 #. module: event
 #: model:event.event,description:event.event_2
@@ -1537,7 +1544,7 @@ msgstr "Официальный вебсайт Odoo"
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Odoo Web Client"
-msgstr ""
+msgstr "Odoo веб-клиент"
 
 #. module: event
 #: model:ir.actions.act_window,help:event.action_event_view
@@ -1615,7 +1622,7 @@ msgstr ""
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Python Objects"
-msgstr ""
+msgstr "Объекты Python"
 
 #. module: event
 #: model:event.event,description:event.event_0
@@ -1724,7 +1731,7 @@ msgstr "Ответить на письмо"
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Report Engine"
-msgstr ""
+msgstr "Движок отчетов"
 
 #. module: event
 #: model:ir.ui.menu,name:event.menu_reporting_events
@@ -1939,14 +1946,14 @@ msgstr "Неподтвержденное бронирование посадоч
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Underscore"
-msgstr ""
+msgstr "Подчеркивание"
 
 #. module: event
 #: model:event.event,description:event.event_0
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "Understand the development concepts and architecture;"
-msgstr ""
+msgstr "Понимать концепции развития и архитектуры;"
 
 #. module: event
 #: model:event.event,description:event.event_2
@@ -2079,7 +2086,7 @@ msgstr ""
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "drinks and lunch;"
-msgstr ""
+msgstr "напитки и обед;"
 
 #. module: event
 #: model:ir.model,name:event.model_event_config_settings
@@ -2111,4 +2118,4 @@ msgstr ""
 #: model:event.event,description:event.event_1
 #: model:event.event,description:event.event_3
 msgid "training material."
-msgstr ""
+msgstr "учебные материалы."

@@ -4,7 +4,7 @@
 # 
 # Translators:
 # KingOPl Slav <87slava13@gmail.com>, 2016
-# Evgeny <transingularity@gmail.com>, 2016
+# dr&mx <dronmax@gmail.com>, 2016
 # Martin Trigaux <mat@odoo.com>, 2016
 # Sergey Vilizhanin <sv@grimmette.ru>, 2016
 # Gennady Marchenko <gennadym@gmail.com>, 2016
@@ -12,14 +12,13 @@
 # Alex Puchkov <ap@alteco.co>, 2016
 # Max Belyanin <maxbelyanin@gmail.com>, 2016
 # Viktor Pogrebniak <vp@aifil.ru>, 2016
-# Эдуард Манятовский <manyatovskiy@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:56+0000\n"
 "PO-Revision-Date: 2016-09-07 08:56+0000\n"
-"Last-Translator: Эдуард Манятовский <manyatovskiy@gmail.com>, 2016\n"
+"Last-Translator: Viktor Pogrebniak <vp@aifil.ru>, 2016\n"
 "Language-Team: Russian (https://www.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,13 +94,13 @@ msgstr "Подтвержденные табели"
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_current_open_create_uid
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_sheet_sheet_create_uid
 msgid "Created by"
-msgstr "Создано"
+msgstr "Создал"
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_current_open_create_date
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_sheet_sheet_create_date
 msgid "Created on"
-msgstr "Создан"
+msgstr "Создано"
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_sheet_sheet_date_from
@@ -201,7 +200,7 @@ msgstr "Последний раз изменено"
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_current_open_write_uid
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_sheet_sheet_write_uid
 msgid "Last Updated by"
-msgstr "Последний раз обновлено"
+msgstr "Последний раз обновил"
 
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_current_open_write_date
@@ -341,7 +340,7 @@ msgstr "Табель"
 #. module: hr_timesheet_sheet
 #: model:ir.ui.view,arch_db:hr_timesheet_sheet.hr_timesheet_sheet_form
 msgid "Timesheet Activities"
-msgstr "Действия в табеле"
+msgstr "Расписание мероприятий"
 
 #. module: hr_timesheet_sheet
 #: model:ir.ui.view,arch_db:hr_timesheet_sheet.hr_timesheet_sheet_form
@@ -426,7 +425,7 @@ msgstr "табели на утверждение"
 #: model:ir.ui.menu,name:hr_timesheet_sheet.menu_hr_to_approve
 #: model:ir.ui.view,arch_db:hr_timesheet_sheet.view_hr_timesheet_sheet_filter
 msgid "To Approve"
-msgstr "Одобрить"
+msgstr "К одобрению"
 
 #. module: hr_timesheet_sheet
 #. openerp-web
@@ -441,7 +440,7 @@ msgstr "Итого"
 #. module: hr_timesheet_sheet
 #: model:ir.model.fields,field_description:hr_timesheet_sheet.field_hr_timesheet_sheet_sheet_account_total
 msgid "Total Time"
-msgstr "Общее время"
+msgstr "Итого времени"
 
 #. module: hr_timesheet_sheet
 #: model:ir.ui.view,arch_db:hr_timesheet_sheet.view_hr_timesheet_sheet_filter
