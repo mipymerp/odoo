@@ -13,13 +13,14 @@
 # Ahmet Altinisik <aaltinisik@altinkaya.com.tr>, 2016
 # Ayhan KIZILTAN <akiziltan76@hotmail.com>, 2016
 # Azar Huseynli <azerbay1984@gmail.com>, 2016
+# Gökhan Erdoğdu <gokhan.erdogdu@mechsoft.com.tr>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:56+0000\n"
 "PO-Revision-Date: 2016-09-07 08:56+0000\n"
-"Last-Translator: Azar Huseynli <azerbay1984@gmail.com>, 2016\n"
+"Last-Translator: Gökhan Erdoğdu <gokhan.erdogdu@mechsoft.com.tr>, 2016\n"
 "Language-Team: Turkish (https://www.transifex.com/odoo/teams/41243/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -367,7 +368,7 @@ msgstr "Yüksek"
 #: code:addons/project_issue/models/project_issue.py:271
 #, python-format
 msgid "I take it"
-msgstr ""
+msgstr "Ben alıyorum"
 
 #. module: project_issue
 #: model:ir.model.fields,field_description:project_issue.field_project_issue_id
@@ -530,7 +531,7 @@ msgstr "Sorunlarım"
 #: model:project.issue,legend_blocked:project_issue.crm_case_patcheserrorinprogram0
 #: model:project.issue,legend_blocked:project_issue.crm_case_programnotgivingproperoutput0
 msgid "Need functional or technical help"
-msgstr ""
+msgstr "Fonksiyonel veya teknik yardıma gerek"
 
 #. module: project_issue
 #: model:ir.ui.view,arch_db:project_issue.view_project_issue_filter
@@ -557,7 +558,7 @@ msgstr "Konu Yok"
 #. module: project_issue
 #: selection:project.config.settings,module_rating_project_issue:0
 msgid "No customer rating"
-msgstr ""
+msgstr "Müşteri reyting olmadan"
 
 #. module: project_issue
 #: selection:project.issue,kanban_state:0 selection:project.issue,priority:0
@@ -571,7 +572,7 @@ msgstr "Normal"
 #: model:project.issue,legend_blocked:project_issue.crm_case_problemloadingpage0
 #: model:project.issue,legend_blocked:project_issue.crm_case_programmingerror0
 msgid "Not validated"
-msgstr ""
+msgstr "Doğrulanmadı"
 
 #. module: project_issue
 #: model:ir.model.fields,help:project_issue.field_project_issue_report_delay_close

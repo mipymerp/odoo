@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Dorin Hongu <dhongu@gmail.com>, 2016
+# Cozmin Candea <office@terrabit.ro>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:57+0000\n"
 "PO-Revision-Date: 2016-09-07 08:57+0000\n"
-"Last-Translator: Dorin Hongu <dhongu@gmail.com>, 2016\n"
+"Last-Translator: Cozmin Candea <office@terrabit.ro>, 2016\n"
 "Language-Team: Romanian (https://www.transifex.com/odoo/teams/41243/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +42,7 @@ msgstr ""
 #. module: payment_authorize
 #: model:ir.ui.view,arch_db:payment_authorize.authorize_s2s_form
 msgid "Card number"
-msgstr ""
+msgstr "Număr card"
 
 #. module: payment_authorize
 #: model:ir.ui.view,arch_db:payment_authorize.authorize_s2s_form
@@ -51,7 +52,7 @@ msgstr ""
 #. module: payment_authorize
 #: model:ir.ui.view,arch_db:payment_authorize.authorize_s2s_form
 msgid "Expires"
-msgstr ""
+msgstr "Expiră la"
 
 #. module: payment_authorize
 #: model:ir.ui.view,arch_db:payment_authorize.acquirer_form_authorize
@@ -63,7 +64,7 @@ msgstr ""
 #. module: payment_authorize
 #: model:ir.ui.view,arch_db:payment_authorize.authorize_s2s_form
 msgid "MM / YY"
-msgstr ""
+msgstr "LL / AA"
 
 #. module: payment_authorize
 #: model:ir.ui.view,arch_db:payment_authorize.authorize_s2s_form
@@ -73,12 +74,12 @@ msgstr "Nume"
 #. module: payment_authorize
 #: model:ir.model,name:payment_authorize.model_payment_acquirer
 msgid "Payment Acquirer"
-msgstr "Metoda de plată"
+msgstr "Colector plată"
 
 #. module: payment_authorize
 #: model:ir.model,name:payment_authorize.model_payment_transaction
 msgid "Payment Transaction"
-msgstr ""
+msgstr "Tranzacție plată"
 
 #. module: payment_authorize
 #: model:ir.model.fields,help:payment_authorize.field_payment_token_authorize_profile
@@ -90,4 +91,4 @@ msgstr ""
 #. module: payment_authorize
 #: model:ir.model,name:payment_authorize.model_payment_token
 msgid "payment.token"
-msgstr ""
+msgstr "payment.token"

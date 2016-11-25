@@ -55,7 +55,7 @@ class AccountMove(models.Model):
                     total_amount += amount
                     for partial_line in (line.matched_debit_ids + line.matched_credit_ids):
                         total_reconciled += partial_line.amount
-            if total_amount == 0.0:
+            if float_is_zero(total_amount, precision_rounding=move.currency_id.rounding):
                 move.matched_percentage = 1.0
             else:
                 move.matched_percentage = total_reconciled / total_amount
@@ -69,6 +69,13 @@ class AccountMove(models.Model):
     def _get_default_journal(self):
         if self.env.context.get('default_journal_type'):
             return self.env['account.journal'].search([('type', '=', self.env.context['default_journal_type'])], limit=1).id
+
+    @api.multi
+    @api.depends('line_ids.partner_id')
+    def _compute_partner_id(self):
+        for move in self:
+            partner = move.line_ids.mapped('partner_id')
+            move.partner_id = partner.id if len(partner) == 1 else False
 
     name = fields.Char(string='Number', required=True, copy=False, default='/')
     ref = fields.Char(string='Reference', copy=False)
@@ -84,7 +91,7 @@ class AccountMove(models.Model):
            'in \'Posted\' status.')
     line_ids = fields.One2many('account.move.line', 'move_id', string='Journal Items',
         states={'posted': [('readonly', True)]}, copy=True)
-    partner_id = fields.Many2one('res.partner', related='line_ids.partner_id', string="Partner", store=True, readonly=True)
+    partner_id = fields.Many2one('res.partner', compute='_compute_partner_id', string="Partner", store=True, readonly=True)
     amount = fields.Monetary(compute='_amount_compute', store=True)
     narration = fields.Text(string='Internal Note')
     company_id = fields.Many2one('res.company', related='journal_id.company_id', string='Company', store=True, readonly=True,
@@ -150,6 +157,7 @@ class AccountMove(models.Model):
             if not move.journal_id.update_posted:
                 raise UserError(_('You cannot modify a posted entry of this journal.\nFirst you should set the journal to allow cancelling entries.'))
         if self.ids:
+            self._check_lock_date()
             self._cr.execute('UPDATE account_move '\
                        'SET state=%s '\
                        'WHERE id IN %s', ('draft', tuple(self.ids),))
@@ -906,6 +914,8 @@ class AccountMoveLine(models.Model):
         first_line_dict['account_id'] = self[0].account_id.id
         if 'analytic_account_id' in first_line_dict:
             del first_line_dict['analytic_account_id']
+        if 'tax_ids' in first_line_dict:
+            del first_line_dict['tax_ids']
 
         # Writeoff line in specified writeoff account
         second_line_dict = vals.copy()

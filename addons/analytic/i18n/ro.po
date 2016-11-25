@@ -5,13 +5,14 @@
 # Translators:
 # Dorin Hongu <dhongu@gmail.com>, 2016
 # Cozmin Candea <office@terrabit.ro>, 2016
+# Martin Trigaux <mat@odoo.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:56+0000\n"
 "PO-Revision-Date: 2016-09-07 08:56+0000\n"
-"Last-Translator: Cozmin Candea <office@terrabit.ro>, 2016\n"
+"Last-Translator: Martin Trigaux <mat@odoo.com>, 2016\n"
 "Language-Team: Romanian (https://www.transifex.com/odoo/teams/41243/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +34,7 @@ msgstr "Activ(a)"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_amount
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
 msgid "Amount"
-msgstr "Suma"
+msgstr "Valoare"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_account
@@ -74,7 +75,7 @@ msgstr "Înregistrări analitice"
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_form
 msgid "Analytic Entry"
-msgstr ""
+msgstr "Înregistrare analitică"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_line
@@ -89,12 +90,12 @@ msgstr "Linii Analitice"
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_name
 msgid "Analytic Tag"
-msgstr ""
+msgstr "Etichetă analitic"
 
 #. module: analytic
 #: model:ir.model,name:analytic.model_account_analytic_tag
 msgid "Analytic Tags"
-msgstr ""
+msgstr "Etichetă analitic"
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
@@ -104,7 +105,7 @@ msgstr "Arhivat"
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
 msgid "Associated Partner"
-msgstr ""
+msgstr "Partener asociat"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_balance
@@ -114,17 +115,17 @@ msgstr "Sold"
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.action_analytic_account_form
 msgid "Chart of Analytic Accounts"
-msgstr ""
+msgstr "Plan de Conturi Analitice"
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_tag_action
 msgid "Click to add a new tag."
-msgstr ""
+msgstr "Click pentru a adăuga o etichetă"
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.action_analytic_account_form
 msgid "Click to add an analytic account."
-msgstr ""
+msgstr "Click pentru a un cont analitic."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_color
@@ -140,12 +141,12 @@ msgstr "Companie"
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_form
 msgid "Cost/Revenue"
-msgstr ""
+msgstr "Cost/Venit"
 
 #. module: analytic
 #: model:ir.actions.act_window,name:analytic.account_analytic_line_action
 msgid "Costs & Revenues"
-msgstr ""
+msgstr "Costuri & Venituri"
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action
@@ -204,13 +205,13 @@ msgstr "Descriere"
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_line_display_name
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_tag_display_name
 msgid "Display Name"
-msgstr "Afiseaza nume"
+msgstr "Nume afișat"
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_account_search
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Group By..."
-msgstr ""
+msgstr "Grupează după..."
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_id
@@ -225,6 +226,8 @@ msgid ""
 "If the active field is set to False, it will allow you to hide the account "
 "without removing it."
 msgstr ""
+"Daca campul activ este setat pe Fals, va va permite sa ascundeti contul fara"
+" a-l sterge."
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action
@@ -295,7 +298,7 @@ msgstr ""
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Search Analytic Lines"
-msgstr ""
+msgstr "Cautati Liniile Analitice"
 
 #. module: analytic
 #: model:ir.model.fields,field_description:analytic.field_account_analytic_account_tag_ids
@@ -306,12 +309,12 @@ msgstr "Etichete"
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_filter
 msgid "Tasks Month"
-msgstr ""
+msgstr "Sarcini lunare"
 
 #. module: analytic
 #: model:ir.model.fields,help:analytic.field_account_analytic_line_currency_id
 msgid "The related account currency if not equal to the company one."
-msgstr ""
+msgstr "Valuta asociata contului daca nu este aceeasi ca si cea a companiei."
 
 #. module: analytic
 #: model:ir.ui.view,arch_db:analytic.view_account_analytic_line_tree

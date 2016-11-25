@@ -64,6 +64,43 @@ msgid ""
 "    </table>\n"
 "</div>"
 msgstr ""
+"\n"
+"<div summary=\"o_mail_notification\" style=\"padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px; border-collapse:collapse; background:inherit; color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"center\" width=\"200\" style=\"padding:0px 10px 5px 5px; font-size: 12px\">\n"
+"                <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div summary=\"o_mail_notification\" style=\"padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"vertical-align:top; padding:0px; border-collapse:collapse; background:inherit; color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"top\" style=\"width:600px; padding:0px 10px 5px 5px;\">\n"
+"                <div>\n"
+"                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:0px auto;padding:0\">\n"
+"                </div>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div style=\"padding:0px; width:600px; max-width:600px; margin:0 auto; background: #FFFFFF repeat top /100%; color:#777777\">\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px ;text-align:justify; margin:0 auto; border-collapse:collapse; background:inherit; color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:0px 10px 5px 5px;font-size: 14px;\">\n"
+"                <p>Beste ${object.name},</p>\n"
+"                <p>U bent uitgenodigd om uw e-mail te valideren hiermee krijgt u toegang to \n"
+"                \"${object.company_id.name}\" V/A Forum.</p>\n"
+"                <p>Om uw e-mail te valideren, klik op de volgende link:</p>\n"
+"                <a style=\"margin-left: 15px; padding:5px 10px; border-radius: 3px; background-color:#875A7B; text-align:center; text-decoration:none; color:#F7FBFD;\" href=\"${ctx.get('token_url')}\">\n"
+"                    Valideer mijn account voor ${object.company_id.name}\" V/A Forum\n"
+"                </a>\n"
+"                <p>Bedankt voor uw aanmelding!</p>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>"
 
 #. module: website_forum
 #. openerp-web
@@ -186,6 +223,8 @@ msgid ""
 "<b>Answers should not add or expand questions</b>. Instead either edit the "
 "question or add a question comment."
 msgstr ""
+"<b>Antwoorden moeten geen vragen toevoegen of uitbreiden</b>. In plaats hier"
+" van wijzigt u de vraag of voegt u een reactie toe."
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
@@ -254,6 +293,11 @@ msgid ""
 "    copy/paste. Links are welcome, but should be complementary to\n"
 "    answer, referring sources or additional reading."
 msgstr ""
+"<b>Antwoorden moeten niet gewoon een link geven naar\n"
+"een oplossing.</b> Bied in de plaats de oplossing\n"
+"aan in uw antwoord, zelfs als het een\n"
+"kopie is. Links zijn welkom, maar moeten enkel antwoorden\n"
+"aanvullen, bronnen toevoegen of extra leesmateriaal toevoegen."
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
@@ -263,6 +307,11 @@ msgid ""
 "Links are welcome, but should be complementary to answer, referring sources "
 "or additional reading."
 msgstr ""
+"<b>Antwoorden moeten niet gewoon een link geven naar\n"
+"een oplossing.</b> Bied in de plaats de oplossing\n"
+"aan in uw antwoord, zelfs als het een\n"
+"kopie is. Links zijn welkom, maar moeten enkel antwoorden\n"
+"aanvullen, bronnen toevoegen of extra leesmateriaal toevoegen."
 
 #. module: website_forum
 #: model:forum.forum,faq:website_forum.forum_help
@@ -423,6 +472,9 @@ msgid ""
 "            similar questions. Using the right tags makes it easier for\n"
 "            others to find and answer your question. (Hover the mouse to follow/unfollow tag(s))"
 msgstr ""
+"Een label wordt gebruikt om uw vragen te groeperen met andere,\n"
+"overeenkomstige vragen. Door gebruiken te maken van het juiste label wordt het gemakkelijker voor\n"
+"anderen om uw vragen te vinden en te beantwoorden. (Hover met de muis om tags te volgen/ontvolgen)"
 
 #. module: website_forum
 #: model:ir.ui.view,arch_db:website_forum.header
@@ -754,7 +806,7 @@ msgstr "Kan vragen"
 #. module: website_forum
 #: model:ir.model.fields,field_description:website_forum.field_forum_post_can_post
 msgid "Can Automatically be Validated"
-msgstr "Kan automatisch gevalideerd worden"
+msgstr "Kan automatisch bevestigd worden"
 
 #. module: website_forum
 #: model:ir.model.fields,field_description:website_forum.field_forum_post_can_close
@@ -2716,7 +2768,7 @@ msgstr ""
 #. module: website_forum
 #: model:ir.ui.view,arch_db:website_forum.forum_post_template_validation
 msgid "Validate question"
-msgstr "Valideer vraag"
+msgstr "Bevestig vraag"
 
 #. module: website_forum
 #: model:ir.ui.view,arch_db:website_forum.display_post_question_block
@@ -2820,6 +2872,8 @@ msgid ""
 "You already have one pending post.<br/>\n"
 "            Please wait for a moderator to validate your previous post before continuing."
 msgstr ""
+"Je hebt al een wachtend bericht.<br/>\n"
+"Wacht op een moderator om uw vorige bericht te valideren alvorens verder te gaan."
 
 #. module: website_forum
 #: code:addons/website_forum/models/forum.py:139

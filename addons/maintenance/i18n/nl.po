@@ -5,9 +5,9 @@
 # Translators:
 # Martin Trigaux <mat@odoo.com>, 2016
 # Yenthe Van Ginneken <yenthespam@gmail.com>, 2016
-# Stephan Van Dyck <stephan.vandyck@vanroey.be>, 2016
 # Erwin van der Ploeg <erwin@odooexperts.nl>, 2016
 # Eric Geens <ericgeens@yahoo.com>, 2016
+# Stephan Van Dyck <stephan.vandyck@vanroey.be>, 2016
 # Cas Vissers <casvissers@brahoo.nl>, 2016
 msgid ""
 msgstr ""
@@ -51,7 +51,7 @@ msgstr "<span class=\"label label-warning pull-right\">Geannuleerd</span>"
 #. module: maintenance
 #: model:ir.ui.view,arch_db:maintenance.maintenance_team_kanban
 msgid "<span>Reports</span>"
-msgstr "<span>Rapporten</span>"
+msgstr "<span>Rapportages</span>"
 
 #. module: maintenance
 #: model:ir.ui.view,arch_db:maintenance.maintenance_team_kanban
@@ -185,7 +185,7 @@ msgstr "Klik om een nieuwe machine aan te maken."
 #. module: maintenance
 #: model:ir.actions.act_window,help:maintenance.hr_equipment_category_action
 msgid "Click to add a new equipment category."
-msgstr "Klik om een nieuwe categorie aan te maken voor een apparataat. "
+msgstr "Klik om een nieuwe apparatuur categorie aan te maken."
 
 #. module: maintenance
 #: model:ir.actions.act_window,help:maintenance.hr_equipment_action
@@ -547,7 +547,7 @@ msgstr "Tijdsduur onderhoud"
 #. module: maintenance
 #: model:ir.model.fields,help:maintenance.field_maintenance_equipment_maintenance_duration
 msgid "Maintenance Duration in minutes and seconds."
-msgstr ""
+msgstr "Tijdsduur onderhoud in minuten en secondes."
 
 #. module: maintenance
 #: model:ir.ui.view,arch_db:maintenance.hr_equipment_request_view_form
@@ -801,7 +801,7 @@ msgstr "Gerepareerd"
 #. module: maintenance
 #: model:ir.ui.menu,name:maintenance.menu_m_reports
 msgid "Reporting"
-msgstr "Rapportering"
+msgstr "Rapportages"
 
 #. module: maintenance
 #: model:ir.ui.view,arch_db:maintenance.hr_equipment_view_kanban
@@ -888,6 +888,8 @@ msgstr "Partijnummer"
 msgid ""
 "Set archive to true to hide the maintenance request without deleting it."
 msgstr ""
+"Vink de optie actief aan om de onderhoudsopdracht te verbergen zonder ze te "
+"verwijderen."
 
 #. module: maintenance
 #: model:ir.ui.view,arch_db:maintenance.maintenance_team_kanban
@@ -1014,6 +1016,9 @@ msgid ""
 "                Create some laptop, printer or phone and link each equipment to an employee or departement.\n"
 "                You will manage allocations, issues and maintenance of equipment."
 msgstr ""
+"Deze toepassing helpt u om de apparatuur van werknemers te beheren. \n"
+"Maak laptops, printers en telefoons aan en koppel de apparatuur aan een werknemer of een afdeling. \n"
+"U kunt toekenningen, problemen en onderhoud van de apparatuur beheren."
 
 #. module: maintenance
 #: model:ir.ui.view,arch_db:maintenance.maintenance_team_kanban
@@ -1033,12 +1038,12 @@ msgstr "Aantal aanvragen te doen"
 #. module: maintenance
 #: model:ir.model.fields,field_description:maintenance.field_maintenance_team_todo_request_count_block
 msgid "Todo request count block"
-msgstr ""
+msgstr "Aantal aanvragen te doen blok"
 
 #. module: maintenance
 #: model:ir.model.fields,field_description:maintenance.field_maintenance_team_todo_request_count_date
 msgid "Todo request count date"
-msgstr ""
+msgstr "Aantal aanvragen te doen datum"
 
 #. module: maintenance
 #: model:ir.model.fields,field_description:maintenance.field_maintenance_team_todo_request_count_high_priority

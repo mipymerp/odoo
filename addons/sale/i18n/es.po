@@ -24,13 +24,15 @@
 # Leonardo Chianea <noamixcontenidos@gmail.com>, 2016
 # Mateo Tibaquirá Palacios <nestormateo@gmail.com>, 2016
 # Juan Fernando Cano González <jfcano@nanobytes.es>, 2016
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2016
+# Kiko Sánchez <kiko@comunitea.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-10 08:42+0000\n"
-"PO-Revision-Date: 2016-10-10 08:42+0000\n"
-"Last-Translator: Juan Fernando Cano González <jfcano@nanobytes.es>, 2016\n"
+"POT-Creation-Date: 2016-11-14 15:53+0000\n"
+"PO-Revision-Date: 2016-11-14 15:53+0000\n"
+"Last-Translator: Kiko Sánchez <kiko@comunitea.com>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -116,11 +118,9 @@ msgstr "Nº de pedido de venta"
 #. module: sale
 #: model:mail.template,report_name:sale.email_template_edi_sale
 msgid ""
-"${(object.name or '').replace('/','_')}_${object.state == 'draft' and "
-"'draft' or ''}"
+"${(object.name or '').replace('/','_')}${object.state == 'draft' and "
+"'_draft' or ''}"
 msgstr ""
-"${(object.name or '').replace('/','_')}_${object.state == 'draft' and "
-"'borrador' or ''}"
 
 #. module: sale
 #: model:mail.template,subject:sale.email_template_edi_sale
@@ -128,6 +128,8 @@ msgid ""
 "${object.company_id.name} ${object.state in ('draft', 'sent') and "
 "'Quotation' or 'Order'} (Ref ${object.name or 'n/a' })"
 msgstr ""
+"${object.company_id.name} ${object.state in ('draft', 'sent') and "
+"'Presupuesto' or 'Pedido'} (Ref ${object.name or 'n/a' })"
 
 #. module: sale
 #: model:mail.template,subject:sale.mail_template_data_notification_email_sale_order
@@ -331,7 +333,7 @@ msgid "Addresses in Sales Orders"
 msgstr "Direcciones en los pedidos de venta"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:146
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:153
 #, python-format
 msgid "Advance: %s"
 msgstr "Anticipo: %s"
@@ -390,6 +392,8 @@ msgstr "Importe de ventas para facturar"
 msgid ""
 "An informative or blocking warning can be set on a product or a customer"
 msgstr ""
+"Una advertencia informativa o bloqueante puede configurarse en un producto o"
+" cliente"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_project_id
@@ -782,7 +786,7 @@ msgid "Do not personalize sales orders and invoice reports"
 msgstr ""
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:85
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:84
 #, python-format
 msgid "Down Payment"
 msgstr "Depósito"
@@ -808,7 +812,7 @@ msgid "Down payment (percentage)"
 msgstr "Depósito (porcentaje)"
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:82
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:81
 #, python-format
 msgid "Down payment of %s%%"
 msgstr "Depósito de %s%%"
@@ -1139,12 +1143,12 @@ msgstr ""
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_order_form
 msgid "Lock"
-msgstr ""
+msgstr "Bloquear"
 
 #. module: sale
 #: selection:sale.order,state:0
 msgid "Locked"
-msgstr ""
+msgstr "Bloqueado"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_config_settings_module_sale_contract
@@ -2139,7 +2143,7 @@ msgid ""
 msgstr ""
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:144
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:147
 #, python-format
 msgid ""
 "The product used to invoice a down payment should be of type 'Service'. "
@@ -2149,7 +2153,7 @@ msgstr ""
 "'Servicio'. Por favor use otro producto o actualice éste."
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:142
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:145
 #, python-format
 msgid ""
 "The product used to invoice a down payment should have an invoice policy set"
@@ -2161,13 +2165,13 @@ msgstr ""
 "producto para poder crear la factura de depósito."
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:79
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:78
 #, python-format
 msgid "The value of the down payment amount must be positive."
 msgstr "El valor del importe por adelantado debe ser positivo."
 
 #. module: sale
-#: code:addons/sale/wizard/sale_make_invoice_advance.py:75
+#: code:addons/sale/wizard/sale_make_invoice_advance.py:74
 #, python-format
 msgid ""
 "There is no income account defined for this product: \"%s\". You may have to"
@@ -2366,7 +2370,7 @@ msgid "Warning"
 msgstr "Aviso"
 
 #. module: sale
-#: code:addons/sale/models/sale.py:853
+#: code:addons/sale/models/sale.py:854
 #, python-format
 msgid "Warning for %s"
 msgstr "Aviso para %s"
@@ -2418,7 +2422,7 @@ msgid ""
 msgstr ""
 
 #. module: sale
-#: code:addons/sale/models/sale.py:882
+#: code:addons/sale/models/sale.py:883
 #, python-format
 msgid ""
 "You can not remove a sale order line.\n"

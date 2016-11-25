@@ -5,13 +5,14 @@
 # Translators:
 # Kostas Goutoudis <goutoudis@gmail.com>, 2016
 # Martin Trigaux <mat@odoo.com>, 2016
+# Stefanos Nikou <stefanos.nikou@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-10 08:44+0000\n"
 "PO-Revision-Date: 2016-10-10 08:44+0000\n"
-"Last-Translator: Martin Trigaux <mat@odoo.com>, 2016\n"
+"Last-Translator: Stefanos Nikou <stefanos.nikou@gmail.com>, 2016\n"
 "Language-Team: Greek (https://www.transifex.com/odoo/teams/41243/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,6 +73,9 @@ msgid ""
 "                                        <span class=\"fa fa-credit-card fa-2x text-delta\"/>\n"
 "                                        &amp;nbsp;"
 msgstr ""
+"&amp;nbsp;\n"
+"<span class=\"fa fa-credit-card fa-2x text-delta\"/>\n"
+"&amp;nbsp;"
 
 #. module: mass_mailing
 #: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_steps
@@ -126,7 +130,7 @@ msgstr ""
 #. module: mass_mailing
 #: model:ir.ui.view,arch_db:mass_mailing.snippet_options
 msgid "<i class=\"fa fa-eyedropper\"/>Background Color"
-msgstr ""
+msgstr "<i class=\"fa fa-eyedropper\"/>Χρώμα Φόντου"
 
 #. module: mass_mailing
 #: model:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
@@ -403,7 +407,7 @@ msgstr ""
 #. module: mass_mailing
 #: model:ir.actions.act_window,help:mass_mailing.mass_mailing_tag_action
 msgid "Click to add a new tag."
-msgstr ""
+msgstr "Κάντε κλικ για να προσθέσετε μια νέα ετικέτα."
 
 #. module: mass_mailing
 #: model:ir.actions.act_window,help:mass_mailing.action_view_mass_mailing_contacts_from_list
@@ -432,12 +436,12 @@ msgstr "Χρωματισμός Ευρετήριου"
 #. module: mass_mailing
 #: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_three_cols
 msgid "Column Title"
-msgstr ""
+msgstr "Τίτλος Στήλης"
 
 #. module: mass_mailing
 #: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_two_cols
 msgid "Column title"
-msgstr ""
+msgstr "Τίτλος στήλης"
 
 #. module: mass_mailing
 #: model:ir.model.fields,help:mass_mailing.field_mail_mass_mailing_test_email_to
@@ -499,7 +503,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mass_mailing_test_create_uid
 #: model:ir.model.fields,field_description:mass_mailing.field_mass_mailing_config_settings_create_uid
 msgid "Created by"
-msgstr "Δημιουργήθηκε στις"
+msgstr "Δημιουργήθηκε από"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mail_statistics_create_date
@@ -509,7 +513,7 @@ msgstr "Δημιουργήθηκε στις"
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mass_mailing_test_create_date
 #: model:ir.model.fields,field_description:mass_mailing.field_mass_mailing_config_settings_create_date
 msgid "Created on"
-msgstr "Δημιουργήθηκε από"
+msgstr "Δημιουργήθηκε στις"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mass_mailing_create_date
@@ -1207,7 +1211,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mass_mailing_campaign_medium_id
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mass_mailing_medium_id
 msgid "Medium"
-msgstr "Μέτρια"
+msgstr "Μέσο"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mail_mail_statistics_message_id
@@ -1228,7 +1232,7 @@ msgstr "Περισσότερα"
 #: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_event
 #: model:ir.ui.view,arch_db:mass_mailing.view_mass_mailing_configuration
 msgid "More Info"
-msgstr ""
+msgstr "Περισσότερες Πληροφορίες"
 
 #. module: mass_mailing
 #: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_footer_tag_line
@@ -1262,7 +1266,7 @@ msgstr ""
 #. module: mass_mailing
 #: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_comparison_table
 msgid "No customization"
-msgstr ""
+msgstr "Χωρίς προσαρμογή"
 
 #. module: mass_mailing
 #: model:ir.ui.view,arch_db:mass_mailing.s_mail_block_comparison_table
