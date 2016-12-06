@@ -934,8 +934,8 @@ msgstr ""
 msgid ""
 "<strong>Need help with defining your Projects? Contact us now.</strong><br/>"
 msgstr ""
-"<strong>Hulp nodig bij het definiëren van uw projecten? Contacteer ons "
-"nu:</strong><br/>"
+"<strong>Hulp nodig bij het definiëren van uw projecten? Neem nu contact "
+"op:</strong><br/>"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.project_planner
@@ -3081,7 +3081,7 @@ msgstr "Projectbeheer"
 #: model:ir.ui.view,arch_db:project.view_project
 #: model:ir.ui.view,arch_db:project.view_project_project_filter
 msgid "Project Manager"
-msgstr "Projectbeheerder"
+msgstr "Project leider"
 
 #. module: project
 #: model:ir.ui.view,arch_db:project.edit_project

@@ -831,7 +831,7 @@ msgstr "Grupla"
 #. module: mass_mailing
 #: model:ir.ui.view,arch_db:mass_mailing.view_mail_statistics_report_search
 msgid "Group By..."
-msgstr "Grupla İle..."
+msgstr "Grupla..."
 
 #. module: mass_mailing
 #: model:ir.model,name:mass_mailing.model_hr_department
@@ -1760,7 +1760,7 @@ msgstr "Şablonlar"
 #. module: mass_mailing
 #: model:ir.model,name:mass_mailing.model_mail_test
 msgid "Test Mail Model"
-msgstr ""
+msgstr "Test Posta Model"
 
 #. module: mass_mailing
 #: code:addons/mass_mailing/models/mass_mailing.py:494
