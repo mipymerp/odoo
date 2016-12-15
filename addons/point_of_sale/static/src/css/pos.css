@@ -1419,16 +1419,16 @@ td {
     background-color: white;
     margin: 20px;
     padding: 15px;
-    font-size: 14px;
+    font-size: 10px;
     padding-bottom:30px;
     display: inline-block;
-    font-family: "Inconsolata";
+    font-family: "Arial";
     border: solid 1px rgb(220,220,220);
     border-radius: 3px;
     overflow: hidden;
 }
 .pos .pos-sale-ticket pre{
-    font-family: "Inconsolata";
+    font-family: "Arial";
 }
 .pos .pos-sale-ticket .emph{
     font-size: 20px;
@@ -1510,8 +1510,8 @@ td {
         margin-left: auto !important;
         margin-right: auto !important;
         border: none !important;
-        font-size: 13px !important;
-        width: 266px !important;
+        font-size: 10px !important;
+        width: 220px !important;
     }
     .o_debug_manager {
         display: none !important;
