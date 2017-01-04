@@ -133,6 +133,8 @@ msgid ""
 "<span>(*) This configuration is related to the company you're logged "
 "into.</span>"
 msgstr ""
+"<span>(*) Questa configurazione è collegata all'azienda con cui vi siete "
+"connessi.</span>"
 
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
@@ -350,7 +352,7 @@ msgstr "Fatturati Qty"
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order_invoice_status
 msgid "Billing Status"
-msgstr ""
+msgstr "Stato Fatturazione"
 
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order_invoice_ids
@@ -1127,7 +1129,7 @@ msgstr "Fornire un meccanismo di doppia validazione per gli acquisti"
 #. module: purchase
 #: model:ir.ui.menu,name:purchase.menu_product_normal_action_puchased
 msgid "Purchasable Products"
-msgstr ""
+msgstr "Prodotti Acquistabili"
 
 #. module: purchase
 #: model:ir.ui.menu,name:purchase.menu_procurement_management

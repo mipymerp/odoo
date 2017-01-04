@@ -552,15 +552,15 @@ class Meeting(models.Model):
     def _get_recurrency_end_date(self):
         """ Return the last date a recurring event happens, according to its end_type. """
         self.ensure_one()
-        data = self.read(['final_date', 'recurrency', 'rrule_type', 'count', 'end_type', 'stop'])[0]
+        data = self.read(['final_date', 'recurrency', 'rrule_type', 'count', 'end_type', 'stop', 'interval'])[0]
 
         if not data.get('recurrency'):
             return False
 
         end_type = data.get('end_type')
         final_date = data.get('final_date')
-        if end_type == 'count' and all(data.get(key) for key in ['count', 'rrule_type', 'stop']):
-            count = data['count'] + 1
+        if end_type == 'count' and all(data.get(key) for key in ['count', 'rrule_type', 'stop', 'interval']):
+            count = (data['count'] + 1) * data['interval']
             delay, mult = {
                 'daily': ('days', 1),
                 'weekly': ('days', 7),
@@ -1071,7 +1071,7 @@ class Meeting(models.Model):
                 if self.month_by == 'date' and (self.day < 1 or self.day > 31):
                     raise UserError(_("Please select a proper day of the month."))
 
-                if self.month_by == 'day':  # Eg : Second Monday of the month
+                if self.month_by == 'day' and self.byday and self.week_list:  # Eg : Second Monday of the month
                     return ';BYDAY=' + self.byday + self.week_list
                 elif self.month_by == 'date':  # Eg : 16th of the month
                     return ';BYMONTHDAY=' + str(self.day)
@@ -1134,7 +1134,7 @@ class Meeting(models.Model):
             data['rrule_type'] = 'monthly'
 
         if rule._bymonthday:
-            data['day'] = rule._bymonthday[0]
+            data['day'] = list(rule._bymonthday)[0]
             data['month_by'] = 'date'
             data['rrule_type'] = 'monthly'
 
