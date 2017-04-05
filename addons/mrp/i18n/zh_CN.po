@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Jeffery CHEN <jeffery9@gmail.com>, 2016
+# Bo Cao <cao.poobo@hotmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-10 08:42+0000\n"
 "PO-Revision-Date: 2016-10-10 08:42+0000\n"
-"Last-Translator: Jeffery CHEN <jeffery9@gmail.com>, 2016\n"
+"Last-Translator: Bo Cao <cao.poobo@hotmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -525,7 +526,7 @@ msgstr "副产品"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_product_product_can_be_expensed
 msgid "Can be Expensed"
-msgstr "可报销"
+msgstr "可用于费用"
 
 #. module: mrp
 #: code:addons/mrp/models/stock_warehouse.py:36
@@ -742,17 +743,17 @@ msgstr "成本结构"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type_count_mo_late
 msgid "Count mo late"
-msgstr "迟到mo计数"
+msgstr "迟到mo 个数"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type_count_mo_todo
 msgid "Count mo todo"
-msgstr "待办mo计数"
+msgstr "待办mo 个数"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_picking_type_count_mo_waiting
 msgid "Count mo waiting"
-msgstr "等待中mo计数"
+msgstr "等待中mo 个数"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -1141,7 +1142,7 @@ msgstr "ID"
 #: model:ir.model.fields,help:mrp.field_mrp_bom_product_id
 msgid ""
 "If a product variant is defined the BOM is available only for this product."
-msgstr "如果定义了产品变型，那么BOM仅用于本产品。"
+msgstr "如果定义了产品变体，那么BOM仅用于本产品。"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production_propagate
@@ -1396,7 +1397,7 @@ msgstr "低"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_config_settings_module_mrp_maintenance
 msgid "Maintenance"
-msgstr "保养"
+msgstr "维护"
 
 #. module: mrp
 #: model:res.groups,name:mrp.group_mrp_routings
@@ -1682,18 +1683,18 @@ msgstr ""
 #. module: mrp
 #: selection:mrp.config.settings,module_mrp_maintenance:0
 msgid "No maintenance machine and work centers"
-msgstr "不保养机器以及工作中心"
+msgstr "不维护机器和工作中心"
 
 #. module: mrp
 #: selection:mrp.config.settings,module_mrp_mps:0
 msgid ""
 "No need for Master Production Schedule as products have short lead times"
-msgstr ""
+msgstr "不需要主生产计划，因为产品的交货期短"
 
 #. module: mrp
 #: selection:mrp.config.settings,module_mrp_plm:0
 msgid "No product lifecycle management"
-msgstr "没有产品生命周期管理"
+msgstr "无产品生命周期管理"
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_workcenter_productivity_loss_action
@@ -1713,7 +1714,7 @@ msgstr "无质量控制"
 #. module: mrp
 #: selection:mrp.config.settings,group_product_variant:0
 msgid "No variants on products"
-msgstr "产品无任何变型"
+msgstr "产品无任何变体"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_workcenter_kanban
@@ -1945,7 +1946,7 @@ msgstr "库存过账"
 #. module: mrp
 #: selection:mrp.config.settings,module_mrp_maintenance:0
 msgid "Preventive and Corrective maintenance management"
-msgstr "预防及纠正保养管理"
+msgstr "预防及纠正维护管理"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_ir_attachment_priority
@@ -2030,12 +2031,12 @@ msgstr "产品计量单位"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom_product_id
 msgid "Product Variant"
-msgstr "产品变型"
+msgstr "产品变体"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_config_settings_group_product_variant
 msgid "Product Variants"
-msgstr "产品变型"
+msgstr "产品变体"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_product_produce_consume_line_ids
@@ -2142,12 +2143,12 @@ msgstr "产品"
 msgid ""
 "Products can have several attributes, defining variants (Example: size, "
 "color,...)"
-msgstr "产品可以有好几个属性，通过不同属性来定义不同的产品变体型(属性如: 尺寸, 颜色.....)"
+msgstr "产品可以有好几个属性，通过不同属性来定义不同的产品变体(属性如: 尺寸, 颜色.....)"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production_propagate
 msgid "Propagate cancel and split"
-msgstr "沿用取消和拆分"
+msgstr "传播取消和拆分"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_config_settings_module_quality_mrp
@@ -2471,7 +2472,7 @@ msgstr "搜索生产"
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.view_mrp_production_workcenter_form_view_filter
 msgid "Search Work Orders"
-msgstr "查询工票："
+msgstr "查询工单："
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.view_mrp_workcenter_search
@@ -2997,7 +2998,7 @@ msgstr "紧急"
 msgid ""
 "Use Master Production Schedule in order to create procurements based on "
 "forecasts"
-msgstr ""
+msgstr "使用主生产计划以创造基于预测的采购"
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_message_action_main
@@ -3024,12 +3025,12 @@ msgstr "验证日期"
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_message_view_form_embedded_product
 msgid "Variant"
-msgstr "变型"
+msgstr "变体"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom_line_attribute_value_ids
 msgid "Variants"
-msgstr "变型"
+msgstr "变体"
 
 #. module: mrp
 #: selection:ir.attachment,priority:0
@@ -3199,7 +3200,7 @@ msgstr "工单作业让我们在生产产品的时候在工作中心创建和管
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_stock_move_workorder_id
 msgid "Work Order To Consume"
-msgstr "投料的工单"
+msgstr "待投料工单"
 
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.action_mrp_routing_time
@@ -3272,7 +3273,7 @@ msgstr "工单进行中。点击阻塞工作中心"
 msgid ""
 "Work with product variant allows you to define some variant of the same "
 "products, an ease the product management in the ecommerce for example"
-msgstr "产品变型可以让你为同一个产品定义不同的变型，例如在电商业务中是一种简单的产品管理方式"
+msgstr "产品变体可以让你为同一个产品定义不同的变体，例如在电商业务中是一种简单的产品管理方式"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.oee_search_view
@@ -3361,10 +3362,22 @@ msgid ""
 msgstr "正在生产中的物料清单不可删除,请先关闭或取消制造订单."
 
 #. module: mrp
-#: code:addons/mrp/models/stock_move.py:123
+#: code:addons/mrp/models/stock_move.py:40
+#, python-format
+msgid "You can only produce 1.0 %s for products with unique serial number."
+msgstr ""
+
+#. module: mrp
+#: code:addons/mrp/models/stock_move.py:135
 #, python-format
 msgid "You cannot cancel a move move having already consumed material"
 msgstr "你不能够取消已消耗物料的库存移动"
+
+#. module: mrp
+#: code:addons/mrp/models/stock_move.py:40
+#, python-format
+msgid "You cannot use the same serial number in two different lines."
+msgstr ""
 
 #. module: mrp
 #: code:addons/mrp/wizard/change_production_qty.py:44

@@ -178,7 +178,7 @@ msgstr "<strong>Nume listă prețuri</strong>:<br/>"
 #. module: product
 #: model:ir.ui.view,arch_db:product.report_pricelist
 msgid "<strong>Print date</strong>:<br/>"
-msgstr ""
+msgstr "<strong>Dată tipărire</strong>:<br/>"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_template_only_form_view
@@ -187,6 +187,9 @@ msgid ""
 "                        will delete and recreate existing variants and lead\n"
 "                        to the loss of their possible customizations."
 msgstr ""
+"<strong>Atenție</strong>: adăugarea sau eliminarea de atribute va șterge și "
+"recrea variantele existente și duce la pierderea setărilor făcute la aceste "
+"variante."
 
 #. module: product
 #: code:addons/product/models/product.py:167 sql_constraint:product.product:0
@@ -340,7 +343,7 @@ msgstr "Aplicabil la"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item_applied_on
 msgid "Apply On"
-msgstr ""
+msgstr "Aplică pe"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_pricelist_view_search
@@ -689,12 +692,12 @@ msgstr ""
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid "Compute Price"
-msgstr ""
+msgstr "Calcul Preț"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item_compute_price
 msgid "Compute price"
-msgstr ""
+msgstr "Calcul preț"
 
 #. module: product
 #: model:product.product,name:product.product_product_16
@@ -1159,7 +1162,7 @@ msgstr ""
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_template_form_view
 msgid "General Information"
-msgstr "Informatii generale"
+msgstr "Informații generale"
 
 #. module: product
 #: model:product.product,website_description:product.product_product_11
@@ -2072,6 +2075,11 @@ msgid "Public Price"
 msgstr "Preț public"
 
 #. module: product
+#: model:product.pricelist,name:product.list0
+msgid "Public Pricelist"
+msgstr "Lista de preturi publica"
+
+#. module: product
 #: model:ir.model.fields,field_description:product.field_product_product_description_purchase
 #: model:ir.model.fields,field_description:product.field_product_template_description_purchase
 msgid "Purchase Description"
@@ -2285,7 +2293,7 @@ msgstr ""
 #. module: product
 #: model:ir.model.fields,field_description:product.field_base_config_settings_company_share_product
 msgid "Share product to all companies"
-msgstr ""
+msgstr "Partajează produsul la toate companiile"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_base_config_settings_company_share_product
@@ -2716,7 +2724,7 @@ msgstr "Suma prețurilor extra pentru toate atributele"
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_template_form_view
 msgid "This note will be displayed on the quotations."
-msgstr ""
+msgstr "Aceasta nota va fi afisata la oferte..."
 
 #. module: product
 #: model:ir.model.fields,help:product.field_res_partner_property_product_pricelist
@@ -2759,11 +2767,6 @@ msgid ""
 "USB port allows for software update to ensure ongoing Bluetooth device "
 "compatibility"
 msgstr ""
-
-#. module: product
-#: model:product.pricelist,name:product.list0
-msgid "USD"
-msgstr "USD"
 
 #. module: product
 #: model:product.product,website_description:product.product_product_6

@@ -27,8 +27,8 @@ msgid ""
 "Automatically create local user accounts for new users authenticating via "
 "LDAP"
 msgstr ""
-"Criar automaticamente contas locais para os novos utilizadores que se "
-"autentiquem via LDAP"
+"Criar automaticamente as contas de utilizador locais para os novos "
+"utilizadores autenticarem via LDAP"
 
 #. module: auth_ldap
 #: model:ir.model,name:auth_ldap.model_res_company
@@ -110,7 +110,7 @@ msgstr "Filtro LDAP"
 #. module: auth_ldap
 #: model:ir.model.fields,field_description:auth_ldap.field_res_company_ldap_ldap_password
 msgid "LDAP password"
-msgstr "Senha de LDAP"
+msgstr " LDAP - Palavra-passe"
 
 #. module: auth_ldap
 #: model:ir.model.fields,field_description:auth_ldap.field_res_company_ldap___last_update
@@ -130,7 +130,7 @@ msgstr "Última Atualização em"
 #. module: auth_ldap
 #: model:ir.ui.view,arch_db:auth_ldap.view_ldap_installer_form
 msgid "Login Information"
-msgstr "Informação de Login"
+msgstr "Informação de Sessão"
 
 #. module: auth_ldap
 #: model:ir.ui.view,arch_db:auth_ldap.view_ldap_installer_form

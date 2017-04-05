@@ -375,7 +375,7 @@ class StockMove(models.Model):
                     rules = Push.search(domain + [('route_id', 'in', move.picking_id.picking_type_id.warehouse_id.route_ids.ids)], order='route_sequence, sequence', limit=1)
             if not rules:
                 # if no specialized push rule has been found yet, we try to find a general one (without route)
-                rules = Push.search(domain + [('route_id', '=', False)], order='sequence')
+                rules = Push.search(domain + [('route_id', '=', False)], order='sequence', limit=1)
             # Make sure it is not returning the return
             if rules and (not move.origin_returned_move_id or move.origin_returned_move_id.location_dest_id.id != rules.location_dest_id.id):
                 rules._apply(move)
@@ -564,6 +564,7 @@ class StockMove(models.Model):
         moves_to_assign = self.env['stock.move']
         moves_to_do = self.env['stock.move']
         operations = self.env['stock.pack.operation']
+        ancestors_list = {}
 
         # work only on in progress moves
         moves = self.filtered(lambda move: move.state in ['confirmed', 'waiting', 'assigned'])
@@ -575,7 +576,9 @@ class StockMove(models.Model):
                 # in case the move is returned, we want to try to find quants before forcing the assignment
                 if not move.origin_returned_move_id:
                     continue
-            if move.product_id.type == 'consu':
+            # if the move is preceeded, restrict the choice of quants in the ones moved previously in original move
+            ancestors = move.find_move_ancestors()
+            if move.product_id.type == 'consu' and not ancestors:
                 moves_to_assign |= move
                 continue
             else:
@@ -584,8 +587,7 @@ class StockMove(models.Model):
                 # we always search for yet unassigned quants
                 main_domain[move.id] = [('reservation_id', '=', False), ('qty', '>', 0)]
 
-                # if the move is preceeded, restrict the choice of quants in the ones moved previously in original move
-                ancestors = move.find_move_ancestors()
+                ancestors_list[move.id] = True if ancestors else False
                 if move.state == 'waiting' and not ancestors:
                     # if the waiting move hasn't yet any ancestor (PO/MO not confirmed yet), don't find any quant available in stock
                     main_domain[move.id] += [('id', '=', False)]
@@ -629,7 +631,9 @@ class StockMove(models.Model):
                             lot_qty[lot] -= qty
                             move_qty -= qty
 
-        for move in moves_to_do:
+        # Sort moves to reserve first the ones with ancestors, in case the same product is listed in
+        # different stock moves.
+        for move in sorted(moves_to_do, key=lambda x: -1 if ancestors_list.get(x.id) else 0):
             # then if the move isn't totally assigned, try to find quants without any specific domain
             if move.state != 'assigned' and not self.env.context.get('reserve_only_ops'):
                 qty_already_assigned = move.reserved_availability
@@ -797,7 +801,11 @@ class StockMove(models.Model):
             # compute quantities for each lot + check quantities match
             lot_quantities = dict((pack_lot.lot_id.id, operation.product_uom_id._compute_quantity(pack_lot.qty, operation.product_id.uom_id)
             ) for pack_lot in operation.pack_lot_ids)
-            if operation.pack_lot_ids and float_compare(sum(lot_quantities.values()), operation.product_qty, precision_rounding=operation.product_uom_id.rounding) != 0.0:
+
+            qty = operation.product_qty
+            if operation.product_uom_id and operation.product_uom_id != operation.product_id.uom_id:
+                qty = operation.product_uom_id._compute_quantity(qty, operation.product_id.uom_id)
+            if operation.pack_lot_ids and float_compare(sum(lot_quantities.values()), qty, precision_rounding=operation.product_id.uom_id.rounding) != 0.0:
                 raise UserError(_('You have a difference between the quantity on the operation and the quantities specified for the lots. '))
 
             quants_taken = []

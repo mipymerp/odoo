@@ -1335,6 +1335,9 @@ var ClientListScreenWidget = ScreenWidget.extend({
             var new_height   = contents.height();
 
             if(!this.details_visible){
+                // resize client list to take into account client details
+                parent.height('-=' + new_height);
+
                 if(clickpos < scroll + new_height + 20 ){
                     parent.scrollTop( clickpos - 20 );
                 }else{
@@ -1364,6 +1367,7 @@ var ClientListScreenWidget = ScreenWidget.extend({
             });
         } else if (visibility === 'hide') {
             contents.empty();
+            parent.height('100%');
             if( height > scroll ){
                 contents.css({height:height+'px'});
                 contents.animate({height:0},400,function(){
@@ -1400,7 +1404,9 @@ var ReceiptScreenWidget = ScreenWidget.extend({
 
         this.render_change();
         this.render_receipt();
-
+        this.handle_auto_print();
+    },
+    handle_auto_print: function() {
         if (this.should_auto_print()) {
             this.print();
             if (this.should_close_immediately()){
@@ -1409,7 +1415,6 @@ var ReceiptScreenWidget = ScreenWidget.extend({
         } else {
             this.lock_screen(false);
         }
-
     },
     should_auto_print: function() {
         return this.pos.config.iface_print_auto && !this.pos.get_order()._printed;

@@ -6,10 +6,10 @@
 # Ricardo Martins <ricardo.nbs.martins@gmail.com>, 2016
 # Martin Trigaux <mat@odoo.com>, 2016
 # Ricardo Correia <rcorreiavv@gmail.com>, 2016
+# Manuela Silva <manuela.silva@sky.com>, 2016
 # Vitor Fernandes <vmlf01@gmail.com>, 2016
 # José Gomes <jg@opencloud.pro>, 2016
 # Manuela Silva <inactive+h_manuela_rodsilva@transifex.com>, 2016
-# Manuela Silva <manuela.silva@sky.com>, 2016
 # Daniel C Santos <dcs@thinkopensolutions.pt>, 2016
 msgid ""
 msgstr ""
@@ -1900,7 +1900,7 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_stock_production_lot_message_unread
 #: model:ir.model.fields,help:mail.field_survey_survey_message_unread
 msgid "If checked new messages require your attention."
-msgstr "Se marcado, as novas mensagens requerem a sua atenção."
+msgstr "Se selecionado, as novas mensagens requerem a sua atenção."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_account_analytic_account_message_needaction
@@ -1964,7 +1964,7 @@ msgstr "Se marcado, as novas mensagens requerem a sua atenção."
 #: model:ir.model.fields,help:mail.field_stock_production_lot_message_needaction
 #: model:ir.model.fields,help:mail.field_survey_survey_message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Se marcado, as novas mensagens requerem a sua atenção."
+msgstr "Se selecionado, as novas mensagens requerem a sua atenção."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_wizard_invite_send_mail
@@ -2035,7 +2035,7 @@ msgstr "Apelidos Inactivos"
 #: code:addons/mail/static/src/xml/systray.xml:6
 #, python-format
 msgid "Inbox"
-msgstr "Inbox"
+msgstr "Caixa de Entrada"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message_parent_id
@@ -2862,7 +2862,7 @@ msgstr "Novas mensagens"
 #: code:addons/mail/static/src/xml/thread.xml:25
 #, python-format
 msgid "New messages appear here."
-msgstr "Novas mensagens aparecem aqui."
+msgstr "As novas mensagens aparecem aqui."
 
 #. module: mail
 #. openerp-web
@@ -3145,9 +3145,26 @@ msgstr "Odoo"
 
 #. module: mail
 #. openerp-web
+#: code:addons/mail/static/src/js/client_action.js:130
+#, python-format
+msgid ""
+"Odoo has now the permission to send you native notifications on this device."
+msgstr ""
+
+#. module: mail
+#. openerp-web
 #: code:addons/mail/static/src/xml/client_action.xml:11
 #, python-format
 msgid "Odoo needs your permission to"
+msgstr "Odoo precisa da sua permissão para"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/client_action.js:128
+#, python-format
+msgid ""
+"Odoo will not have the permission to send native notifications on this "
+"device."
 msgstr ""
 
 #. module: mail
@@ -3417,6 +3434,20 @@ msgstr "Parceiros com Ação Necessária"
 msgid "Permanently delete this email after sending it, to save space"
 msgstr ""
 "Apagar permanentemente este email depois de enviado, para guardar espaço"
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/client_action.js:128
+#, python-format
+msgid "Permission denied"
+msgstr ""
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/client_action.js:130
+#, python-format
+msgid "Permission granted"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel_image
@@ -3920,7 +3951,7 @@ msgstr "Smiley"
 #: model:ir.model.fields,field_description:mail.field_survey_mail_compose_message_starred
 #, python-format
 msgid "Starred"
-msgstr "Marcados com estrela"
+msgstr "Com estrela"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_mail_state
@@ -4406,14 +4437,14 @@ msgstr ""
 #: code:addons/mail/static/src/xml/client_action.xml:136
 #, python-format
 msgid "Unstar all"
-msgstr ""
+msgstr "Remover estrelas de todas"
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/client_action.xml:136
 #, python-format
 msgid "Unstar all messages"
-msgstr ""
+msgstr "Remover estrelas de todas as mensagens"
 
 #. module: mail
 #. openerp-web
@@ -4593,8 +4624,8 @@ msgid ""
 "You cannot delete those groups, as the Whole Company group is required by "
 "other modules."
 msgstr ""
-"Não pode excluir esses grupos, como o grupo inteiro da empresa é exigido por"
-" outros módulos."
+"Não pode eliminar esses grupos, porque o grupo 'Empresa Completa' é "
+"necessário por outros módulos."
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:347
@@ -4700,7 +4731,7 @@ msgstr "documento"
 #: code:addons/mail/static/src/xml/client_action.xml:11
 #, python-format
 msgid "enable desktop notifications"
-msgstr ""
+msgstr "ativar as notificações da área de trabalho"
 
 #. module: mail
 #. openerp-web

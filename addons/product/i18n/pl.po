@@ -28,7 +28,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #. module: product
 #: selection:product.pricelist.item,applied_on:0
@@ -1403,7 +1403,7 @@ msgstr "Kategoria wewnętrzna"
 #: model:ir.model.fields,field_description:product.field_product_product_default_code
 #: model:ir.model.fields,field_description:product.field_product_template_default_code
 msgid "Internal Reference"
-msgstr "Odnośnik wewnątrzny"
+msgstr "Odnośnik wewnętrzny"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product_barcode
@@ -2069,6 +2069,11 @@ msgstr "Produkty: "
 #: selection:product.pricelist.item,base:0
 msgid "Public Price"
 msgstr "Cena katalogowa"
+
+#. module: product
+#: model:product.pricelist,name:product.list0
+msgid "Public Pricelist"
+msgstr "Cennik katalogowy"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product_description_purchase
@@ -2757,11 +2762,6 @@ msgstr "Typ"
 msgid ""
 "USB port allows for software update to ensure ongoing Bluetooth device "
 "compatibility"
-msgstr ""
-
-#. module: product
-#: model:product.pricelist,name:product.list0
-msgid "USD"
 msgstr ""
 
 #. module: product

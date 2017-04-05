@@ -3,7 +3,7 @@
 
 from odoo import api, exceptions, fields, models, _
 from odoo.exceptions import UserError
-from odoo.tools import float_compare
+from odoo.tools import float_compare, float_round
 from odoo.addons import decimal_precision as dp
 
 
@@ -27,6 +27,18 @@ class StockMoveLots(models.Model):
     done_wo = fields.Boolean('Done for Work Order', default=True, help="Technical Field which is False when temporarily filled in in work order")  # TDE FIXME: naming
     done_move = fields.Boolean('Move Done', related='move_id.is_done', store=True)  # TDE FIXME: naming
     plus_visible = fields.Boolean("Plus Visible", compute='_compute_plus')
+
+    @api.one
+    @api.constrains('lot_id', 'quantity_done')
+    def _check_lot_id(self):
+        if self.move_id.product_id.tracking == 'serial':
+            lots = set([])
+            for move_lot in self.move_id.move_lot_ids.filtered(lambda r: not r.lot_produced_id and r.lot_id):
+                if move_lot.lot_id in lots:
+                    raise exceptions.UserError(_('You cannot use the same serial number in two different lines.'))
+                if float_compare(move_lot.quantity_done, 1.0, precision_rounding=move_lot.product_id.uom_id.rounding) == 1:
+                    raise exceptions.UserError(_('You can only produce 1.0 %s for products with unique serial number.') % move_lot.product_id.uom_id.name)
+                lots.add(move_lot.lot_id)
 
     def _compute_plus(self):
         for movelot in self:
@@ -81,14 +93,14 @@ class StockMove(models.Model):
         store=True,
         help='Technical Field to order moves')  # TDE: what ?
 
-    @api.multi
+    @api.depends('state', 'product_uom_qty', 'reserved_availability')
     def _qty_available(self):
         for move in self:
             # For consumables, state is available so availability = qty to do
             if move.state == 'assigned':
                 move.quantity_available = move.product_uom_qty
-            else:
-                move.quantity_available = move.reserved_availability
+            elif move.product_id.uom_id and move.product_uom:
+                move.quantity_available = move.product_id.uom_id._compute_quantity(move.reserved_availability, move.product_uom)
 
     @api.multi
     @api.depends('move_lot_ids', 'move_lot_ids.quantity_done', 'quantity_done_store')
@@ -225,8 +237,14 @@ class StockMove(models.Model):
         moves_to_unreserve = self.env['stock.move']
         # Create extra moves where necessary
         for move in moves:
+            # Here, the `quantity_done` was already rounded to the product UOM by the `do_produce` wizard. However,
+            # it is possible that the user changed the value before posting the inventory by a value that should be
+            # rounded according to the move's UOM. In this specific case, we chose to round up the value, because it
+            # is what is expected by the user (if i consumed/produced a little more, the whole UOM unit should be
+            # consumed/produced and the moves are split correctly).
             rounding = move.product_uom.rounding
-            if float_compare(move.quantity_done, 0.0, precision_rounding=rounding) <= 0:
+            move.quantity_done = float_round(move.quantity_done, precision_rounding=rounding, rounding_method ='UP')
+            if move.quantity_done <= 0:
                 continue
             moves_todo |= move
             moves_todo |= move._create_extra_move()

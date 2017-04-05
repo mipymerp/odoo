@@ -6,8 +6,8 @@
 # Martin Trigaux <mat@odoo.com>, 2016
 # Ricardo Martins <ricardo.nbs.martins@gmail.com>, 2016
 # Joao Vieira <joao.f.vieira@gmail.com>, 2016
-# Manuela Silva <inactive+h_manuela_rodsilva@transifex.com>, 2016
 # Manuela Silva <manuela.silva@sky.com>, 2016
+# Manuela Silva <inactive+h_manuela_rodsilva@transifex.com>, 2016
 # Daniel C Santos <dcs@thinkopensolutions.pt>, 2016
 # Daniel Reis <dreis.pt@gmail.com>, 2016
 # Andre Mendes <afm@thinkopen.solutions>, 2016
@@ -34,12 +34,12 @@ msgstr "Categoria de Produto"
 #: model:ir.model.fields,field_description:product.field_product_product_product_variant_count
 #: model:ir.model.fields,field_description:product.field_product_template_product_variant_count
 msgid "# Product Variants"
-msgstr ""
+msgstr "# Variantes de Produto"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_category_product_count
 msgid "# Products"
-msgstr ""
+msgstr "# Produtos"
 
 #. module: product
 #: code:addons/product/models/product_pricelist.py:438
@@ -329,7 +329,7 @@ msgstr ""
 #: model:product.template,website_description:product.product_product_4c_product_template
 #: model:product.template,website_description:product.product_product_4d_product_template
 msgid "And because it’s so easy to use, it’s easy to love."
-msgstr "E porque é tão fácil de usar, é fácil de amar."
+msgstr "E porque é tão fácil de utilizar, é fácil de gostar."
 
 #. module: product
 #: model:product.product,name:product.product_product_7
@@ -541,7 +541,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:product.view_product_price_list
 msgid "Calculate Product Price per Unit Based on Pricelist Version."
 msgstr ""
-"Calcular Preço do Produto por unidade base na versão de lista de preços."
+"Calcular Preço do Produto por Unidade Baseada na Versão da Lista de Preços."
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product_purchase_ok
@@ -701,7 +701,7 @@ msgstr "Empresa"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_price_history_company_id
 msgid "Company id"
-msgstr ""
+msgstr "Id. da Empresa"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
@@ -1207,7 +1207,7 @@ msgstr "Serviço Análise GAP "
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_template_form_view
 msgid "General Information"
-msgstr "Informação geral"
+msgstr "Informação Geral"
 
 #. module: product
 #: model:product.product,website_description:product.product_product_11
@@ -1600,27 +1600,27 @@ msgstr "Unidades Logísticas"
 #. module: product
 #: model:res.groups,name:product.group_uom
 msgid "Manage Multiple Units of Measure"
-msgstr "Gerer Múltiplas Unidades de Medida"
+msgstr "Gerir Múltiplas Unidades de Medida"
 
 #. module: product
 #: model:res.groups,name:product.group_pricelist_item
 msgid "Manage Pricelist Items"
-msgstr "Gerir Items da Lista de Preços"
+msgstr "Gerir Itens da Lista de Preços"
 
 #. module: product
 #: model:res.groups,name:product.group_stock_packaging
 msgid "Manage Product Packaging"
-msgstr "Gerer Empacotamento do Produto"
+msgstr "Gerir Embalagem de Produtos"
 
 #. module: product
 #: model:res.groups,name:product.group_product_variant
 msgid "Manage Product Variants"
-msgstr "Gerir Variantes de Produt"
+msgstr "Gerir Variantes de Produto"
 
 #. module: product
 #: model:res.groups,name:product.group_mrp_properties
 msgid "Manage Properties of Product"
-msgstr "Gere as Propriedades do Produto"
+msgstr "Gerir Propriedades do Produto"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
@@ -1758,7 +1758,7 @@ msgstr "Outra Lista de Preços"
 #: model:product.product,website_description:product.product_product_6
 #: model:product.template,website_description:product.product_product_6_product_template
 msgid "Over 375,000 apps."
-msgstr "Over 375,000 apps."
+msgstr "Mais de 375,000 aplicações."
 
 #. module: product
 #: model:ir.model,name:product.model_product_packaging
@@ -1956,7 +1956,7 @@ msgstr "Lista de Preço no Produt"
 #. module: product
 #: model:ir.ui.view,arch_db:product.view_partner_property_form
 msgid "Pricelists are managed on"
-msgstr "Listas de Preços são geridas em"
+msgstr "As listas de preços são geridas em"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_template_form_view
@@ -2135,6 +2135,11 @@ msgstr "Artigos: "
 #: selection:product.pricelist.item,base:0
 msgid "Public Price"
 msgstr "Preço Público"
+
+#. module: product
+#: model:product.pricelist,name:product.list0
+msgid "Public Pricelist"
+msgstr "Lista de Preços Públicos"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product_description_purchase
@@ -2489,7 +2494,7 @@ msgstr "Especificar a quantidade mínima de margem sobre o preço base."
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item_date_start
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo_date_start
 msgid "Start Date"
-msgstr "Data Inicial"
+msgstr "Data de Início"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_supplierinfo_date_start
@@ -2510,7 +2515,7 @@ msgstr "Artigo Armazenável"
 #: model:product.product,name:product.product_product_2
 #: model:product.template,name:product.product_product_2_product_template
 msgid "Support Contract (on timesheet)"
-msgstr "Suporta Contracto (na folha de horas)"
+msgstr "Suporta Contracto (no registo de horas)"
 
 #. module: product
 #: model:product.product,name:product.product_delivery_01
@@ -2898,11 +2903,6 @@ msgid ""
 msgstr ""
 "USB port allows for software update to ensure ongoing Bluetooth device "
 "compatibility"
-
-#. module: product
-#: model:product.pricelist,name:product.list0
-msgid "USD"
-msgstr ""
 
 #. module: product
 #: model:product.product,website_description:product.product_product_6
@@ -3455,7 +3455,7 @@ msgstr "report.product.report_pricelist"
 #. module: product
 #: model:ir.ui.view,arch_db:product.view_partner_property_form
 msgid "the parent company"
-msgstr "a empresa ascendente"
+msgstr "a empresa de origem"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_variant_easy_edit_view

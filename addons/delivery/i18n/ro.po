@@ -7,13 +7,14 @@
 # Cozmin Candea <office@terrabit.ro>, 2016
 # Martin Trigaux <mat@odoo.com>, 2016
 # Adrian Munteanu <adrian.munteanu@itconstruction.ro>, 2016
+# Na Na <iulian.cutui@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:56+0000\n"
 "PO-Revision-Date: 2016-09-07 08:56+0000\n"
-"Last-Translator: Adrian Munteanu <adrian.munteanu@itconstruction.ro>, 2016\n"
+"Last-Translator: Na Na <iulian.cutui@gmail.com>, 2017\n"
 "Language-Team: Romanian (https://www.transifex.com/odoo/teams/41243/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -196,7 +197,7 @@ msgstr "Prețul mediu în facturi clienți."
 #. module: delivery
 #: model:ir.model.fields,help:delivery.field_delivery_carrier_purchase_avg_price
 msgid "Avg. Price in Vendor Bills "
-msgstr ""
+msgstr "Preț mediu în facturi furnizori"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_purchase_avg_price
@@ -297,6 +298,8 @@ msgstr "Verificați dacă produsul este eligibil pentru a deveni membru."
 msgid ""
 "Check if the product should be weighted using the hardware scale integration"
 msgstr ""
+"Bifați dacă produsul trebuie cântărit folosind integrarea cu cântarul "
+"hardware"
 
 #. module: delivery
 #: model:ir.model.fields,help:delivery.field_delivery_carrier_available_in_pos
@@ -306,7 +309,7 @@ msgstr "Selectați dacă doriți ca acest produs să apară în Punctul de vânz
 #. module: delivery
 #: model:ir.actions.act_window,help:delivery.action_delivery_carrier_form
 msgid "Click to define a new delivery method."
-msgstr "Click pentru a defini o nouă metodă de livrare"
+msgstr "Clic pentru a defini o nouă metodă de livrare"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_color
@@ -454,7 +457,7 @@ msgstr "Livrare"
 #. module: delivery
 #: model:ir.ui.view,arch_db:delivery.view_delivery_carrier_search
 msgid "Delivery Carrier"
-msgstr ""
+msgstr "Transportator"
 
 #. module: delivery
 #: model:ir.ui.view,arch_db:delivery.view_picking_withcarrier_out_form
@@ -692,7 +695,7 @@ msgstr "Grupează după"
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_hs_code
 #: model:ir.model.fields,field_description:delivery.field_product_template_hs_code
 msgid "HS Code"
-msgstr ""
+msgstr "Cod HS"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_product_packaging_height
@@ -1358,7 +1361,7 @@ msgstr "Comandă de vânzare"
 #: model:ir.model,name:delivery.model_sale_order_line
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_sale_line_warn
 msgid "Sales Order Line"
-msgstr "Linie comanda de vanzare"
+msgstr "Linie comandă vânzare"
 
 #. module: delivery
 #: model:ir.ui.view,arch_db:delivery.view_quant_package_form_save
@@ -1670,11 +1673,13 @@ msgstr ""
 #: model:ir.model.fields,help:delivery.field_delivery_carrier_pos_categ_id
 msgid "Those categories are used to group similar products for point of sale."
 msgstr ""
+"Aceste categorii sunt folosite pentru a grupa produsele similare în Punctul "
+"de vânzare."
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_to_weight
 msgid "To Weigh With Scale"
-msgstr ""
+msgstr "De cântărit"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_total_cost
@@ -1710,7 +1715,7 @@ msgstr "Urmărire"
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_stock_picking_carrier_tracking_ref
 msgid "Tracking Reference"
-msgstr ""
+msgstr "Referință urmărire"
 
 #. module: delivery
 #: model:ir.model,name:delivery.model_stock_picking
@@ -1937,7 +1942,7 @@ msgstr ""
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_zip_from
 msgid "Zip From"
-msgstr ""
+msgstr "Zip From"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_zip_to

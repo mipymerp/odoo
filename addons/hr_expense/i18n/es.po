@@ -20,8 +20,9 @@
 # Denis Ledoux <dle@odoo.com>, 2016
 # Leonardo Chianea <noamixcontenidos@gmail.com>, 2016
 # Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2016
+# David de León <leceda09@gmail.com>, 2016
 # Inigo Zuluaga <inigo_zuluaga@yahoo.es>, 2016
-# Luis Triana <luis.triana@jarsa.com.mx>, 2016
+# Luis M. Triana <luis.triana@jarsa.com.mx>, 2016
 # Gelo Joga Landoo <gj@landoo.es>, 2016
 # G H <ghernandez@itcdemexico.net>, 2016
 msgid ""
@@ -87,6 +88,9 @@ msgid ""
 "<p>The accountant receive approved expense reports.</p><p>He can post "
 "journal entries in one click if taxes and accounts are right.</p>"
 msgstr ""
+"<p>El contable recibe informes de gasto aprobados.</p><p>Él puede "
+"contabilizar asientos en un click si los impuestos y las cuentas están "
+"bien.</p>"
 
 #. module: hr_expense
 #: model:ir.ui.view,arch_db:hr_expense.hr_expense_planner
@@ -94,6 +98,8 @@ msgid ""
 "<strong class=\"text-info\">[PRODUCT CODE]</strong> Free Description <strong"
 " class=\"text-primary\">PRICE</strong>"
 msgstr ""
+"<strong class=\"text-info\">[CÓDIGO DE PRODUCTO]</strong> Descripción libre "
+"<strong class=\"text-primary\">PRECIO</strong>"
 
 #. module: hr_expense
 #: model:ir.ui.view,arch_db:hr_expense.report_expense_sheet
@@ -131,6 +137,9 @@ msgid ""
 "<strong>Your email gateway is not configured.</strong> Please configure your email\n"
 "                            gateway from the Settings app, menu <i>General Settings</i>."
 msgstr ""
+"<strong>El gateway de su email no está configurado.</strong> Por favor, "
+"configure su                         gateway desde Opciones app, menu "
+"<i>Opciones Generales</i>."
 
 #. module: hr_expense
 #: code:addons/hr_expense/wizard/hr_expense_register_payment.py:79
@@ -260,14 +269,14 @@ msgstr ""
 #: model:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_all_to_post
 #: model:ir.actions.act_window,help:hr_expense.action_hr_expense_sheet_my_all
 msgid "Click here to create a new expense report."
-msgstr "Click aquí para crear un nuevo reporte de Gastos"
+msgstr "Clic aquí para crear un nuevo reporte de gastos."
 
 #. module: hr_expense
 #: model:ir.actions.act_window,help:hr_expense.action_request_approve_expense_sheet
 #: model:ir.actions.act_window,help:hr_expense.action_request_to_pay_expense_sheet
 #: model:ir.actions.act_window,help:hr_expense.action_request_to_post_expense_sheet
 msgid "Click here to create new expenses."
-msgstr "Haga click aquí para crear nuevos gastos"
+msgstr "Haga clic aquí para crear nuevos gastos."
 
 #. module: hr_expense
 #: code:addons/hr_expense/models/hr_expense.py:304

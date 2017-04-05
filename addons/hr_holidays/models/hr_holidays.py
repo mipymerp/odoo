@@ -120,7 +120,10 @@ class HolidaysType(models.Model):
         for record in self:
             name = record.name
             if not record.limit:
-                name = name + ('  (%g remaining out of %g)' % (record.virtual_remaining_leaves or 0.0, record.max_leaves or 0.0))
+                name = "%(name)s (%(count)s)" % {
+                    'name': name,
+                    'count': _('%g remaining out of %g') % (record.virtual_remaining_leaves or 0.0, record.max_leaves or 0.0)
+                }
             res.append((record.id, name))
         return res
 
@@ -238,6 +241,7 @@ class Holidays(models.Model):
                 ('date_to', '>=', holiday.date_from),
                 ('employee_id', '=', holiday.employee_id.id),
                 ('id', '!=', holiday.id),
+                ('type', '=', holiday.type),
                 ('state', 'not in', ['cancel', 'refuse']),
             ]
             nholidays = self.search_count(domain)
@@ -280,7 +284,7 @@ class Holidays(models.Model):
 
         if employee_id:
             employee = self.env['hr.employee'].browse(employee_id)
-            resource = employee.resource_id
+            resource = employee.resource_id.sudo()
             if resource and resource.calendar_id:
                 hours = resource.calendar_id.get_working_hours(from_dt, to_dt, resource_id=resource.id, compute_leaves=True)
                 uom_hour = resource.calendar_id.uom_id
@@ -501,7 +505,7 @@ class Holidays(models.Model):
 
         manager = self.env['hr.employee'].search([('user_id', '=', self.env.uid)], limit=1)
         for holiday in self:
-            if self.state not in ['confirm', 'validate', 'validate1']:
+            if holiday.state not in ['confirm', 'validate', 'validate1']:
                 raise UserError(_('Leave request must be confirmed or validated in order to refuse it.'))
 
             if holiday.state == 'validate1':
