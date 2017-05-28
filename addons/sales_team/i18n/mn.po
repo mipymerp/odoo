@@ -5,13 +5,15 @@
 # Translators:
 # Otgonbayar.A <gobi.mn@gmail.com>, 2017
 # Batzul B <batzul.active@gmail.com>, 2017
+# nasaaskii <nasaaskii@gmail.com>, 2017
+# Khishigbat Ganbold <khishigbat@asterisk-tech.mn>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:57+0000\n"
 "PO-Revision-Date: 2016-09-07 08:57+0000\n"
-"Last-Translator: Batzul B <batzul.active@gmail.com>, 2017\n"
+"Last-Translator: Khishigbat Ganbold <khishigbat@asterisk-tech.mn>, 2017\n"
 "Language-Team: Mongolian (https://www.transifex.com/odoo/teams/41243/mn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +52,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
 msgid "<span>New</span>"
-msgstr ""
+msgstr "<span>Шинэ</span>"
 
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
@@ -65,7 +67,7 @@ msgstr "<span>Харагдац</span>"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_active
 msgid "Active"
-msgstr ""
+msgstr "Идэвхтэй"
 
 #. module: sales_team
 #. openerp-web
@@ -77,7 +79,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.view_sale_config_settings
 msgid "Apply"
-msgstr ""
+msgstr "Ашиглах"
 
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
@@ -98,7 +100,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.view_sale_config_settings
 msgid "Cancel"
-msgstr ""
+msgstr "Цуцлах"
 
 #. module: sales_team
 #: model:ir.actions.act_window,help:sales_team.crm_team_act
@@ -118,7 +120,7 @@ msgstr ""
 #: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:182
 #, python-format
 msgid "Click to set"
-msgstr ""
+msgstr "Тохируулах бол дарна уу"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_color
@@ -155,7 +157,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.ui.menu,name:sales_team.menu_config_address_book
 msgid "Contacts"
-msgstr ""
+msgstr "Холбох хаяг"
 
 #. module: sales_team
 #: model:ir.ui.menu,name:sales_team.menu_country_partner
@@ -178,7 +180,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_create_uid
 #: model:ir.model.fields,field_description:sales_team.field_sale_config_settings_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Үүсгэгч"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_create_date
@@ -194,7 +196,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.ui.menu,name:sales_team.menu_partner_form
 msgid "Customers"
-msgstr ""
+msgstr "Захиалагчид"
 
 #. module: sales_team
 #. openerp-web
@@ -203,7 +205,7 @@ msgstr ""
 #: model:ir.ui.menu,name:sales_team.menu_sales_team_act
 #, python-format
 msgid "Dashboard"
-msgstr ""
+msgstr "Хяналтын самбар"
 
 #. module: sales_team
 #: model:crm.team,name:sales_team.team_sales_department
@@ -214,7 +216,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_display_name
 #: model:ir.model.fields,field_description:sales_team.field_sale_config_settings_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Дэлгэцийн Нэр"
 
 #. module: sales_team
 #: model:ir.ui.menu,name:sales_team.menu_country_state_partner
@@ -251,7 +253,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_id
 #: model:ir.model.fields,field_description:sales_team.field_sale_config_settings_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_res_partner_team_id
@@ -308,12 +310,12 @@ msgstr "Сүүлд Шинэчлэгдсэн"
 #. module: sales_team
 #: model:ir.ui.menu,name:sales_team.menu_localisation
 msgid "Localization"
-msgstr ""
+msgstr "Нутагшуулах"
 
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_manager
 msgid "Manager"
-msgstr ""
+msgstr "Менежер"
 
 #. module: sales_team
 #. openerp-web
@@ -339,7 +341,7 @@ msgstr "Илүү мэдээлэл"
 #: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:216
 #, python-format
 msgid "My Pipeline"
-msgstr ""
+msgstr "Миний суваг"
 
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
@@ -370,14 +372,14 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "Харилцагч"
 
 #. module: sales_team
 #. openerp-web
 #: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:102
 #, python-format
 msgid "Performance"
-msgstr "Гүйцэтгэлт"
+msgstr "Гүйцэтгэл"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_reply_to
@@ -387,7 +389,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.ui.menu,name:sales_team.menu_sale_report
 msgid "Reports"
-msgstr ""
+msgstr "Тайлан"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_res_users_property_product_pricelist
@@ -398,7 +400,7 @@ msgstr ""
 #: model:ir.ui.menu,name:sales_team.menu_base_partner
 #: model:ir.ui.menu,name:sales_team.menu_sales
 msgid "Sales"
-msgstr "Борлуулалтууд"
+msgstr "Борлуулалт"
 
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_crm_team
@@ -444,14 +446,14 @@ msgstr ""
 #: model:ir.ui.menu,name:sales_team.menu_sale_general_settings
 #: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
 msgid "Settings"
-msgstr ""
+msgstr "Тохиргоо"
 
 #. module: sales_team
 #. openerp-web
 #: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:146
 #, python-format
 msgid "Target"
-msgstr ""
+msgstr "Зорилт"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_user_id
@@ -551,7 +553,7 @@ msgstr ""
 #: code:addons/sales_team/static/src/xml/sales_team_dashboard.xml:13
 #, python-format
 msgid "Today"
-msgstr ""
+msgstr "Өнөөдөр"
 
 #. module: sales_team
 #: model:ir.actions.act_window,help:sales_team.crm_team_act
@@ -619,7 +621,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_sale_config_settings
 msgid "sale.config.settings"
-msgstr ""
+msgstr "sale.config.settings"
 
 #. module: sales_team
 #: model:res.groups,comment:sales_team.group_sale_salesman_all_leads
