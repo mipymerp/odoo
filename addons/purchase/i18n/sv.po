@@ -8,20 +8,21 @@
 # Anders Wallenquist <anders.wallenquist@vertel.se>, 2016
 # Christelle Wehbe <libanon_cristelle@hotmail.com>, 2016
 # Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2016
-# larmar <martin.wilderoth@linserv.se>, 2016
+# Martin Wilderoth <martin.wilderoth@linserv.se>, 2016
 # Leif Persson <leifpz54@gmail.com>, 2016
 # lasch a <bmail440@gmail.com>, 2016
 # Jonathan S <jonathan.c.strom@gmail.com>, 2016
 # Daniel Forslund <daniel.forslund@gmail.com>, 2016
 # Haojun Zou <apollo_zhj@msn.com>, 2016
 # Patrik Lermon <patrik.lermon@gmail.com>, 2016
+# Kim Asplund <kim.asplund@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-29 13:59+0000\n"
 "PO-Revision-Date: 2016-09-29 13:59+0000\n"
-"Last-Translator: Patrik Lermon <patrik.lermon@gmail.com>, 2016\n"
+"Last-Translator: Kim Asplund <kim.asplund@gmail.com>, 2017\n"
 "Language-Team: Swedish (https://www.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,6 +133,8 @@ msgid ""
 "<span>(*) This configuration is related to the company you're logged "
 "into.</span>"
 msgstr ""
+"Kryssa här för att definiera rapportfoten manuellt. Annars kommer det att "
+"fyllas i automatiskt."
 
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
@@ -174,7 +177,7 @@ msgstr "<strong>Antal</strong>"
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
 #: model:ir.ui.view,arch_db:purchase.report_purchasequotation_document
 msgid "<strong>Shipping address:</strong>"
-msgstr ""
+msgstr "<strong>Leveransadress:</strong>"
 
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
@@ -184,7 +187,7 @@ msgstr ""
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
 msgid "<strong>Total Without Taxes</strong>"
-msgstr ""
+msgstr "<strong>Totalt Utan Skatt</strong>"
 
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
@@ -781,12 +784,12 @@ msgstr "Plats och lager"
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.purchase_order_form
 msgid "Lock"
-msgstr ""
+msgstr "Lås"
 
 #. module: purchase
 #: selection:purchase.order,state:0
 msgid "Locked"
-msgstr ""
+msgstr "Låst"
 
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.view_purchase_configuration
@@ -865,7 +868,7 @@ msgstr "Inget meddelande"
 #. module: purchase
 #: selection:purchase.config.settings,group_product_variant:0
 msgid "No variants on products"
-msgstr ""
+msgstr "Inga variationer av produkt"
 
 #. module: purchase
 #: code:addons/purchase/models/purchase.py:945

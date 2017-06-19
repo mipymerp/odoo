@@ -11,13 +11,15 @@
 # Monika Raciunaite <monika.raciunaite@gmail.com>, 2016
 # Anatolij <an@cq.lt>, 2016
 # Arminas Grigonis <arminas@versada.lt>, 2016
+# Antanas Muliuolis <an.muliuolis@gmail.com>, 2017
+# Aiste Sutkute <digitouchagencyeur@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-26 09:19+0000\n"
 "PO-Revision-Date: 2017-05-26 09:19+0000\n"
-"Last-Translator: Arminas Grigonis <arminas@versada.lt>, 2016\n"
+"Last-Translator: Aiste Sutkute <digitouchagencyeur@gmail.com>, 2017\n"
 "Language-Team: Lithuanian (https://www.transifex.com/odoo/teams/41243/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -244,6 +246,8 @@ msgid ""
 "<span>(*) This configuration is related to the company you're logged "
 "into.</span>"
 msgstr ""
+"<span>(*) Ši konfigūracija yra susijusi su įmone, prie kurios dabar esate "
+"prisijungęs.</span>"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.report_saleorder_document
@@ -817,7 +821,7 @@ msgstr "El. laiško sukūrimo vedlys"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_validity_date
 msgid "Expiration Date"
-msgstr ""
+msgstr "Galiojimo datos pabaiga"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_order_product_search
@@ -1121,12 +1125,12 @@ msgstr ""
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_order_form
 msgid "Lock"
-msgstr ""
+msgstr "Užrakinti"
 
 #. module: sale
 #: selection:sale.order,state:0
 msgid "Locked"
-msgstr ""
+msgstr "Užrakinta"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_config_settings_module_sale_contract
@@ -1213,7 +1217,7 @@ msgstr "Nauja"
 #. module: sale
 #: model:ir.actions.act_window,name:sale.action_quotation_form
 msgid "New Quotation"
-msgstr ""
+msgstr "Naujas pasiūlymas"
 
 #. module: sale
 #: selection:product.template,expense_policy:0
@@ -1239,7 +1243,7 @@ msgstr ""
 #. module: sale
 #: selection:sale.config.settings,group_product_variant:0
 msgid "No variants on products"
-msgstr ""
+msgstr "Nėra produktų variantų"
 
 #. module: sale
 #: model:ir.actions.act_window,help:sale.action_quotations
@@ -1354,7 +1358,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:sale.view_order_form
 #, python-format
 msgid "Ordered Quantity"
-msgstr ""
+msgstr "Užsakytas kiekis"
 
 #. module: sale
 #: model:ir.model.fields,help:sale.field_product_product_invoice_policy
@@ -1414,7 +1418,7 @@ msgstr "Partnerio šalis"
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_order_product_search
 msgid "Partner's Country"
-msgstr ""
+msgstr "Partnerio šalis"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_payment_term_id
@@ -1456,7 +1460,7 @@ msgstr "Suma"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line_price_reduce
 msgid "Price Reduce"
-msgstr ""
+msgstr "Kainos mažinimas"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line_price_reduce_taxexcl
@@ -1491,7 +1495,7 @@ msgstr "Kainoraščiai"
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_sales_config
 msgid "Pricing"
-msgstr ""
+msgstr "Kainodara"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_order_form
@@ -1511,7 +1515,7 @@ msgstr "Planinis užsakymas"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_procurement_group_id
 msgid "Procurement Group"
-msgstr ""
+msgstr "Planinio užsakymo grupė"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line_procurement_ids
@@ -2024,7 +2028,7 @@ msgstr "Būsena"
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_sales_config
 msgid "Subscriptions"
-msgstr ""
+msgstr "Prenumeratos"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line_price_subtotal

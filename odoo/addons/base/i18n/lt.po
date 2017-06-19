@@ -14,13 +14,15 @@
 # Rolandas <info@paninfo.lt>, 2016
 # Naglis Jonaitis <naglis@mailbox.org>, 2016
 # Monika Raciunaite <monika.raciunaite@gmail.com>, 2016
+# Antanas Muliuolis <an.muliuolis@gmail.com>, 2017
+# Aiste Sutkute <digitouchagencyeur@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-27 11:58+0000\n"
 "PO-Revision-Date: 2017-01-27 11:58+0000\n"
-"Last-Translator: Monika Raciunaite <monika.raciunaite@gmail.com>, 2016\n"
+"Last-Translator: Aiste Sutkute <digitouchagencyeur@gmail.com>, 2017\n"
 "Language-Team: Lithuanian (https://www.transifex.com/odoo/teams/41243/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3695,7 +3697,7 @@ msgstr ""
 #. module: base
 #: model:ir.ui.view,arch_db:base.report_irmodeloverview
 msgid "<strong>Name</strong>"
-msgstr ""
+msgstr "<strong>Vardas</strong>"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.report_irmodulereference
@@ -3887,7 +3889,7 @@ msgstr ""
 #. module: base
 #: model:ir.model,name:base.model_res_groups
 msgid "Access Groups"
-msgstr ""
+msgstr "Prieigos grupės"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_groups_menu_access
@@ -4148,7 +4150,7 @@ msgstr "Aktyvus"
 #: model:ir.model.fields,field_description:base.field_wkf_activities
 #: model:ir.ui.menu,name:base.menu_workflow_activity
 msgid "Activities"
-msgstr ""
+msgstr "Veiklos"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_wkf_workitem_act_id
@@ -4477,7 +4479,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:base.user_groups_view
 #, python-format
 msgid "Application"
-msgstr ""
+msgstr "Modulis"
 
 #. module: base
 #: model:ir.module.module,description:base.module_web_planner
@@ -4530,7 +4532,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.category,name:base.module_category_hr_appraisal
 msgid "Appraisals"
-msgstr ""
+msgstr "%vertinimai"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_module_open_categ
@@ -5068,7 +5070,7 @@ msgstr "Indijos Vandenyno Britų Sritis"
 #. module: base
 #: model:res.partner.category,name:base.res_partner_category_6
 msgid "Bronze"
-msgstr ""
+msgstr "Bronza"
 
 #. module: base
 #: model:res.country,name:base.bn
@@ -5530,7 +5532,7 @@ msgstr ""
 #. module: base
 #: model:ir.actions.act_window,help:base.action_partner_category_form
 msgid "Click to create a new partner tag."
-msgstr ""
+msgstr "Spausti sukurti naują partnerio žymėjimą."
 
 #. module: base
 #: selection:ir.logging,type:0
@@ -6062,7 +6064,7 @@ msgstr "Valstybių grupė"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country_country_group_ids
 msgid "Country Groups"
-msgstr ""
+msgstr "Šalies grupės"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country_name
@@ -6555,7 +6557,7 @@ msgstr "Duomenų bazė"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_anonymization
 msgid "Database Anonymization"
-msgstr ""
+msgstr "Duomenų bazės pavertimas anonimine"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_attachment_db_datas
@@ -6862,7 +6864,7 @@ msgstr "Diagrama"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_lang_direction
 msgid "Direction"
-msgstr ""
+msgstr "Kryptis"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.report_irmodulereference
@@ -6881,7 +6883,7 @@ msgstr ""
 #: model:ir.module.category,name:base.module_category_discuss
 #: model:ir.module.module,shortdesc:base.module_mail
 msgid "Discuss"
-msgstr ""
+msgstr "Diskusija"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mail
@@ -7044,7 +7046,7 @@ msgstr "Dokumentų valdymas"
 #: code:addons/base/ir/ir_model.py:885 code:addons/base/ir/ir_model.py:888
 #, python-format
 msgid "Document model"
-msgstr ""
+msgstr "Dokumento modelis"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_forum_doc
@@ -7254,7 +7256,7 @@ msgstr "Pusiaujo Gvinėja"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_maintenance
 msgid "Equipments"
-msgstr ""
+msgstr "Įrangos"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_maintenance
@@ -8123,7 +8125,7 @@ msgstr "Gibraltaras"
 #: model:ir.ui.view,arch_db:base.ir_access_view_search
 #: model:ir.ui.view,arch_db:base.view_rule_search
 msgid "Global"
-msgstr ""
+msgstr "Pasaulinis"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_rule_form
@@ -8148,7 +8150,7 @@ msgstr "Eiti prie nustatymų skydelio"
 #. module: base
 #: model:res.partner.category,name:base.res_partner_category_4
 msgid "Gold"
-msgstr ""
+msgstr "Auksas"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_google_calendar
@@ -9181,7 +9183,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron_interval_type
 msgid "Interval Unit"
-msgstr ""
+msgstr "Intervalas"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron_interval_number
@@ -9368,7 +9370,7 @@ msgstr "Izraelis"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_rating_project_issue
 msgid "Issue Rating"
-msgstr ""
+msgstr "Problemos vertinimas"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_project_issue
@@ -10039,7 +10041,7 @@ msgstr "Žurnalai"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_lunch
 msgid "Lunch"
-msgstr ""
+msgstr "Pietūs"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_lunch
@@ -10085,7 +10087,7 @@ msgstr "Ponia"
 #: code:addons/base/ir/ir_mail_server.py:464
 #, python-format
 msgid "Mail Delivery Failed"
-msgstr ""
+msgstr "Laiško pristatymas nesėkmingas"
 
 #. module: base
 #: code:addons/base/ir/ir_mail_server.py:462
@@ -10598,7 +10600,7 @@ msgstr "Modeliai"
 #: model:ir.ui.view,arch_db:base.view_model_data_search
 #: model:ir.ui.view,arch_db:base.view_module_filter
 msgid "Module"
-msgstr ""
+msgstr "Modulis"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_module_category_form
@@ -11320,7 +11322,7 @@ msgstr ""
 #. module: base
 #: selection:workflow.activity,split_mode:0
 msgid "Or"
-msgstr ""
+msgstr "Arba"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view_custom_ref_id
@@ -11376,7 +11378,7 @@ msgstr ""
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_ir_mail_server_search
 msgid "Outgoing Mail Server"
-msgstr ""
+msgstr "Išsiuničamų laiškų serveris"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_ir_mail_server_list
@@ -11598,7 +11600,7 @@ msgstr "Kelias"
 #: model:ir.module.category,name:base.module_category_payment_acquirer
 #: model:ir.module.module,shortdesc:base.module_payment
 msgid "Payment Acquirer"
-msgstr ""
+msgstr "Pirkėjas"
 
 #. module: base
 #: model:ir.module.module,description:base.module_payment
@@ -11733,7 +11735,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_planner
 msgid "Planner"
-msgstr ""
+msgstr "Planuotojas"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_pt
@@ -11764,7 +11766,7 @@ msgstr ""
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_server_action_form
 msgid "Please set the Base Model before setting the action details."
-msgstr ""
+msgstr "Nustatykite bazinį modelį prieš nustatydami veiksmų detales."
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_server_action_form
@@ -11827,7 +11829,7 @@ msgstr "Prancūzijos Polinezija"
 #: model:ir.module.module,shortdesc:base.module_portal
 #: model:res.groups,name:base.group_portal
 msgid "Portal"
-msgstr ""
+msgstr "Portalas"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_portal_gamification
@@ -11937,7 +11939,7 @@ msgstr "Užsakymai"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_product_email_template
 msgid "Product Email Template"
-msgstr ""
+msgstr "Produkto laiško šablonas"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_product_extended
@@ -12268,7 +12270,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.category,name:base.module_category_hr_recruitment
 msgid "Recruitment"
-msgstr ""
+msgstr "Įdarbinimas"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_recruitment
@@ -12278,7 +12280,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_subscription
 msgid "Recurring Documents"
-msgstr ""
+msgstr "Pasikartojantys dokumentai"
 
 #. module: base
 #: code:addons/base/module/module.py:322
@@ -12334,7 +12336,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users_partner_id
 msgid "Related Partner"
-msgstr ""
+msgstr "Susijęs partneris"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_server_object_lines_server_id
@@ -12499,7 +12501,7 @@ msgstr "Privalomas"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_crm_partner_assign
 msgid "Resellers"
-msgstr ""
+msgstr "Perparavinėtojai"
 
 #. module: base
 #: code:addons/models.py:885
@@ -12670,7 +12672,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_mail_server_smtp_host
 msgid "SMTP Server"
-msgstr ""
+msgstr "SMTP serveris"
 
 #. module: base
 #: selection:ir.translation,type:0
@@ -13051,7 +13053,7 @@ msgstr "Server"
 #: model:ir.ui.view,arch_db:base.view_server_action_form
 #: model:ir.ui.view,arch_db:base.view_server_action_search
 msgid "Server Action"
-msgstr ""
+msgstr "Serverio veiksmas"
 
 #. module: base
 #: model:ir.model,name:base.model_ir_server_object_lines
@@ -13185,7 +13187,7 @@ msgstr ""
 #. module: base
 #: model:res.partner.category,name:base.res_partner_category_5
 msgid "Silver"
-msgstr ""
+msgstr "Sidabras"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_pos_discount
@@ -13246,7 +13248,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:base.field_res_partner_image_small
 #: model:ir.model.fields,field_description:base.field_res_users_image_small
 msgid "Small-sized image"
-msgstr ""
+msgstr "Mažo dydžio paveiksliukas"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_partner_image_small
@@ -13408,7 +13410,7 @@ msgstr "Šri Lanka"
 #. module: base
 #: selection:ir.sequence,implementation:0
 msgid "Standard"
-msgstr ""
+msgstr "Standartinis"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_base_module_upgrade_install
@@ -14227,6 +14229,9 @@ msgid ""
 "\n"
 "(Document type: %s, Operation: %s)"
 msgstr ""
+"Pageidaujama operacija negali būti įvykdyta dėl apsaugos draudimų. Prašome susisiekti su jūsų sistemos administratotiumi.\n"
+"\n"
+"(Dokumento tipas: %s, Operacija: %s)"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_base_language_install
@@ -15211,7 +15216,7 @@ msgstr ""
 #. module: base
 #: model:res.partner.category,name:base.res_partner_category_1
 msgid "Vendor"
-msgstr ""
+msgstr "Pardavėjas"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_partner_supplier_form
@@ -15557,7 +15562,7 @@ msgstr ""
 #. module: base
 #: selection:ir.cron,interval_type:0
 msgid "Weeks"
-msgstr ""
+msgstr "Savaitės"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hw_scale
@@ -15997,7 +16002,7 @@ msgstr ""
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_base_import_language
 msgid "_Import"
-msgstr ""
+msgstr "_Importuoti"
 
 #. module: base
 #: model:ir.model,name:base.model__unknown
