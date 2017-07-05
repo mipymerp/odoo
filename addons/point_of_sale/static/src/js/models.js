@@ -1453,6 +1453,7 @@ exports.Orderline = Backbone.Model.extend({
                         id: tax.id,
                         amount: tax_amount,
                         name: tax.name,
+                        base: base,
                     };
                     list_taxes.push(data);
                 }
