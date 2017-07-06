@@ -273,7 +273,7 @@ var PosDB = core.Class.extend({
                 partner.address = (partner.street || '') +', '+ 
                                   (partner.zip || '')    +' '+
                                   (partner.city || '')   +', '+ 
-                                  (partner.country_id[1] || '');
+                                  (partner.country_id ? partner.country_id[1] : '');
                 this.partner_search_string += this._partner_search_string(partner);
             }
         }

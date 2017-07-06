@@ -9,7 +9,7 @@ import pytz
 
 from odoo import api, fields, models, tools, _
 from odoo.tools import float_is_zero
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, AccessError
 from odoo.http import request
 import odoo.addons.decimal_precision as dp
 
@@ -45,9 +45,12 @@ class PosOrder(models.Model):
         }
 
     def _payment_fields(self, ui_paymentline):
+        payment_date = ui_paymentline['name']
+        if len(payment_date) > 10:
+            payment_date = fields.Date.context_today(self, fields.Datetime.from_string(payment_date))
         return {
             'amount':       ui_paymentline['amount'] or 0.0,
-            'payment_date': ui_paymentline['name'],
+            'payment_date': payment_date,
             'statement_id': ui_paymentline['statement_id'],
             'payment_name': ui_paymentline.get('note', False),
             'journal':      ui_paymentline['journal_id'],
@@ -326,13 +329,17 @@ class PosOrder(models.Model):
 
             order.write({'state': 'done', 'account_move': move.id})
 
-        all_lines = []
-        for group_key, group_data in grouped_data.iteritems():
-            for value in group_data:
-                all_lines.append((0, 0, value),)
-        if move:  # In case no order was changed
-            move.sudo().write({'line_ids': all_lines})
-            move.sudo().post()
+            all_lines = []
+            for group_key, group_data in grouped_data.iteritems():
+                for value in group_data:
+                    all_lines.append((0, 0, value),)
+            if move:  # In case no order was changed
+                move.sudo().write({'line_ids': all_lines})
+                move.sudo().post()
+            #forzar a crear un asiento contable por cada pedido
+            #para que al cerrar sesion se concilien los pagos por orden
+            move = None
+            grouped_data  = {}
         return True
 
     def _reconcile_payments(self):
@@ -556,6 +563,9 @@ class PosOrder(models.Model):
             except psycopg2.OperationalError:
                 # do not hide transactional errors, the order(s) won't be saved!
                 raise
+            except AccessError:
+                # do not hide transactional errors, the order(s) won't be saved!
+                raise
             except Exception as e:
                 _logger.error('Could not fully process the POS Order: %s', tools.ustr(e))
 
@@ -708,7 +718,7 @@ class PosOrder(models.Model):
         """Create a new payment for the order"""
         args = {
             'amount': data['amount'],
-            'date': data.get('payment_date', fields.Date.today()),
+            'date': data.get('payment_date', fields.Date.context_today(self)),
             'name': self.name + ': ' + (data.get('payment_name', '') or ''),
             'partner_id': self.env["res.partner"]._find_accounting_partner(self.partner_id).id or False,
         }

@@ -1989,12 +1989,12 @@ exports.Order = Backbone.Model.extend({
         var attr = JSON.parse(JSON.stringify(product));
         attr.pos = this.pos;
         attr.order = this;
-        var line = new exports.Orderline({}, {pos: this.pos, order: this, product: product});
+        var line = new exports.Orderline(options || {}, {pos: this.pos, order: this, product: product});
 
+        var found = false;
         if(options.quantity !== undefined){
             line.set_quantity(options.quantity);
         }
-
         if(options.price !== undefined){
             line.set_unit_price(options.price);
         }
@@ -2012,11 +2012,20 @@ exports.Order = Backbone.Model.extend({
             }
         }
 
-        var last_orderline = this.get_last_orderline();
-        if( last_orderline && last_orderline.can_be_merged_with(line) && options.merge !== false){
-            last_orderline.merge(line);
-        }else{
-            this.orderlines.add(line);
+        var orderlines = [];
+        if (this.orderlines.models !== undefined) {
+        	orderlines = this.orderlines.models;
+        }
+        for (var i = 0; i < orderlines.length; i++) {
+        	var _line = orderlines[i];
+        	if (_line && _line.can_be_merged_with(line) && options.merge !== false) {
+        		_line.merge(line);
+        		found = true;
+        		break;
+        	}
+        }
+        if (!found) {
+        	this.orderlines.add(line);
         }
         this.select_orderline(this.get_last_orderline());
 
