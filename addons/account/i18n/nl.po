@@ -6460,7 +6460,7 @@ msgstr "Diversen"
 #: model:ir.ui.view,arch_db:account.view_account_move_filter
 #, python-format
 msgid "Miscellaneous Operations"
-msgstr "Memoriaal boekingen"
+msgstr "Memoriaa"
 
 #. module: account
 #. openerp-web
@@ -10957,6 +10957,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:account.invoice_supplier_form
 msgid "You have"
 msgstr "U heeft"
+
+#. module: account
+#: code:addons/account/models/account_payment.py:360
+#, python-format
+msgid "You have to define a sequence for %s in your company."
+msgstr "U dient een reeks aan te maken voor %s in uw bedrijf."
 
 #. module: account
 #: code:addons/account/wizard/account_report_general_ledger.py:21
