@@ -122,6 +122,7 @@ var FieldMany2One = AbstractField.extend({
 
         this.nodeOptions = _.defaults(this.nodeOptions, {
             quick_create: true,
+            no_create: !this.can_create,
         });
         this.m2o_value = this._formatValue(this.value);
         // 'recordParams' is a dict of params used when calling functions
