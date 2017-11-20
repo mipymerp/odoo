@@ -449,6 +449,32 @@ class account_payment(models.Model):
         if any(rec.move_name for rec in self):
             raise UserError(_('It is not allowed to delete a payment that already created a journal entry since it would create a gap in the numbering. You should create the journal entry again and cancel it thanks to a regular revert.'))
         return super(account_payment, self).unlink()
+    
+    @api.multi
+    def get_sequence_code(self):
+        # Use the right sequence to set the name
+        sequence_code = ""
+        if self.payment_type == 'transfer':
+            sequence_code = 'account.payment.transfer'
+        else:
+            if self.partner_type == 'customer':
+                if self.payment_type == 'inbound':
+                    sequence_code = 'account.payment.customer.invoice'
+                if self.payment_type == 'outbound':
+                    sequence_code = 'account.payment.customer.refund'
+            if self.partner_type == 'supplier':
+                if self.payment_type == 'inbound':
+                    sequence_code = 'account.payment.supplier.refund'
+                if self.payment_type == 'outbound':
+                    sequence_code = 'account.payment.supplier.invoice'
+        return sequence_code
+    
+    @api.multi
+    def get_payment_name(self):
+        sequence_code = self.get_sequence_code()
+        self.name = self.env['ir.sequence'].with_context(ir_sequence_date=self.payment_date).next_by_code(sequence_code)
+        if not self.name and self.payment_type != 'transfer':
+            raise UserError(_("You have to define a sequence for %s in your company.") % (sequence_code,))
 
     @api.multi
     def post(self):
@@ -466,23 +492,7 @@ class account_payment(models.Model):
             if any(inv.state != 'open' for inv in rec.invoice_ids):
                 raise ValidationError(_("The payment cannot be processed because the invoice is not open!"))
 
-            # Use the right sequence to set the name
-            if rec.payment_type == 'transfer':
-                sequence_code = 'account.payment.transfer'
-            else:
-                if rec.partner_type == 'customer':
-                    if rec.payment_type == 'inbound':
-                        sequence_code = 'account.payment.customer.invoice'
-                    if rec.payment_type == 'outbound':
-                        sequence_code = 'account.payment.customer.refund'
-                if rec.partner_type == 'supplier':
-                    if rec.payment_type == 'inbound':
-                        sequence_code = 'account.payment.supplier.refund'
-                    if rec.payment_type == 'outbound':
-                        sequence_code = 'account.payment.supplier.invoice'
-            rec.name = self.env['ir.sequence'].with_context(ir_sequence_date=rec.payment_date).next_by_code(sequence_code)
-            if not rec.name and rec.payment_type != 'transfer':
-                raise UserError(_("You have to define a sequence for %s in your company.") % (sequence_code,))
+            rec.get_payment_name()
 
             # Create the journal entry
             amount = rec.amount * (rec.payment_type in ('outbound', 'transfer') and 1 or -1)
