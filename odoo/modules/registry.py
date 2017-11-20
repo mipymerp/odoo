@@ -457,7 +457,7 @@ class Registry(Mapping):
         Registry._lock = Registry._saved_lock
         Registry._saved_lock = None
 
-    def cursor(self):
+    def cursor(self, cursor_name=None):
         """ Return a new cursor for the database. The cursor itself may be used
             as a context manager to commit/rollback and close automatically.
         """
@@ -469,7 +469,7 @@ class Registry(Mapping):
             # cursor itself in its method close().
             cr.acquire()
             return cr
-        return self._db.cursor()
+        return self._db.cursor(cursor_name=cursor_name)
 
 
 class DummyRLock(object):
