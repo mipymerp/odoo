@@ -415,11 +415,12 @@ QUnit.module('Views', {
     QUnit.test('editable list: add a line and discard', function (assert) {
         assert.expect(11);
 
-        var oldDestroy = basicFields.FieldChar.prototype.destroy;
-        basicFields.FieldChar.prototype.destroy = function () {
-            assert.step('destroy');
-            oldDestroy.apply(this, arguments);
-        };
+        testUtils.patch(basicFields.FieldChar, {
+            destroy: function () {
+                assert.step('destroy');
+                this._super.apply(this, arguments);
+            },
+        });
 
         var list = createView({
             View: ListView,
@@ -456,7 +457,7 @@ QUnit.module('Views', {
         assert.verifySteps(['destroy'],
             "should have destroyed the widget of the removed line");
 
-        basicFields.FieldChar.prototype.destroy = oldDestroy;
+        testUtils.unpatch(basicFields.FieldChar);
         list.destroy();
     });
 
@@ -473,13 +474,13 @@ QUnit.module('Views', {
 
         var n = 0;
         testUtils.intercept(list, "field_changed", function () {
-            n = 1;
+            n += 1;
         });
         $td.click();
         $td.find('input').val('abc').trigger('input');
-        assert.strictEqual(n, 1, "field_changed should not have been triggered");
-        list.$('td:not(.o_list_record_selector)').eq(2).click();
         assert.strictEqual(n, 1, "field_changed should have been triggered");
+        list.$('td:not(.o_list_record_selector)').eq(2).click();
+        assert.strictEqual(n, 1, "field_changed should not have been triggered");
         list.destroy();
     });
 
@@ -1088,7 +1089,7 @@ QUnit.module('Views', {
     });
 
     QUnit.test('can display button in edit mode', function (assert) {
-        assert.expect(1);
+        assert.expect(2);
 
         var list = createView({
             View: ListView,
@@ -1096,10 +1097,11 @@ QUnit.module('Views', {
             data: this.data,
             arch: '<tree editable="bottom">' +
                     '<field name="foo"/>' +
-                    '<button name="notafield" type="object" icon="fa-asterisk"/>' +
+                    '<button name="notafield" type="object" icon="fa-asterisk" class="o_yeah"/>' +
                 '</tree>',
         });
         assert.ok(list.$('tbody button').length, "should have a button");
+        assert.ok(list.$('tbody button').hasClass('o_yeah'), "class should be set on the button");
         list.destroy();
     });
 
@@ -3189,6 +3191,30 @@ QUnit.module('Views', {
         list.destroy();
         delete widgetRegistry.map.test;
     });
+
+    QUnit.test('use the limit attribute in arch', function (assert) {
+        assert.expect(3);
+
+        var list = createView({
+            View: ListView,
+            model: 'foo',
+            data: this.data,
+            arch: '<tree limit="2"><field name="foo"/></tree>',
+            mockRPC: function (route, args) {
+                assert.strictEqual(args.limit, 2,
+                    'should use the correct limit value');
+                return this._super.apply(this, arguments);
+            },
+        });
+
+        assert.strictEqual(list.pager.$el.text().trim(), '1-2 / 4',
+            "pager should be correct");
+
+        assert.strictEqual(list.$('.o_data_row').length, 2,
+            'should display 2 data rows');
+        list.destroy();
+    });
+
 });
 
 });

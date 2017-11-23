@@ -23,7 +23,6 @@
 # Bertrand LATOUR <divoir@gmail.com>, 2017
 # nthnnl <nathan070@me.com>, 2017
 # Benjamin Delagoutte <ben@ampletus.fr>, 2017
-# Melanie Bernard <mbe@odoo.com>, 2017
 # Hamid Darabi <hamid.darabi@gmail.com>, 2017
 # timo bellanger <bellanger.timo@gmail.com>, 2017
 # Nicolas Martinelli <nim@odoo.com>, 2017
@@ -38,6 +37,7 @@
 # Xavier Brochard <xavier@alternatif.org>, 2017
 # Jérémy Donas <LeDistordu@users.noreply.github.com>, 2017
 # Adriana Ierfino <adriana.ierfino@savoirfairelinux.com>, 2017
+# Melanie Bernard <mbe@odoo.com>, 2017
 # Daniel & Delphine <dd2013@leschoupinous.net>, 2017
 # Denis Ledoux <dle@odoo.com>, 2017
 # Clo <clo@odoo.com>, 2017
@@ -54,13 +54,14 @@
 # Sébastien LANGE (SYLEAM) <sebastien.lange@syleam.fr>, 2017
 # fr trans <e2ftrans1@yahoo.com>, 2017
 # fr trans <e2ffr01@hotmail.com>, 2017
+# William Henrotin <whe@odoo.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-08 13:21+0000\n"
 "PO-Revision-Date: 2017-11-08 13:21+0000\n"
-"Last-Translator: fr trans <e2ffr01@hotmail.com>, 2017\n"
+"Last-Translator: William Henrotin <whe@odoo.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/odoo/teams/41243/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -509,6 +510,8 @@ msgid ""
 "        Accounting reports for US\n"
 "    "
 msgstr ""
+"\n"
+"Rapport de comptabilité pour les États-Unis."
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_uy_reports
@@ -738,6 +741,8 @@ msgid ""
 "        This module provides the core of the Odoo Mobile App.\n"
 "        "
 msgstr ""
+"\n"
+"Ce module apporte le cœur de Odoo Mobile App. "
 
 #. module: base
 #: model:ir.module.module,description:base.module_maintenance
@@ -20990,7 +20995,7 @@ msgstr "Rapports Comptables - Vietnam"
 #: selection:ir.translation,type:0
 #: model:ir.ui.view,arch_db:base.view_view_search
 msgid "View"
-msgstr "Voir"
+msgstr "Vue"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view_arch
@@ -21004,7 +21009,7 @@ msgstr "Architecture de vue"
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_translation_search
 msgid "View ID"
-msgstr "Voir l'identifiant"
+msgstr "ID de la vue"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_act_window_view_mode

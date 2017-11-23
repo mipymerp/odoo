@@ -565,7 +565,7 @@ msgid ""
 "                                    </span>"
 msgstr ""
 "<span class=\"panel-title\">\n"
-"                                        <strong>Facturatie</strong> (Beperkte toegang)\n"
+"                                        <strong>Boekhouding</strong> (Beperkte toegang)\n"
 "                                    </span>"
 
 #. module: account
@@ -822,7 +822,7 @@ msgstr "<strong>Klant adres</strong>"
 #: model:ir.ui.view,arch_db:account.portal_invoice_report
 #: model:ir.ui.view,arch_db:account.report_invoice_document
 msgid "<strong>Customer Code:</strong>"
-msgstr "<strong>Klantcode:</strong>"
+msgstr "<strong>Debiteurennummer:</strong>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.report_payment_receipt
@@ -1658,6 +1658,8 @@ msgid ""
 "Account used as counterpart for the journal entry, for taxes eligible based "
 "on payments."
 msgstr ""
+"Grootboek welke wordt gebruikt als tegenrekening voor de boeking bij BTW "
+"gebaseerd op betalingen."
 
 #. module: account
 #: model:ir.ui.menu,name:account.account_account_menu
@@ -2274,6 +2276,7 @@ msgstr ""
 #: model:ir.model.fields,help:account.field_account_fiscal_position_template_country_group_id
 msgid "Apply only if delivery or invoicing country match the group."
 msgstr ""
+"Alleen toepassen als aflever- of factuur land overeenkomt met de groep."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_fiscal_position_country_id
@@ -2306,7 +2309,7 @@ msgstr "Gearchiveerd"
 #. module: account
 #: model:ir.ui.view,arch_db:account.invoice_supplier_form
 msgid "Ask for a Credit Note"
-msgstr "Voeg om een creditfactuur"
+msgstr "Vraag om een creditfactuur"
 
 #. module: account
 #: model:account.financial.report,name:account.account_financial_report_assets0
@@ -6008,7 +6011,7 @@ msgstr "Facturen zonder betaling"
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 #: model:ir.ui.view,arch_db:account.view_partner_property_form
 msgid "Invoicing"
-msgstr "Facturatie"
+msgstr "Boekhouding"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_line_is_unaffected_earnings_line
@@ -6835,6 +6838,9 @@ msgid ""
 "Electronic: Get paid automatically through a payment acquirer by requesting a transaction on a card saved by the customer when buying or subscribing online (payment token).\n"
 "Batch Deposit: Encase several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo,you are suggested to reconcile the transaction with the batch deposit. Enable this option from the settings."
 msgstr ""
+"Handmatig: Krijg betaald met contant geld, cheques of een andere methode buiten Odoo om\n"
+"Elektronisch: Betaal automatisch via een betalingsverwerver door een transactie aan te vragen op een door de klant opgeslagen kaart bij het online kopen of abonneren van (betalingstoken).\n"
+"Batch Deposito: Verzamel meerdere klantcheques tegelijk door een batch deposito te genereren om bij uw bank in te dienen. Wanneer u de bankafschriften in Odoo ingeeft, wordt u voorgesteld om de transactie af te letteren met de batchafbetaling. Schakel deze optie in bij instellingen."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_abstract_payment_payment_method_id
@@ -6847,6 +6853,11 @@ msgid ""
 "Batch Deposit: Encase several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo, you are suggested to reconcile the transaction with the batch deposit.To enable batch deposit,module account_batch_deposit must be installed.\n"
 "SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank. To enable sepa credit transfer, module account_sepa must be installed "
 msgstr ""
+"Handmatig: Krijg betaald met contant geld, cheques of een andere methode buiten Odoo om\n"
+"Elektronisch: Betaal automatisch via een betalingsverwerker door een transactie aan te vragen op een door de klant opgeslagen kaart bij het online kopen of abonneren van (betalingstoken).\n"
+"Cheque: Betaal factuur met een cheque en druk deze af in Odoo\n"
+"Batch Deposito: Verzamel meerdere klantcheques tegelijk door een batch deposito te genereren om bij uw bank in te dienen. Wanneer u de bankafschriften in Odoo ingeeft, wordt u voorgesteld om de transactie af te letteren met de batchafbetaling. Schakel deze optie in bij instellingen.\n"
+"SEPA overschrijving: Betaal de factuur met een SEPA verschrijvingsbestand welke je upload bij de bank. Om SEPA te activeren dient te module ccount_sepa worden geïnstalleerd."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_outbound_payment_method_ids
@@ -7202,6 +7213,8 @@ msgid ""
 "No miscellaneous journal could be found. Please create one before "
 "proceeding."
 msgstr ""
+"Geen memoriaal dagboek gevonden. Maak een memoriaal dagboek aan om door te "
+"gaan."
 
 #. module: account
 #: code:addons/account/models/account.py:116
@@ -7714,7 +7727,7 @@ msgstr "PDF rapportages"
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Package"
-msgstr "Verpakking"
+msgstr "Pakket"
 
 #. module: account
 #: selection:account.invoice,state:0 selection:account.invoice.report,state:0
@@ -8362,6 +8375,7 @@ msgstr "Winst en Verlies"
 msgid ""
 "Programming error: wizard action executed without active_ids in context."
 msgstr ""
+"Programmeerfout: wizard actie uitgevoerd zonder active_ids in context."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.view_account_chart_template_form
@@ -11840,6 +11854,8 @@ msgid ""
 "You cannot have a receivable/payable account that is not reconcilable. "
 "(account code: %s)"
 msgstr ""
+"Het is niet mogelijk om een debiteuren/crediteuren rekening te hebben welke "
+"niet afletterbaar is. (grootboek: %s)"
 
 #. module: account
 #. openerp-web
@@ -12309,4 +12325,4 @@ msgstr "wizard.multi.charts.accounts"
 #. module: account
 #: model:ir.ui.view,arch_db:account.view_bank_statement_form
 msgid "→ Count"
-msgstr "→ Tel"
+msgstr "→ Aantal"

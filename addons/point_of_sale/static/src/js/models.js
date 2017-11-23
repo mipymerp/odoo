@@ -276,6 +276,7 @@ exports.PosModel = Backbone.Model.extend({
                 // replace the current user with its updated version
                 if (user.id === self.user.id) {
                     self.user = user;
+                    self.set_cashier(user);
                 }
             }
             self.users = pos_users;
@@ -553,7 +554,7 @@ exports.PosModel = Backbone.Model.extend({
                                 .then(function(){ load_model(index + 1); },
                                       function(err){ loaded.reject(err); });
                         }catch(err){
-                            console.error(err.stack);
+                            console.error(err.message, err.stack);
                             loaded.reject(err);
                         }
                     },function(err){

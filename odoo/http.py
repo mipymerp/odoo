@@ -795,7 +795,7 @@ class HttpRequest(WebRequest):
 
 Odoo URLs are CSRF-protected by default (when accessed with unsafe
 HTTP methods). See
-https://www.odoo.com/documentation/9.0/reference/http.html#csrf for
+https://www.odoo.com/documentation/11.0/reference/http.html#csrf for
 more details.
 
 * if this endpoint is accessed through Odoo via py-QWeb form, embed a CSRF
@@ -1395,17 +1395,6 @@ class Root(object):
         else:
             response = result
 
-        # save to cache if requested and possible
-        if getattr(request, 'cache_save', False) and response.status_code == 200:
-            response.freeze()
-            r = response.response
-            if isinstance(r, list) and len(r) == 1 and isinstance(r[0], str):
-                request.registry.cache[request.cache_save] = {
-                    'content': r[0],
-                    'mimetype': response.headers['Content-Type'],
-                    'time': time.time(),
-                }
-
         if httprequest.session.should_save:
             if httprequest.session.rotate:
                 self.session_store.delete(httprequest.session)
@@ -1629,15 +1618,9 @@ def send_file(filepath_or_fp, mimetype=None, as_attachment=False, filename=None,
 
 def content_disposition(filename):
     filename = odoo.tools.ustr(filename)
-    escaped = urls.url_quote(filename.encode('utf8'))
-    browser = request.httprequest.user_agent.browser
-    version = int((request.httprequest.user_agent.version or '0').split('.')[0])
-    if browser == 'msie' and version < 9:
-        return "attachment; filename=%s" % escaped
-    elif browser == 'safari' and version < 537:
-        return u"attachment; filename=%s" % filename.encode('ascii', 'replace')
-    else:
-        return "attachment; filename*=UTF-8''%s" % escaped
+    escaped = urls.url_quote(filename)
+
+    return "attachment; filename*=UTF-8''%s" % escaped
 
 #----------------------------------------------------------
 # RPC controller

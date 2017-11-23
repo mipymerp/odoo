@@ -638,6 +638,7 @@ var FieldMonetary = InputField.extend({
         var currencyField = this.nodeOptions.currency_field || this.field.currency_field || 'currency_id';
         var currencyID = this.record.data[currencyField] && this.record.data[currencyField].res_id;
         this.currency = session.get_currency(currencyID);
+        this.formatOptions.currency = this.currency; // _formatValue() uses formatOptions
     },
 });
 
@@ -1218,7 +1219,7 @@ var FieldBinaryFile = AbstractFieldBinary.extend({
     template: 'FieldBinaryFile',
     events: _.extend({}, AbstractFieldBinary.prototype.events, {
         'click': function (event) {
-            if (this.mode === 'readonly' && this.value) {
+            if (this.mode === 'readonly' && this.value && this.recordData.id) {
                 this.on_save_as(event);
             }
         },
@@ -1235,9 +1236,19 @@ var FieldBinaryFile = AbstractFieldBinary.extend({
         this.do_toggle(!!this.value);
         if (this.value) {
             this.$el.empty().append($("<span/>").addClass('fa fa-download'));
+            if (this.recordData.id) {
+                this.$el.css('cursor', 'pointer');
+            } else {
+                this.$el.css('cursor', 'not-allowed');
+            }
             if (this.filename_value) {
                 this.$el.append(" " + this.filename_value);
             }
+        }
+        if (!this.res_id) {
+            this.$el.css('cursor', 'not-allowed');
+        } else {
+            this.$el.css('cursor', 'pointer');
         }
     },
     _renderEdit: function () {
@@ -1263,7 +1274,7 @@ var FieldBinaryFile = AbstractFieldBinary.extend({
         if (!this.value) {
             this.do_warn(_t("Save As..."), _t("The field is empty, there's nothing to save !"));
             ev.stopPropagation();
-        } else {
+        } else if (this.res_id) {
             framework.blockUI();
             var c = crash_manager;
             var filename_fieldname = this.attrs.filename;

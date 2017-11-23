@@ -94,7 +94,7 @@ msgstr "+ Операцій"
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.customer_facing_display_snippets
 msgid "<b>Set Custom Image...</b>"
-msgstr ""
+msgstr "<b>Встановіть спеціальне зображення...</b>"
 
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.customer_facing_display_snippets
@@ -3498,7 +3498,7 @@ msgstr "Сума податків"
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config_iface_tax_included
 msgid "Tax Display"
-msgstr ""
+msgstr "Відображення податку"
 
 #. module: point_of_sale
 #. openerp-web
