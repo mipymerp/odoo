@@ -2,12 +2,15 @@
 # This file contains the translation of the following modules:
 # * event
 # 
+# Translators:
+# Yihya Hugirat <hugirat@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-16 08:08+0000\n"
 "PO-Revision-Date: 2017-11-16 08:08+0000\n"
+"Last-Translator: Yihya Hugirat <hugirat@gmail.com>, 2017\n"
 "Language-Team: Hebrew (https://www.transifex.com/odoo/teams/41243/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -514,7 +517,7 @@ msgstr ""
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_active
 msgid "Active"
-msgstr ""
+msgstr "פעיל"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.res_config_settings_view_form
@@ -545,7 +548,7 @@ msgstr ""
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_search
 msgid "Archived"
-msgstr ""
+msgstr "התווסף לארכיון"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_form
@@ -590,7 +593,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_mail_registration_registration_id
 #: model:ir.ui.view,arch_db:event.view_event_registration_form
 msgid "Attendee"
-msgstr ""
+msgstr "משתתף"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_registration_name
@@ -606,7 +609,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:event.view_event_form
 #: model:ir.ui.view,arch_db:event.view_event_type_form
 msgid "Attendees"
-msgstr ""
+msgstr "משתתפים"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_auto_confirm
@@ -675,7 +678,7 @@ msgstr ""
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_confirm
 msgid "Cancel"
-msgstr ""
+msgstr "בטל"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_form
@@ -691,7 +694,7 @@ msgstr ""
 #. module: event
 #: selection:event.event,state:0 selection:event.registration,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "בוטלה"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_event_type_id
@@ -727,19 +730,19 @@ msgstr ""
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_type_form
 msgid "Communication"
-msgstr ""
+msgstr "תקשורת"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_company_id
 #: model:ir.model.fields,field_description:event.field_event_registration_company_id
 msgid "Company"
-msgstr ""
+msgstr "חברה"
 
 #. module: event
 #: code:addons/event/models/event.py:475
 #, python-format
 msgid "Compose Email"
-msgstr ""
+msgstr "כתוב דוא\"ל"
 
 #. module: event
 #: model:event.type,name:event.event_type_2
@@ -759,12 +762,12 @@ msgstr ""
 #. module: event
 #: model:ir.ui.menu,name:event.menu_event_configuration
 msgid "Configuration"
-msgstr ""
+msgstr "הגדרות תצורה"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_registration_form
 msgid "Confirm"
-msgstr ""
+msgstr "אשר"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_confirm
@@ -785,7 +788,7 @@ msgstr ""
 #: selection:event.event,state:0 selection:event.registration,state:0
 #: model:ir.ui.view,arch_db:event.view_event_search
 msgid "Confirmed"
-msgstr ""
+msgstr "מאושר"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_kanban
@@ -801,12 +804,12 @@ msgstr ""
 #: model:ir.model,name:event.model_res_partner
 #: model:ir.model.fields,field_description:event.field_event_registration_partner_id
 msgid "Contact"
-msgstr ""
+msgstr "איש קשר"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_country_id
 msgid "Country"
-msgstr ""
+msgstr "ארץ"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_confirm_create_uid
@@ -817,7 +820,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_type_create_uid
 #: model:ir.model.fields,field_description:event.field_event_type_mail_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "נוצר על ידי"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_confirm_create_date
@@ -828,35 +831,35 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_type_create_date
 #: model:ir.model.fields,field_description:event.field_event_type_mail_create_date
 msgid "Created on"
-msgstr ""
+msgstr "נוצר ב-"
 
 #. module: event
 #: code:addons/event/models/event.py:438
 #, python-format
 msgid "Customer"
-msgstr ""
+msgstr "לקוח"
 
 #. module: event
 #: code:addons/event/models/event.py:440
 #, python-format
 msgid "Customer Email"
-msgstr ""
+msgstr "דוא\"ל של לקוח"
 
 #. module: event
 #: selection:event.mail,interval_unit:0
 #: selection:event.type.mail,interval_unit:0
 msgid "Day(s)"
-msgstr ""
+msgstr "ימים"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_kanban
 msgid "Delete"
-msgstr ""
+msgstr "מחק"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_description
 msgid "Description"
-msgstr ""
+msgstr "תיאור"
 
 #. module: event
 #: model:event.event,description:event.event_3
@@ -877,7 +880,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_type_display_name
 #: model:ir.model.fields,field_description:event.field_event_type_mail_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "השם המוצג"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_mail_sequence
@@ -906,7 +909,7 @@ msgstr ""
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_registration_email
 msgid "Email"
-msgstr ""
+msgstr "דוא\"ל"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_form
@@ -923,7 +926,7 @@ msgstr ""
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_date_end
 msgid "End Date"
-msgstr ""
+msgstr "תאריך סיום"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_date_end_located
@@ -937,7 +940,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:event.event_event_view_pivot
 #: model:ir.ui.view,arch_db:event.view_registration_search
 msgid "Event"
-msgstr ""
+msgstr "אירוע"
 
 #. module: event
 #: model:ir.model,name:event.model_event_mail
@@ -1146,7 +1149,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:event.view_event_search
 #: model:ir.ui.view,arch_db:event.view_registration_search
 msgid "Group By"
-msgstr ""
+msgstr "קבץ לפי"
 
 #. module: event
 #: model:event.event,description:event.event_2
@@ -1168,7 +1171,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_type_id
 #: model:ir.model.fields,field_description:event.field_event_type_mail_id
 msgid "ID"
-msgstr ""
+msgstr "מזהה"
 
 #. module: event
 #: model:ir.model.fields,help:event.field_event_event_state
@@ -1232,7 +1235,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_type___last_update
 #: model:ir.model.fields,field_description:event.field_event_type_mail___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "תאריך שינוי אחרון"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_confirm_write_uid
@@ -1243,7 +1246,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_type_mail_write_uid
 #: model:ir.model.fields,field_description:event.field_event_type_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "עודכן לאחרונה על ידי"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_confirm_write_date
@@ -1254,7 +1257,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_type_mail_write_date
 #: model:ir.model.fields,field_description:event.field_event_type_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "תאריך עדכון אחרון"
 
 #. module: event
 #: selection:event.event,seats_availability:0
@@ -1270,7 +1273,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_event_address_id
 #: model:ir.ui.view,arch_db:event.view_event_type_form
 msgid "Location"
-msgstr ""
+msgstr "מיקום"
 
 #. module: event
 #: model:event.event,description:event.event_0
@@ -1362,7 +1365,7 @@ msgstr ""
 #: selection:event.mail,interval_unit:0
 #: selection:event.type.mail,interval_unit:0
 msgid "Month(s)"
-msgstr ""
+msgstr "חודש(ים)"
 
 #. module: event
 #: model:event.event,description:event.event_3
@@ -1374,7 +1377,7 @@ msgstr ""
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_search
 msgid "My Events"
-msgstr ""
+msgstr "האירועים שלי"
 
 #. module: event
 #: code:addons/event/models/event.py:258
@@ -1462,7 +1465,7 @@ msgstr ""
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_registration_search
 msgid "Participant"
-msgstr ""
+msgstr "משתתף"
 
 #. module: event
 #: model:event.event,description:event.event_3
@@ -1481,12 +1484,12 @@ msgstr ""
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_registration_search
 msgid "Partner"
-msgstr ""
+msgstr "שותף"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_registration_phone
 msgid "Phone"
-msgstr ""
+msgstr "טלפון"
 
 #. module: event
 #: model:event.type,name:event.event_type_data_physical
@@ -1577,7 +1580,7 @@ msgstr ""
 #. module: event
 #: model:ir.ui.menu,name:event.menu_reporting_events
 msgid "Reporting"
-msgstr ""
+msgstr "דיווח"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_seats_reserved
@@ -1588,7 +1591,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_event_user_id
 #: model:ir.ui.view,arch_db:event.view_event_search
 msgid "Responsible"
-msgstr ""
+msgstr "אחראי"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.res_config_settings_view_form
@@ -1649,7 +1652,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:event.action_event_configuration
 #: model:ir.ui.menu,name:event.menu_event_global_settings
 msgid "Settings"
-msgstr ""
+msgstr "הגדרות"
 
 #. module: event
 #: model:event.type,name:event.event_type_3
@@ -1664,7 +1667,7 @@ msgstr ""
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_date_begin
 msgid "Start Date"
-msgstr ""
+msgstr "תאריך התחלה"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_date_begin_located
@@ -1682,7 +1685,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:event.view_event_search
 #: model:ir.ui.view,arch_db:event.view_registration_search
 msgid "Status"
-msgstr ""
+msgstr "סטטוס"
 
 #. module: event
 #: model:ir.actions.act_window,name:event.act_register_event_partner
@@ -1789,7 +1792,7 @@ msgstr ""
 #. module: event
 #: model:event.type,name:event.event_type_4
 msgid "Training"
-msgstr ""
+msgstr "הדרכה"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_type_mail_interval_type
@@ -1811,7 +1814,7 @@ msgstr ""
 #: selection:event.event,state:0 selection:event.registration,state:0
 #: model:ir.ui.view,arch_db:event.view_event_search
 msgid "Unconfirmed"
-msgstr ""
+msgstr "לא מאושר"
 
 #. module: event
 #: model:ir.model.fields,field_description:event.field_event_event_seats_unconfirmed
@@ -1832,7 +1835,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event.field_event_mail_interval_unit
 #: model:ir.model.fields,field_description:event.field_event_type_mail_interval_unit
 msgid "Unit"
-msgstr ""
+msgstr "יחידה"
 
 #. module: event
 #: selection:event.event,seats_availability:0
@@ -1843,7 +1846,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:event.view_event_search
 #: model:ir.ui.view,arch_db:event.view_registration_search
 msgid "Unread Messages"
-msgstr ""
+msgstr "הודעות שלא נקראו"
 
 #. module: event
 #: model:ir.ui.view,arch_db:event.view_event_search
@@ -1868,7 +1871,7 @@ msgstr ""
 #. module: event
 #: model:res.groups,name:event.group_event_user
 msgid "User"
-msgstr ""
+msgstr "משתמש"
 
 #. module: event
 #: model:event.event,description:event.event_1
@@ -1918,7 +1921,7 @@ msgstr ""
 #: selection:event.mail,interval_unit:0
 #: selection:event.type.mail,interval_unit:0
 msgid "Week(s)"
-msgstr ""
+msgstr "שבוע(ות)"
 
 #. module: event
 #: code:addons/event/models/event.py:414

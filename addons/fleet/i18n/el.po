@@ -25,7 +25,7 @@ msgstr ""
 #: code:addons/fleet/models/fleet_vehicle.py:198
 #, python-format
 msgid "%s %s has been added to the fleet!"
-msgstr ""
+msgstr "%s %s έχει προστεθεί στον στόλο!"
 
 #. module: fleet
 #: code:addons/fleet/models/fleet_vehicle_cost.py:274
@@ -117,7 +117,7 @@ msgstr "Ποσό"
 #: model:ir.ui.view,arch_db:fleet.fleet_vehicle_log_contract_view_search
 #: model:ir.ui.view,arch_db:fleet.fleet_vehicle_view_search
 msgid "Archived"
-msgstr "Αρχειοθετημένα"
+msgstr "Αρχειοθετήθηκαν"
 
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_9
@@ -713,7 +713,7 @@ msgstr ""
 #: model:ir.module.category,name:fleet.module_fleet_category
 #: model:ir.ui.menu,name:fleet.menu_root
 msgid "Fleet"
-msgstr ""
+msgstr "Στόλος"
 
 #. module: fleet
 #: model:ir.actions.server,name:fleet.ir_cron_contract_costs_generator_ir_actions_server
@@ -721,6 +721,7 @@ msgstr ""
 #: model:ir.cron,name:fleet.ir_cron_contract_costs_generator
 msgid "Fleet: Generate contracts costs based on costs frequency"
 msgstr ""
+"Στόλος: Δημιουργήστε το κόστος των συμβολαίων με βάση την συχνότητα κόστους"
 
 #. module: fleet
 #: model:ir.model.fields,help:fleet.field_fleet_vehicle_cost_cost_type
@@ -1769,7 +1770,7 @@ msgstr ""
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_service_18
 msgid "Touring Assistance"
-msgstr ""
+msgstr "Βοήθεια Περιηγήσεων"
 
 #. module: fleet
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_transmission
@@ -1982,7 +1983,7 @@ msgstr ""
 #. module: fleet
 #: model:fleet.service.type,name:fleet.type_service_50
 msgid "Water Pump Replacement"
-msgstr ""
+msgstr "Αντικατάσταση αντλίας νερού"
 
 #. module: fleet
 #: selection:fleet.vehicle.log.contract,cost_frequency:0
@@ -2083,7 +2084,7 @@ msgstr ""
 #. module: fleet
 #: model:ir.model,name:fleet.model_fleet_vehicle_state
 msgid "fleet.vehicle.state"
-msgstr ""
+msgstr "fleet.vehicle.state"
 
 #. module: fleet
 #: model:ir.model,name:fleet.model_fleet_vehicle_tag
