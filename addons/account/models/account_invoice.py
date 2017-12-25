@@ -365,7 +365,7 @@ class AccountInvoice(models.Model):
     sequence_number_next_prefix = fields.Char(string='Next Number', compute="_get_sequence_prefix")
 
     _sql_constraints = [
-        ('number_uniq', 'unique(number, company_id, journal_id, type)', 'Invoice Number must be unique per Company!'),
+        ('number_uniq', 'unique(number, company_id, journal_id, type, partner_id)', 'Invoice Number must be unique per Company!'),
     ]
 
     def _get_seq_number_next_stuff(self):
