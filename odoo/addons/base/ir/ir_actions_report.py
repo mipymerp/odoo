@@ -347,6 +347,8 @@ class IrActionsReport(models.Model):
         :return: Content of the pdf as a string
         '''
         paperformat_id = self.paperformat_id or self.env.user.company_id.paperformat_id
+        if specific_paperformat_args.get('data-report-paperformat_id'):
+            paperformat_id = self.env['report.paperformat'].browse(int(specific_paperformat_args.get('data-report-paperformat_id')))
 
         # Build the base command args for wkhtmltopdf bin
         command_args = self._build_wkhtmltopdf_args(
@@ -480,6 +482,8 @@ class IrActionsReport(models.Model):
         :param res_ids: the ids of record to allow postprocessing.
         :return: The pdf content of the merged pdf.
         '''
+        if res_ids:
+            res_ids = list(filter(None, res_ids))
 
         def close_streams(streams):
             for stream in streams:
@@ -507,7 +511,7 @@ class IrActionsReport(models.Model):
             if not record_map or not self.attachment:
                 streams.append(pdf_content_stream)
             else:
-                if len(res_ids) == 1:
+                if len(res_ids) >= 1:
                     # Only one record, so postprocess directly and append the whole pdf.
                     if res_ids[0] in record_map and not res_ids[0] in save_in_attachment:
                         self.postprocess_pdf_report(record_map[res_ids[0]], pdf_content_stream)
