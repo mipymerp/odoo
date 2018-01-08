@@ -110,7 +110,7 @@ class AccountMove(models.Model):
     tax_cash_basis_rec_id = fields.Many2one(
         'account.partial.reconcile',
         string='Tax Cash Basis Entry of',
-        help="Technical field used to keep track of the tax cash basis reconciliation."
+        help="Technical field used to keep track of the tax cash basis reconciliation. "
         "This is needed when cancelling the source: it will post the inverse journal entry to cancel that part too.")
 
     @api.model
@@ -171,6 +171,8 @@ class AccountMove(models.Model):
             if not move.journal_id.update_posted:
                 raise UserError(_('You cannot modify a posted entry of this journal.\nFirst you should set the journal to allow cancelling entries.'))
         if self.ids:
+            self.check_access_rights('write')
+            self.check_access_rule('write')
             self._check_lock_date()
             self._cr.execute('UPDATE account_move '\
                        'SET state=%s '\
