@@ -5435,6 +5435,38 @@ QUnit.module('relational_fields', {
         form.destroy();
     });
 
+    QUnit.test('id field in one2many in a new record', function (assert) {
+        assert.expect(1);
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form string="Partners">' +
+                    '<field name="turtles">' +
+                        '<tree editable="bottom">' +
+                            '<field name="id" invisible="1"/>' +
+                            '<field name="turtle_foo"/>' +
+                        '</tree>' +
+                    '</field>' +
+                '</form>',
+            mockRPC: function (route, args) {
+                if (args.method === 'create') {
+                    var virtualID = args.args[0].turtles[0][1];
+                    assert.deepEqual(args.args[0].turtles,
+                        [[0, virtualID, {turtle_foo: "cat"}]],
+                        'should send proper commands');
+                }
+                return this._super.apply(this, arguments);
+            },
+        });
+        form.$('td.o_field_x2many_list_row_add a').click();
+        form.$('td input[name="turtle_foo"]').val('cat').trigger('input');
+        form.$buttons.find('.o_form_button_save').click();
+
+        form.destroy();
+    });
+
     QUnit.test('sub form view with a required field', function (assert) {
         assert.expect(2);
         this.data.partner.fields.foo.required = true;
@@ -6884,7 +6916,6 @@ QUnit.module('relational_fields', {
                 if (args.method === 'read' && args.model === 'partner') {
                     assert.deepEqual(args.kwargs.context, {
                         active_field: 2,
-                        bin_size: true,
                         someKey: 'some value',
                     }, "sent context should be correct");
                 }
@@ -7568,6 +7599,46 @@ QUnit.module('relational_fields', {
 
         form.destroy();
     });
+
+    QUnit.test('one2many with multiple pages and sequence field', function (assert) {
+        assert.expect(1);
+
+        this.data.partner.records[0].turtles = [3, 2, 1];
+        this.data.partner.onchanges.turtles = function () {};
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch:'<form string="Partners">' +
+                    '<field name="turtles">' +
+                        '<tree limit="2">' +
+                            '<field name="turtle_int" widget="handle"/>' +
+                            '<field name="turtle_foo"/>' +
+                            '<field name="partner_ids" invisible="1"/>' +
+                        '</tree>' +
+                    '</field>' +
+                '</form>',
+            res_id: 1,
+            mockRPC: function (route, args) {
+                if (args.method === 'onchange') {
+                    return $.when({value: { turtles: [
+                        [5],
+                        [1, 1, {turtle_foo: "from onchange", partner_ids: [[5]]}],
+                    ]}});
+                }
+                return this._super(route, args);
+            },
+            viewOptions: {
+                mode: 'edit',
+            },
+        });
+        form.$('span[name="delete"]').first().click();
+        assert.strictEqual(form.$('.o_data_row').text(), 'from onchange',
+            'onchange has been properly applied');
+        form.destroy();
+    });
+
     QUnit.module('FieldMany2Many');
 
     QUnit.test('many2many kanban: edition', function (assert) {
