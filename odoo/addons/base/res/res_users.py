@@ -14,6 +14,7 @@ from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationErro
 from odoo.osv import expression
 from odoo.service.db import check_super
 from odoo.tools import partition
+from odoo.http import root
 
 _logger = logging.getLogger(__name__)
 
@@ -281,6 +282,13 @@ class Users(models.Model):
             raise ValidationError(_('The chosen company is not in the allowed companies for this user'))
 
     @api.multi
+    @api.constrains('action_id')
+    def _check_action_id(self):
+        action_open_website = self.env.ref('base.action_open_website', raise_if_not_found=False)
+        if action_open_website and any(user.action_id.id == action_open_website.id for user in self):
+            raise ValidationError(_('The "App Switcher" action cannot be selected as home action.'))
+
+    @api.multi
     def read(self, fields=None, load='_classic_read'):
         if fields and self == self.env.user:
             for key in fields:
@@ -365,6 +373,8 @@ class Users(models.Model):
         if any(key.startswith('context_') or key in ('lang', 'tz') for key in values):
             self.context_get.clear_cache(self)
         if any(key in values for key in ['active'] + USER_PRIVATE_FIELDS):
+            # force deletion of all sessions for these users
+            root.session_store.delete_sessions_for_uids(self.ids)
             db = self._cr.dbname
             for id in self.ids:
                 self.__uid_cache[db].pop(id, None)
@@ -378,7 +388,10 @@ class Users(models.Model):
         db = self._cr.dbname
         for id in self.ids:
             self.__uid_cache[db].pop(id, None)
-        return super(Users, self).unlink()
+        res = super(Users, self).unlink()
+        # force deletion of all sessions for these users
+        root.session_store.delete_sessions_for_uids(self.ids)
+        return res
 
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):

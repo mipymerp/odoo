@@ -160,6 +160,8 @@ class AccountMove(models.Model):
             if not move.journal_id.update_posted:
                 raise UserError(_('You cannot modify a posted entry of this journal.\nFirst you should set the journal to allow cancelling entries.'))
         if self.ids:
+            self.check_access_rights('write')
+            self.check_access_rule('write')
             self._check_lock_date()
             self._cr.execute('UPDATE account_move '\
                        'SET state=%s '\
@@ -801,7 +803,7 @@ class AccountMoveLine(models.Model):
         elif self._context.get('skip_full_reconcile_check') == 'amount_currency_only':
             field = 'amount_residual_currency'
         #target the pair of move in self that are the oldest
-        sorted_moves = sorted(self, key=lambda a: a.date)
+        sorted_moves = sorted(self, key=lambda a: a.date_maturity or a.date)
         debit = credit = False
         for aml in sorted_moves:
             if credit and debit:

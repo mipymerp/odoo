@@ -213,7 +213,7 @@ class AccountInvoice(models.Model):
     move_name = fields.Char(string='Journal Entry Name', readonly=False,
         default=False, copy=False,
         help="Technical field holding the number given to the invoice, automatically set when the invoice is validated then stored to set the same number again if the invoice is cancelled, set to draft and re-validated.")
-    reference = fields.Char(string='Vendor Reference',
+    reference = fields.Char(string='Vendor Reference', copy=False,
         help="The partner reference of this invoice.", readonly=True, states={'draft': [('readonly', False)]})
     reference_type = fields.Selection('_get_reference_type', string='Payment Reference',
         required=True, readonly=True, states={'draft': [('readonly', False)]},
@@ -700,7 +700,7 @@ class AccountInvoice(models.Model):
         total_currency = 0
         for line in invoice_move_lines:
             if self.currency_id != company_currency:
-                currency = self.currency_id.with_context(date=self.date or self.date_invoice or fields.Date.context_today(self))
+                currency = self.currency_id.with_context(date=self._get_currency_rate_date() or fields.Date.context_today(self))
                 if not (line.get('currency_id') and line.get('amount_currency')):
                     line['currency_id'] = currency.id
                     line['amount_currency'] = currency.round(line['price'])
@@ -848,7 +848,7 @@ class AccountInvoice(models.Model):
             if inv.payment_term_id:
                 totlines = inv.with_context(ctx).payment_term_id.with_context(currency_id=company_currency.id).compute(total, inv.date_invoice)[0]
                 res_amount_currency = total_currency
-                ctx['date'] = inv.date or inv.date_invoice
+                ctx['date'] = inv._get_currency_rate_date()
                 for i, t in enumerate(totlines):
                     if inv.currency_id != company_currency:
                         amount_currency = company_currency.with_context(ctx).compute(t[1], inv.currency_id)
@@ -1029,6 +1029,9 @@ class AccountInvoice(models.Model):
         copy_fields = ['company_id', 'user_id', 'fiscal_position_id']
         return self._get_refund_common_fields() + self._get_refund_prepare_fields() + copy_fields
 
+    def _get_currency_rate_date(self):
+        return self.date or self.date_invoice
+
     @api.model
     def _prepare_refund(self, invoice, date_invoice=None, date=None, description=None, journal_id=None):
         """ Prepare the dict of values to create the new refund from the invoice.
@@ -1068,6 +1071,7 @@ class AccountInvoice(models.Model):
         values['state'] = 'draft'
         values['number'] = False
         values['origin'] = invoice.number
+        values['payment_term_id'] = False
         values['refund_invoice_id'] = invoice.id
 
         if date:
@@ -1188,7 +1192,7 @@ class AccountInvoiceLine(models.Model):
     @api.one
     @api.depends('price_unit', 'discount', 'invoice_line_tax_ids', 'quantity',
         'product_id', 'invoice_id.partner_id', 'invoice_id.currency_id', 'invoice_id.company_id',
-        'invoice_id.date_invoice')
+        'invoice_id.date_invoice', 'invoice_id.date')
     def _compute_price(self):
         currency = self.invoice_id and self.invoice_id.currency_id or None
         price = self.price_unit * (1 - (self.discount or 0.0) / 100.0)
@@ -1197,7 +1201,7 @@ class AccountInvoiceLine(models.Model):
             taxes = self.invoice_line_tax_ids.compute_all(price, currency, self.quantity, product=self.product_id, partner=self.invoice_id.partner_id)
         self.price_subtotal = price_subtotal_signed = taxes['total_excluded'] if taxes else self.quantity * price
         if self.invoice_id.currency_id and self.invoice_id.company_id and self.invoice_id.currency_id != self.invoice_id.company_id.currency_id:
-            price_subtotal_signed = self.invoice_id.currency_id.with_context(date=self.invoice_id.date_invoice).compute(price_subtotal_signed, self.invoice_id.company_id.currency_id)
+            price_subtotal_signed = self.invoice_id.currency_id.with_context(date=self.invoice_id._get_currency_rate_date()).compute(price_subtotal_signed, self.invoice_id.company_id.currency_id)
         sign = self.invoice_id.type in ['in_refund', 'out_refund'] and -1 or 1
         self.price_subtotal_signed = price_subtotal_signed * sign
 
@@ -1316,9 +1320,6 @@ class AccountInvoiceLine(models.Model):
                 self.price_unit = 0.0
             domain['uom_id'] = []
         else:
-            # Use the purchase uom by default
-            self.uom_id = self.product_id.uom_po_id
-
             if part.lang:
                 product = self.product_id.with_context(lang=part.lang)
             else:
@@ -1458,6 +1459,7 @@ class AccountPaymentTerm(models.Model):
     def compute(self, value, date_ref=False):
         date_ref = date_ref or fields.Date.today()
         amount = value
+        sign = value < 0 and -1 or 1
         result = []
         if self.env.context.get('currency_id'):
             currency = self.env['res.currency'].browse(self.env.context['currency_id'])
@@ -1466,7 +1468,7 @@ class AccountPaymentTerm(models.Model):
         prec = currency.decimal_places
         for line in self.line_ids:
             if line.value == 'fixed':
-                amt = round(line.value_amount, prec)
+                amt = sign * round(line.value_amount, prec)
             elif line.value == 'percent':
                 amt = round(value * (line.value_amount / 100.0), prec)
             elif line.value == 'balance':

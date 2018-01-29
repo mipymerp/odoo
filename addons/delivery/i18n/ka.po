@@ -2,12 +2,17 @@
 # This file contains the translation of the following modules:
 # * delivery
 # 
+# Translators:
+# Martin Trigaux <mat@odoo.com>, 2017
+# Saba Khmaladze <skhmaladze@uglt.org>, 2018
+# Giorgi Melitauri <gmelitauri@live.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:56+0000\n"
 "PO-Revision-Date: 2016-09-07 08:56+0000\n"
+"Last-Translator: Giorgi Melitauri <gmelitauri@live.com>, 2018\n"
 "Language-Team: Georgian (https://www.transifex.com/odoo/teams/41243/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -127,7 +132,7 @@ msgstr ""
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_active
 msgid "Active"
-msgstr ""
+msgstr "აქტიური"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_amount
@@ -252,7 +257,7 @@ msgstr ""
 #. module: delivery
 #: model:ir.ui.view,arch_db:delivery.view_picking_withcarrier_out_form
 msgid "Cancel"
-msgstr ""
+msgstr "შეწყვეტა"
 
 #. module: delivery
 #: model:ir.model,name:delivery.model_delivery_carrier
@@ -294,12 +299,12 @@ msgstr ""
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_color
 msgid "Color Index"
-msgstr ""
+msgstr "ფერის ინდექსი"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_company_id
 msgid "Company"
-msgstr ""
+msgstr "კომპანია"
 
 #. module: delivery
 #: model:ir.ui.view,arch_db:delivery.view_delivery_price_rule_form
@@ -355,18 +360,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_create_uid
 #: model:ir.model.fields,field_description:delivery.field_delivery_price_rule_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "შემქმნელი"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_create_date
 #: model:ir.model.fields,field_description:delivery.field_delivery_price_rule_create_date
 msgid "Created on"
-msgstr ""
+msgstr "შექმნის თარიღი"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_currency_id
 msgid "Currency"
-msgstr ""
+msgstr "ვალუტა"
 
 #. module: delivery
 #: model:ir.model.fields,help:delivery.field_delivery_carrier_qty_available
@@ -475,7 +480,7 @@ msgstr ""
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_description
 msgid "Description"
-msgstr ""
+msgstr "აღწერილობა"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_description_picking
@@ -508,7 +513,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_display_name
 #: model:ir.model.fields,field_description:delivery.field_delivery_price_rule_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "სახელი"
 
 #. module: delivery
 #: model:ir.actions.act_window,help:delivery.action_delivery_carrier_form
@@ -657,7 +662,7 @@ msgstr ""
 #. module: delivery
 #: model:ir.ui.view,arch_db:delivery.view_delivery_carrier_search
 msgid "Group By"
-msgstr ""
+msgstr "დაჯგუფება"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_hs_code
@@ -679,7 +684,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_id
 #: model:ir.model.fields,field_description:delivery.field_delivery_price_rule_id
 msgid "ID"
-msgstr ""
+msgstr "იდენტიფიკატორი"
 
 #. module: delivery
 #: model:ir.model.fields,help:delivery.field_delivery_carrier_message_unread
@@ -823,19 +828,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier___last_update
 #: model:ir.model.fields,field_description:delivery.field_delivery_price_rule___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "ბოლოს განახლებულია"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_write_uid
 #: model:ir.model.fields,field_description:delivery.field_delivery_price_rule_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "ბოლოს განაახლა"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_write_date
 #: model:ir.model.fields,field_description:delivery.field_delivery_price_rule_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "ბოლოს განახლებულია"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_product_packaging_length
@@ -960,7 +965,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:delivery.field_delivery_price_rule_name
 #: model:ir.ui.view,arch_db:delivery.view_delivery_carrier_form
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #. module: delivery
 #: selection:product.packaging,package_carrier_type:0
@@ -1075,7 +1080,7 @@ msgstr ""
 #. module: delivery
 #: model:ir.model,name:delivery.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "პარტნიორი"
 
 #. module: delivery
 #: model:ir.model,name:delivery.model_stock_quant_package
@@ -1092,7 +1097,7 @@ msgstr ""
 #: selection:delivery.price.rule,variable_factor:0
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_price
 msgid "Price"
-msgstr ""
+msgstr "ფასი"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_property_account_creditor_price_difference
@@ -1138,7 +1143,7 @@ msgstr ""
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_product_variant_id
 msgid "Product"
-msgstr ""
+msgstr "პროდუქტი"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_alert_time
@@ -1190,12 +1195,12 @@ msgstr ""
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_product_variant_ids
 msgid "Products"
-msgstr ""
+msgstr "პროდუქტები"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_project_id
 msgid "Project"
-msgstr ""
+msgstr "პროექტი"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_delivery_type
@@ -1229,7 +1234,7 @@ msgstr ""
 #: selection:delivery.price.rule,variable_factor:0
 #: model:ir.model.fields,field_description:delivery.field_sale_order_line_product_qty
 msgid "Quantity"
-msgstr ""
+msgstr "რაოდენობა"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_qty_available
@@ -1316,18 +1321,18 @@ msgstr ""
 #. module: delivery
 #: model:ir.model,name:delivery.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "გაყიდვის ორდერი"
 
 #. module: delivery
 #: model:ir.model,name:delivery.model_sale_order_line
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_sale_line_warn
 msgid "Sales Order Line"
-msgstr ""
+msgstr "გაყიდვის ორდერის ხაზი"
 
 #. module: delivery
 #: model:ir.ui.view,arch_db:delivery.view_quant_package_form_save
 msgid "Save"
-msgstr ""
+msgstr "შენახვა"
 
 #. module: delivery
 #: model:ir.model.fields,help:delivery.field_delivery_carrier_categ_id
@@ -1360,7 +1365,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_sequence
 #: model:ir.model.fields,field_description:delivery.field_delivery_price_rule_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "მიმდევრობა"
 
 #. module: delivery
 #: model:ir.ui.view,arch_db:delivery.view_order_form_with_carrier
@@ -1686,7 +1691,7 @@ msgstr ""
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "წაუკითხავი შეტყობინებები"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_delivery_carrier_message_unread_counter

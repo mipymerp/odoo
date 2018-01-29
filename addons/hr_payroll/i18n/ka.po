@@ -2,12 +2,17 @@
 # This file contains the translation of the following modules:
 # * hr_payroll
 # 
+# Translators:
+# Martin Trigaux <mat@odoo.com>, 2017
+# Saba Khmaladze <skhmaladze@uglt.org>, 2018
+# Giorgi Melitauri <gmelitauri@live.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-07 08:56+0000\n"
 "PO-Revision-Date: 2016-09-07 08:56+0000\n"
+"Last-Translator: Giorgi Melitauri <gmelitauri@live.com>, 2018\n"
 "Language-Team: Georgian (https://www.transifex.com/odoo/teams/41243/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -135,7 +140,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line_active
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule_active
 msgid "Active"
-msgstr ""
+msgstr "აქტიური"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
@@ -212,7 +217,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payroll_configuration
 #: model:ir.ui.view,arch_db:hr_payroll.view_payslip_lines_contribution_register
 msgid "Cancel"
-msgstr ""
+msgstr "შეწყვეტა"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
@@ -263,7 +268,7 @@ msgstr ""
 #: selection:hr.payslip.run,state:0
 #: model:ir.ui.view,arch_db:hr_payroll.hr_payslip_run_form
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_input_code
@@ -281,7 +286,7 @@ msgstr ""
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_filter
 msgid "Companies"
-msgstr ""
+msgstr "კომპანიები"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_contribution_register_company_id
@@ -291,7 +296,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule_category_company_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule_company_id
 msgid "Company"
-msgstr ""
+msgstr "კომპანია"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.hr_salary_rule_form
@@ -322,7 +327,7 @@ msgstr ""
 #. module: hr_payroll
 #: model:ir.ui.menu,name:hr_payroll.menu_hr_payroll_configuration
 msgid "Configuration"
-msgstr ""
+msgstr "კონფიგურაცია"
 
 #. module: hr_payroll
 #: model:ir.actions.act_window,name:hr_payroll.action_hr_payroll_configuration
@@ -389,7 +394,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule_create_uid
 #: model:ir.model.fields,field_description:hr_payroll.field_payslip_lines_contribution_register_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "შემქმნელი"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_contribution_register_create_date
@@ -406,7 +411,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule_create_date
 #: model:ir.model.fields,field_description:hr_payroll.field_payslip_lines_contribution_register_create_date
 msgid "Created on"
-msgstr ""
+msgstr "შექმნის თარიღი"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_credit_note
@@ -449,7 +454,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_payroll.hr_contribution_register_form
 #: model:ir.ui.view,arch_db:hr_payroll.hr_salary_rule_form
 msgid "Description"
-msgstr ""
+msgstr "აღწერილობა"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
@@ -479,7 +484,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_report_hr_payroll_report_contributionregister_display_name
 #: model:ir.model.fields,field_description:hr_payroll.field_report_hr_payroll_report_payslipdetails_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "სახელი"
 
 #. module: hr_payroll
 #: selection:hr.payslip,state:0
@@ -600,7 +605,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_line_filter
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_rule_filter
 msgid "Group By"
-msgstr ""
+msgstr "დაჯგუფება"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_contribution_register_id
@@ -619,7 +624,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_report_hr_payroll_report_contributionregister_id
 #: model:ir.model.fields,field_description:hr_payroll.field_report_hr_payroll_report_payslipdetails_id
 msgid "ID"
-msgstr ""
+msgstr "იდენტიფიკატორი"
 
 #. module: hr_payroll
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_run_credit_note
@@ -697,7 +702,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_report_hr_payroll_report_contributionregister___last_update
 #: model:ir.model.fields,field_description:hr_payroll.field_report_hr_payroll_report_payslipdetails___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "ბოლოს განახლებულია"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_contribution_register_write_uid
@@ -714,7 +719,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule_write_uid
 #: model:ir.model.fields,field_description:hr_payroll.field_payslip_lines_contribution_register_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "ბოლოს განაახლა"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_contribution_register_write_date
@@ -731,7 +736,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule_write_date
 #: model:ir.model.fields,field_description:hr_payroll.field_payslip_lines_contribution_register_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "ბოლოს განახლებულია"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_config_settings_module_hr_payroll_account
@@ -753,7 +758,7 @@ msgstr ""
 #. module: hr_payroll
 #: model:res.groups,name:hr_payroll.group_hr_payroll_manager
 msgid "Manager"
-msgstr ""
+msgstr "მმართველი"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line_condition_range_max
@@ -788,7 +793,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_payroll.report_payslip
 #: model:ir.ui.view,arch_db:hr_payroll.report_payslipdetails
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #. module: hr_payroll
 #: code:addons/hr_payroll/models/hr_payroll.py:323
@@ -836,7 +841,7 @@ msgstr ""
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_contribution_register_partner_id
 msgid "Partner"
-msgstr ""
+msgstr "პარტნიორი"
 
 #. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payslip
@@ -1040,7 +1045,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line_quantity
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule_quantity
 msgid "Quantity"
-msgstr ""
+msgstr "რაოდენობა"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.report_contributionregister
@@ -1221,7 +1226,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_worked_days_sequence
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_salary_rule_sequence
 msgid "Sequence"
-msgstr ""
+msgstr "მიმდევრობა"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.hr_payslip_run_form
@@ -1233,7 +1238,7 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_payroll.menu_hr_payroll_global_settings
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payroll_configuration
 msgid "Settings"
-msgstr ""
+msgstr "პარამეტრები"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_filter
@@ -1244,7 +1249,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_run_state
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_state
 msgid "Status"
-msgstr ""
+msgstr "სტატუსი"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_struct_id
