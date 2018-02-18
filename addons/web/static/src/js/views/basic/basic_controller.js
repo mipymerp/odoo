@@ -332,7 +332,9 @@ var BasicController = AbstractController.extend(FieldManagerMixin, {
                 }
                 self.model.discardChanges(recordID);
                 if (self.model.isNew(recordID)) {
-                    self._abandonRecord(recordID);
+                    if (self.model.canBeAbandoned(recordID)) {
+                        self._abandonRecord(recordID);
+                    }
                     return;
                 }
                 return self._confirmSave(recordID);
@@ -511,7 +513,7 @@ var BasicController = AbstractController.extend(FieldManagerMixin, {
                 // TODO this will tell the renderer to rerender the widget that
                 // asked for the discard but will unfortunately lose the click
                 // made on another row if any
-                self._confirmChange(self.handle, [ev.data.fieldName], ev)
+                self._confirmChange(recordID, [ev.data.fieldName], ev)
                     .always(ev.data.onSuccess);
             })
             .fail(ev.data.onFailure);

@@ -3,14 +3,14 @@
 # * contacts
 # 
 # Translators:
-# Paolo Valier <paolo.valier@hotmail.it>, 2017
+# Paolo Valier, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:53+0000\n"
 "PO-Revision-Date: 2017-09-20 09:53+0000\n"
-"Last-Translator: Paolo Valier <paolo.valier@hotmail.it>, 2017\n"
+"Last-Translator: Paolo Valier, 2017\n"
 "Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +42,7 @@ msgstr "Configurazione"
 #. module: contacts
 #: model:ir.ui.menu,name:contacts.menu_partner_category_form
 msgid "Contact Tags"
-msgstr ""
+msgstr "Tag Contatti"
 
 #. module: contacts
 #: model:ir.ui.menu,name:contacts.menu_partner_title_contact
@@ -59,12 +59,12 @@ msgstr "Contatti"
 #. module: contacts
 #: model:ir.ui.menu,name:contacts.menu_country_partner
 msgid "Countries"
-msgstr ""
+msgstr "Nazioni"
 
 #. module: contacts
 #: model:ir.ui.menu,name:contacts.menu_country_group
 msgid "Country Group"
-msgstr ""
+msgstr "Gruppo Nazione"
 
 #. module: contacts
 #: model:ir.ui.menu,name:contacts.menu_country_state_partner
@@ -74,7 +74,7 @@ msgstr ""
 #. module: contacts
 #: model:ir.ui.menu,name:contacts.menu_localisation
 msgid "Localization"
-msgstr ""
+msgstr "Localizzazione"
 
 #. module: contacts
 #: model:ir.actions.act_window,help:contacts.action_contacts

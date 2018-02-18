@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-30 13:12+0000\n"
-"PO-Revision-Date: 2017-11-30 13:12+0000\n"
+"POT-Creation-Date: 2018-02-07 10:30+0000\n"
+"PO-Revision-Date: 2018-02-07 10:30+0000\n"
 "Last-Translator: Paolo Valier, 2017\n"
 "Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
@@ -280,11 +280,6 @@ msgid ""
 msgstr ""
 
 #. module: calendar
-#: model:ir.model.fields,field_description:calendar.field_calendar_event_is_highlighted
-msgid "# Meetings Highlight"
-msgstr ""
-
-#. module: calendar
 #: model:mail.template,subject:calendar.calendar_template_meeting_reminder
 msgid "${object.event_id.name} - Reminder"
 msgstr ""
@@ -459,7 +454,7 @@ msgstr ""
 #: model:ir.ui.menu,name:calendar.mail_menu_calendar
 #: model:ir.ui.menu,name:calendar.menu_calendar_configuration
 msgid "Calendar"
-msgstr ""
+msgstr "Calendario"
 
 #. module: calendar
 #: model:ir.actions.act_window,name:calendar.action_calendar_alarm
@@ -632,7 +627,7 @@ msgstr ""
 #. module: calendar
 #: model:ir.model.fields,help:calendar.field_calendar_attendee_email
 msgid "Email of Invited Person"
-msgstr ""
+msgstr "Email della Persona Invitata"
 
 #. module: calendar
 #: model:ir.model.fields,field_description:calendar.field_calendar_contacts_partner_id
@@ -812,6 +807,11 @@ msgstr ""
 #. module: calendar
 #: model:ir.model,name:calendar.model_mail_wizard_invite
 msgid "Invite wizard"
+msgstr "Wizard Invito"
+
+#. module: calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_is_highlighted
+msgid "Is the Event Highlighted"
 msgstr ""
 
 #. module: calendar
@@ -960,7 +960,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:calendar.field_calendar_alarm_name
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_type_name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: calendar
 #: selection:calendar.attendee,state:0
@@ -1100,7 +1100,7 @@ msgstr ""
 #. module: calendar
 #: model:ir.model.fields,help:calendar.field_calendar_event_interval
 msgid "Repeat every (Days/Week/Month/Year)"
-msgstr ""
+msgstr "Ripeti ogni (giorno/settimana/mese/anno)"
 
 #. module: calendar
 #: model:ir.model.fields,help:calendar.field_calendar_event_count
@@ -1341,12 +1341,12 @@ msgstr ""
 #. module: calendar
 #: selection:calendar.event,rrule_type:0
 msgid "Week(s)"
-msgstr ""
+msgstr "Settimana(e)"
 
 #. module: calendar
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_week_list
 msgid "Weekday"
-msgstr ""
+msgstr "giorno feriale"
 
 #. module: calendar
 #: selection:calendar.event,rrule_type:0
@@ -1388,4 +1388,4 @@ msgstr ""
 #. module: calendar
 #: model:ir.model,name:calendar.model_ir_attachment
 msgid "ir.attachment"
-msgstr ""
+msgstr "ir.attachment"

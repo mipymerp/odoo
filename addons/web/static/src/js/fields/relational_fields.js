@@ -1108,6 +1108,7 @@ var FieldX2Many = AbstractField.extend({
      * @param {OdooEvent} event
      */
     _onResequence: function (event) {
+        event.stopPropagation();
         var self = this;
         this.trigger_up('freeze_order', {id: this.value.id});
         var rowIDs = event.data.rowIDs.slice();

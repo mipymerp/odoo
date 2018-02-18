@@ -9,13 +9,15 @@
 # Pietro Della Notte <pdellanotte@gmail.com>, 2017
 # Paolo Caruccio <paolo.caruccio66@gmail.com>, 2018
 # Cesare Cugnasco <cesare.cugnasco@gmail.com>, 2018
+# Marco Calcagni <mcalcagni@dinamicheaziendali.it>, 2018
+# Alberto Carollo <baba75@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-30 13:11+0000\n"
 "PO-Revision-Date: 2017-11-30 13:11+0000\n"
-"Last-Translator: Cesare Cugnasco <cesare.cugnasco@gmail.com>, 2018\n"
+"Last-Translator: Alberto Carollo <baba75@gmail.com>, 2018\n"
 "Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -270,7 +272,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:stock.report_delivery_document
 #: model:ir.ui.view,arch_db:stock.report_picking
 msgid "<span><strong>Customer Address:</strong></span>"
-msgstr ""
+msgstr "<span><strong>Indirizzo Cliente:</strong></span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.report_picking
@@ -492,7 +494,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:stock.report_delivery_document
 #: model:ir.ui.view,arch_db:stock.report_picking
 msgid "<strong>Order (Origin)</strong>"
-msgstr ""
+msgstr "<strong>Origine Ordine</strong>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.report_delivery_document
@@ -502,7 +504,7 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.report_inventory
 msgid "<strong>Package</strong>"
-msgstr ""
+msgstr "Package"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.report_delivery_document
@@ -562,7 +564,7 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid "<strong>Warehouse Locations</strong>"
-msgstr ""
+msgstr "<strong>Ubicazione in Magazzino</strong>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
@@ -581,12 +583,12 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid "A classic purchase flow looks like the following:"
-msgstr ""
+msgstr "Un classico flusso di acquisto è simile al seguente:"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid "A classic sales flow looks like the following:"
-msgstr ""
+msgstr "Un classico flusso di vendita è simile al seguente:"
 
 #. module: stock
 #: code:addons/stock/models/stock_move_line.py:86
@@ -625,7 +627,7 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid "API Documentation"
-msgstr ""
+msgstr "Documentazione API"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
@@ -780,7 +782,7 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_procurement_rule_form
 msgid "Applied On"
-msgstr ""
+msgstr "Applicare A"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.stock_incoterms_view_search
@@ -1169,7 +1171,7 @@ msgstr ""
 #: model:ir.actions.act_window,help:stock.action_picking_tree_waiting
 #: model:ir.actions.act_window,help:stock.stock_picking_action_picking_type
 msgid "Click here to create a new transfer."
-msgstr ""
+msgstr "Clicca qui per creare un nuovo movimento."
 
 #. module: stock
 #: model:ir.actions.act_window,help:stock.action_stock_scrap
@@ -1442,7 +1444,7 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
 msgid "Create a Quotation"
-msgstr ""
+msgstr "Crea un Preventivo"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
@@ -1638,7 +1640,7 @@ msgstr ""
 #: model:stock.location,name:stock.stock_location_customers
 #: selection:stock.picking.type,code:0
 msgid "Customers"
-msgstr ""
+msgstr "Clienti"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.report_stock_body_print
@@ -1996,7 +1998,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:stock.stock_warn_insufficient_qty_form_view
 #: model:ir.ui.view,arch_db:stock.view_stock_move_operations
 msgid "Discard"
-msgstr ""
+msgstr "Annulla"
 
 #. module: stock
 #: model:stock.location,name:stock.location_dispatch_zone
@@ -2161,7 +2163,7 @@ msgstr ""
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_res_config_settings_module_product_expiry
 msgid "Expiration Dates"
-msgstr ""
+msgstr "Date di Scadenza"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_location_form
@@ -3305,7 +3307,7 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_location_form
 msgid "Localization"
-msgstr ""
+msgstr "Localizzazione"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_production_lot_form
@@ -3565,7 +3567,7 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.stock_move_line_view_search
 msgid "Manufacturing"
-msgstr ""
+msgstr "Produzione"
 
 #. module: stock
 #: selection:stock.picking.type,code:0
@@ -3731,7 +3733,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock.field_stock_incoterms_name
 #: model:ir.model.fields,field_description:stock.field_stock_warehouse_orderpoint_name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.product_template_search_form_view_stock
@@ -3745,7 +3747,7 @@ msgstr ""
 #: code:addons/stock/models/stock_scrap.py:65 selection:stock.move,state:0
 #, python-format
 msgid "New"
-msgstr ""
+msgstr "Nuovo"
 
 #. module: stock
 #: code:addons/stock/models/stock_move_line.py:173
@@ -3837,7 +3839,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock.field_stock_picking_note
 #: model:ir.ui.view,arch_db:stock.view_inventory_form
 msgid "Notes"
-msgstr ""
+msgstr "Note"
 
 #. module: stock
 #: code:addons/stock/models/stock_picking.py:544
@@ -6400,12 +6402,12 @@ msgstr ""
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_move_search
 msgid "Today"
-msgstr ""
+msgstr "Oggi"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.view_picking_internal_search
 msgid "Today Activities"
-msgstr ""
+msgstr "Attività di Oggi"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_inventory_total_qty

@@ -3,13 +3,13 @@
 # * mrp
 # 
 # Translators:
-# Gustavo Valverde <g.valverde02@gmail.com>, 2017
-# Martin Trigaux <mat@odoo.com>, 2017
+# Gustavo Valverde, 2017
+# Martin Trigaux, 2017
 # Miguel Orueta <mo@landoo.es>, 2017
 # Luis Pomar <luis.pomar@gmail.com>, 2017
 # RGB Consulting <odoo@rgbconsulting.com>, 2017
 # Luis M. Ontalba <luis.martinez@tecnativa.com>, 2017
-# Antonio Trueba <atgayol@gmail.com>, 2017
+# Antonio Trueba, 2017
 # oihane <oihanecruce@gmail.com>, 2017
 # Carles Antoli <carlesantoli@hotmail.com>, 2017
 # Juan José Scarafía <scarafia.juanjose@gmail.com>, 2017
@@ -29,13 +29,15 @@
 # Kiko <kiko@comunitea.com>, 2017
 # Christopher Ormaza <chris.ormaza@gmail.com>, 2017
 # Fernando San Martín Woerner <fsnmartin@gmail.com>, 2017
+# e2f <projects@e2f.com>, 2018
+# ES R1 <e2fes@hotmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-16 08:08+0000\n"
 "PO-Revision-Date: 2017-11-16 08:08+0000\n"
-"Last-Translator: Fernando San Martín Woerner <fsnmartin@gmail.com>, 2017\n"
+"Last-Translator: ES R1 <e2fes@hotmail.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -210,7 +212,7 @@ msgstr "<strong class=\"mr8\">a</strong>"
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.view_mrp_workcenter_productivity_loss_kanban
 msgid "<strong>Effectiveness Category: </strong>"
-msgstr ""
+msgstr "<strong>Categoría de la efectividad:</strong>"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.view_mrp_workcenter_productivity_loss_kanban
@@ -315,7 +317,7 @@ msgstr "Activo"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder_active_move_line_ids
 msgid "Active Move Line"
-msgstr ""
+msgstr "Línea de movimiento activo"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_workcenter_block_wizard_form
@@ -329,6 +331,9 @@ msgid ""
 "finished products as well. Without this option you only do: A + B = C. With "
 "the option: A + B = C + D."
 msgstr ""
+"Añadir subproductos a las facturas de los materiales. Esto se puede usar "
+"para obtener varios productos terminados también. Sin esta opción solo "
+"puedes hacer:  A + B = C. Con la opción: A + B = C + D."
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.stock_production_type_kanban
@@ -354,12 +359,12 @@ msgstr ""
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production_post_visible
 msgid "Allowed to Post Inventory"
-msgstr ""
+msgstr "Se permite el post inventario"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production_unreserve_visible
 msgid "Allowed to Unreserve Inventory"
-msgstr ""
+msgstr "Se permite cancelar el inventario"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.view_change_production_qty_wizard
@@ -516,7 +521,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:mrp.mrp_bom_form_action
 #: model:ir.ui.menu,name:mrp.menu_mrp_bom_form_action
 msgid "Bills of Materials"
-msgstr ""
+msgstr "Facturas de materiales"
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_bom_form_action
@@ -671,7 +676,7 @@ msgstr "Limpiar"
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_workcenter_kanban_action
 msgid "Click here"
-msgstr ""
+msgstr "Haga clic aquí"
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_production_action
@@ -681,22 +686,22 @@ msgstr "Click aquí para crear una Órden de Producción."
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_unbuild
 msgid "Click here to create a Unbuild Order."
-msgstr ""
+msgstr "Haga clic aquí para crear la cancelación de un pedido."
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_routing_action
 msgid "Click here to create a new Routing."
-msgstr ""
+msgstr "Haga clic aquí para crear una nueva ruta."
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_workcenter_action
 msgid "Click here to create a new Work Center"
-msgstr ""
+msgstr "Haga clic aquí para crear un nuevo centro de trabajo"
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_message_action_main
 msgid "Click here to create a new Work Order Message."
-msgstr ""
+msgstr "Haga clic aquí para crear un nuevo mensaje de la orden de trabajo"
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.action_work_orders
@@ -2205,7 +2210,7 @@ msgstr "Producto"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_res_config_settings_module_mrp_plm
 msgid "Product Lifecycle Management (PLM)"
-msgstr ""
+msgstr "Gestión del ciclo de vida del producto (PLM)"
 
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.action_mrp_unbuild_moves
@@ -2495,7 +2500,7 @@ msgstr ""
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_document_ir_attachment_id
 msgid "Related attachment"
-msgstr ""
+msgstr "Adjunto relacionado"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_res_config_settings_module_mrp_repair
@@ -3091,6 +3096,11 @@ msgid ""
 "the efficiency factor is 200%, however the expected duration will be 30 "
 "minutes."
 msgstr ""
+"Este campo se utiliza para calcular la duración prevista de una orden de "
+"trabajo en este centro de trabajo. Por ejemplo, si una orden de trabajo "
+"tiene una duración de una hora y el factor de eficiencia es del 100%, la "
+"duración prevista será de una hora. Si el factor de eficiencia es del 200%, "
+"la duración prevista será, sin embargo, de 30 minutos."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production_production_location_id
@@ -3555,7 +3565,7 @@ msgstr "Orden de trabajo"
 #: model:ir.actions.act_window,name:mrp.mrp_message_action_main
 #: model:ir.ui.menu,name:mrp.mrp_message_menu
 msgid "Work Order Messages"
-msgstr ""
+msgstr "Mensajes de orden de trabajo"
 
 #. module: mrp
 #: model:ir.actions.act_window,help:mrp.mrp_message_action_main

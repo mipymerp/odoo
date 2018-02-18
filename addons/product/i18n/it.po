@@ -7,13 +7,14 @@
 # Paolo Valier, 2017
 # Paolo Caruccio <paolo.caruccio66@gmail.com>, 2018
 # Cesare Cugnasco <cesare.cugnasco@gmail.com>, 2018
+# Alberto Carollo <baba75@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
-"Last-Translator: Cesare Cugnasco <cesare.cugnasco@gmail.com>, 2018\n"
+"Last-Translator: Alberto Carollo <baba75@gmail.com>, 2018\n"
 "Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -272,6 +273,8 @@ msgid ""
 "Allows to manage different prices based on rules per category of customers.\n"
 "                Example: 10% for retailers, promotion of 5 EUR on this product, etc."
 msgstr ""
+"Permette di gestire prezzi differenti per categoria di clienti secondo regole prestabilite.\n"
+"Esempio: 10% per rivenditori, promozione di 5 EUR su questo prodotto, ecc."
 
 #. module: product
 #: model:product.product,website_description:product.product_product_8
@@ -744,7 +747,7 @@ msgstr ""
 #. module: product
 #: model:ir.model,name:product.model_res_country_group
 msgid "Country Group"
-msgstr ""
+msgstr "Gruppo Nazione"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_country_group_ids
@@ -834,7 +837,7 @@ msgstr ""
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product_partner_ref
 msgid "Customer Ref"
-msgstr ""
+msgstr "Rif. Cliente"
 
 #. module: product
 #: model:product.product,name:product.product_delivery_02
@@ -1614,7 +1617,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_template_name
 #: model:ir.model.fields,field_description:product.field_product_uom_categ_name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_pricelist_item_form_view
@@ -1624,7 +1627,7 @@ msgstr ""
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Notes"
-msgstr ""
+msgstr "Note"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.product_supplierinfo_form_view
