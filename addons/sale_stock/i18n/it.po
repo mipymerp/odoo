@@ -76,7 +76,7 @@ msgstr ""
 #. module: sale_stock
 #: model:ir.ui.view,arch_db:sale_stock.view_order_form_inherit_sale_stock
 msgid "Delivery"
-msgstr ""
+msgstr "Consegna"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_res_config_settings_module_sale_order_dates
@@ -313,7 +313,7 @@ msgstr ""
 #. module: sale_stock
 #: model:ir.ui.view,arch_db:sale_stock.view_order_form_inherit_sale_stock
 msgid "Shipping Information"
-msgstr ""
+msgstr "Informazioni Spedizione"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_res_config_settings_default_picking_policy
@@ -323,7 +323,7 @@ msgstr ""
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_picking_policy
 msgid "Shipping Policy"
-msgstr ""
+msgstr "Politica di Spedizione"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_move
@@ -359,13 +359,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_warehouse_id
 #: model:ir.model.fields,field_description:sale_stock.field_sale_report_warehouse_id
 msgid "Warehouse"
-msgstr ""
+msgstr "Magazzino"
 
 #. module: sale_stock
 #: code:addons/sale_stock/models/sale_order.py:272
 #, python-format
 msgid "Warning"
-msgstr ""
+msgstr "Avviso"
 
 #. module: sale_stock
 #: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock

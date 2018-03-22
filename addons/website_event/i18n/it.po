@@ -29,12 +29,12 @@ msgstr ""
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.registration_template
 msgid "<b>End of Registration</b>"
-msgstr ""
+msgstr "<b>Termine della Registrazione</b>"
 
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.registration_template
 msgid "<b>Price</b>"
-msgstr ""
+msgstr "<b>Prezzo</b>"
 
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.registration_template
@@ -120,7 +120,7 @@ msgstr ""
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.registration_attendee_details
 msgid "<strong>Attendees</strong>"
-msgstr ""
+msgstr "<strong>Partecipanti</strong>"
 
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.registration_attendee_details
@@ -156,7 +156,7 @@ msgstr ""
 #: code:addons/website_event/controllers/main.py:96
 #, python-format
 msgid "All Categories"
-msgstr ""
+msgstr "Tutte le Categorie"
 
 #. module: website_event
 #: code:addons/website_event/controllers/main.py:103
@@ -177,7 +177,7 @@ msgstr ""
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.registration_attendee_details
 msgid "Attendee #%s"
-msgstr ""
+msgstr "Partecipante #%s"
 
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.registration_attendee_details
@@ -275,7 +275,7 @@ msgstr ""
 #. module: website_event
 #: model:ir.model,name:website_event.model_event_event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: website_event
 #: model:ir.model,name:website_event.model_event_type
@@ -327,7 +327,7 @@ msgstr ""
 #: model:mail.message.subtype,description:website_event.mt_event_unpublished
 #: model:mail.message.subtype,name:website_event.mt_event_unpublished
 msgid "Event unpublished"
-msgstr ""
+msgstr "Evento non pubblicato"
 
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.header_footer_custom
@@ -465,7 +465,7 @@ msgstr ""
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.registration_complete
 msgid "Phone"
-msgstr ""
+msgstr "Telefono"
 
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.event_right_photos
@@ -565,7 +565,7 @@ msgstr ""
 #. module: website_event
 #: model:ir.model.fields,field_description:website_event.field_event_event_website_published
 msgid "Visible in Website"
-msgstr ""
+msgstr "Visibile sul sito web"
 
 #. module: website_event
 #: model:ir.ui.view,arch_db:website_event.event_description_full

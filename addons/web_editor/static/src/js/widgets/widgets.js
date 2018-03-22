@@ -4,6 +4,7 @@ odoo.define('web_editor.widget', function (require) {
 var core = require('web.core');
 var Dialog = require('web.Dialog');
 var Widget = require('web.Widget');
+var utils = require('web.utils');
 var weContext = require("web_editor.context");
 
 var QWeb = core.qweb;
@@ -110,7 +111,8 @@ var ImageDialog = Widget.extend({
         'change input.url': "change_input",
         'keyup input.url': "change_input",
         'click .existing-attachments [data-src]': 'select_existing',
-        'dblclick .existing-attachments [data-src]': function () {
+        'dblclick .existing-attachments [data-src]': function (e) {
+            this.select_existing(e, true);
             this.getParent().save();
         },
         'click .o_existing_attachment_remove': 'try_remove',
@@ -164,11 +166,13 @@ var ImageDialog = Widget.extend({
         });
         return res;
     },
-    push: function (attachment) {
+    push: function (attachment, force_select) {
         if (this.options.select_images) {
             var img = _.select(this.images, function (v) { return v.id === attachment.id; });
             if (img.length) {
-                this.images.splice(this.images.indexOf(img[0]),1);
+                if (!force_select) {
+                  this.images.splice(this.images.indexOf(img[0]),1);
+                }
             } else {
                 this.images.push(attachment);
             }
@@ -367,10 +371,10 @@ var ImageDialog = Widget.extend({
         });
         this.selected_existing();
     },
-    select_existing: function (e) {
+    select_existing: function (e, force_select) {
         var $img = $(e.currentTarget);
         var attachment = _.find(this.records, function (record) { return record.id === $img.data('id'); });
-        this.push(attachment);
+        this.push(attachment, force_select);
         this.selected_existing();
     },
     selected_existing: function () {
@@ -1208,6 +1212,7 @@ var LinkDialog = Dialog.extend({
         if (!$e.length) {
             $e = this.$('input.url-source:first');
         }
+        $e.closest('.form-group').removeClass('has-error');
         var val = $e.val();
         var label = this.$('#o_link_dialog_label_input').val() || val;
 
@@ -1228,8 +1233,7 @@ var LinkDialog = Dialog.extend({
         var size = this.$("select.link-style").val() || '';
         var classes = (this.data.className || "") + (style && style.length ? " btn " : "") + style + " " + size;
         var isNewWindow = this.$('input.window-new').prop('checked');
-
-        if ($e.hasClass('email-address') && $e.val().indexOf("@") !== -1) {
+        if ($e.hasClass('email-address') && (_.str.startsWith(val, 'mailto:') || (val.indexOf("@") !== -1 && !_.str.startsWith(val, 'http') && !_.str.startsWith(val, 'www')))) {
             self.get_data_buy_mail(def, $e, isNewWindow, label, classes, test);
         } else {
             self.get_data_buy_url(def, $e, isNewWindow, label, classes, test);
@@ -1238,7 +1242,13 @@ var LinkDialog = Dialog.extend({
     },
     get_data_buy_mail: function (def, $e, isNewWindow, label, classes, test) {
         var val = $e.val();
-        def.resolve(val.indexOf("mailto:") === 0 ? val : 'mailto:' + val, isNewWindow, label, classes);
+        if (utils.is_email(val, true)) {
+            def.resolve(val.indexOf("mailto:") === 0 ? val : 'mailto:' + val, isNewWindow, label, classes);
+        } else {
+            $e.closest('.form-group').addClass('has-error');
+            $e.focus();
+            def.reject();
+        }
     },
     get_data_buy_url: function (def, $e, isNewWindow, label, classes, test) {
         def.resolve($e.val(), isNewWindow, label, classes);
@@ -1286,6 +1296,7 @@ var LinkDialog = Dialog.extend({
                 this.$('input.email-address').val(match = /mailto:(.+)/.exec(href) ? match[1] : '');
             } else {
                 this.$('input.url').val(href);
+                this.$('input.window-new').closest("div").show();
             }
         }
         this.preview();
@@ -1322,5 +1333,9 @@ return {
     getCssSelectors: getCssSelectors,
     fontIcons: fontIcons,
     computeFonts: computeFonts,
+    click_event: click_event,
+    fontIconsDialog: fontIconsDialog,
+    ImageDialog: ImageDialog,
+    VideoDialog: VideoDialog,
 };
 });

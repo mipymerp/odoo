@@ -5,17 +5,18 @@
 # Translators:
 # 老窦 北京 <2662059195@qq.com>, 2017
 # Jeffery CHEN Fan <jeffery9@gmail.com>, 2017
-# nle_odoo, 2017
+# sunny sun <sunxiaoxia@inspur.com>, 2017
 # Connie Xiao <connie.xiao@elico-corp.com>, 2017
 # jack adam <jackadam@sina.com>, 2017
 # liAnGjiA <liangjia@qq.com>, 2018
+# e2f_cn c5 <jarvisn@ecinnovations.com>, 2018
 # e2f <projects@e2f.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-10 07:40+0000\n"
-"PO-Revision-Date: 2018-01-10 07:40+0000\n"
+"POT-Creation-Date: 2018-03-12 15:37+0000\n"
+"PO-Revision-Date: 2018-03-12 15:37+0000\n"
 "Last-Translator: e2f <projects@e2f.com>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -102,12 +103,6 @@ msgid "%s (copy)"
 msgstr "%s(副本)"
 
 #. module: account
-#: model:ir.ui.view,arch_db:account.portal_invoice_report
-#: model:ir.ui.view,arch_db:account.report_invoice_document
-msgid "&amp;nbsp;"
-msgstr "&amp;nbsp;"
-
-#. module: account
 #: model:ir.ui.view,arch_db:account.report_invoice_document
 msgid "&amp;nbsp;<span>on</span>"
 msgstr "&amp;nbsp;<span>在</span>"
@@ -179,7 +174,7 @@ msgstr "：试算平衡"
 msgid ""
 "<?xml version=\"1.0\"?>\n"
 "<data><p>Dear ${object.partner_id.name},</p>\n"
-"<p>Thank you for your payment.<br/>Here is your payment receipt <strong>${(object.name or '').replace('/','-')}</strong> amounting to <strong>${object.amount} ${object.currency_id.name}</strong> from ${object.company_id.name}.</p>\n"
+"<p>Thank you for your payment.<br/>Here is your payment receipt <strong>${(object.name or '').replace('/','-')}</strong> amounting to <strong>${format_amount(object.amount, object.currency_id)}</strong> from ${object.company_id.name}.</p>\n"
 "<p>If you have any questions, please do not hesitate to contact us.</p>\n"
 "<p>Best regards,\n"
 "% if user and user.signature:\n"
@@ -188,16 +183,6 @@ msgid ""
 "</p>\n"
 "</data>"
 msgstr ""
-"<?xml version=\"1.0\"?>\n"
-"Dear ${object.partner_id.name}，\n"
-" 感谢您的付款。<data><p></p>这是您的付款收据 ${(object.name or '').replace('/','-')} 总金额从 ${object.company_id.name} 到 ${object.amount} ${object.currency_id.name}。\n"
-" 如果您有任何问题，请毫不犹豫的联系我们。\n"
-" 祝好，\n"
-"% 如果用户和用户。签名：\n"
-"${user.signature | safe}\n"
-"% endif\n"
-"\n"
-"<p><br/><strong></strong><strong></strong></p><p></p><p></p></data>"
 
 #. module: account
 #: model:mail.template,body_html:account.mail_template_data_notification_email_account_invoice
@@ -269,62 +254,70 @@ msgid ""
 "</div>"
 msgstr ""
 "<div>\n"
-"% 系列档案 = ctx.get('record')\n"
-"% 系列公司 = 档案和 record.company_id 或 user.company_id\n"
-"\n"
-"\n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \\<table bgcolor=\"#ededed\" border=\"0\" cellpadding=\"0\" style=\"padding: 20px; background-color: #ededed; border-collapse:separate;\" summary=\"o_mail_notification\" width=\"100%\">n <tbody>\n"
-" 发票 <tr>${o<td align=\"center\" style=\"min-width: 590px;\">bje<table bgcolor=\"#875A7B\" border=\"0\" cellpadding=\"0\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;\" width=\"590\">ct.<tr>rec<td valign=\"middle\">ord<span style=\"font-size:20px; color:white; font-weight: bold;\">_name}\n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-"</span> \n"
-"</td> \n"
-"<td align=\"right\" valign=\"middle\"> \n"
-"<img alt=\"${company.name}\" src=\"/logo.png?company=${company.id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\"/> \n"
-"</td> \n"
-"</tr> \n"
-"</table> ${</td>obj</tr>ect.bo<tr>dy <td align=\"center\" style=\"min-width: 590px;\">| s<table bgcolor=\"#ffffff\" border=\"0\" cellpadding=\"0\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\" width=\"590\">afe<tbody>}\n"
-"<td style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\" valign=\"top\"> \n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \n"
-"</td> \n"
-"</tbody> \n"
-"</table> ${</td>com</tr>pany.n<tr>ame<td align=\"center\" style=\"min-width: 590px;\">} \\<table bgcolor=\"#875A7B\" border=\"0\" cellpadding=\"0\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;\" width=\"590\">n $<tr>{co<td align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\" valign=\"middle\">mpany.phone or ''}\\<br/>n \n"
-" \n"
-" % if company.email:\\</td>n $<td align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\" valign=\"middle\">{company.email} \n"
-" % endi<a href=\"mailto:${company.email}\" style=\"text-decoration:none; color: white;\">f\n"
-" % if company</a>.<br/>website:\n"
-" \n"
-" ${company.website}\n"
-" \n"
-"<a href=\"${company.website}\" style=\"text-decoration:none; color: white;\"> % endif\n"
-" \n"
-" \n"
-" \n"
-" \n"
-" \\</a>n \n"
-" \n"
-" Power</td>ed </tr>by </table>Odo</td>o.\\</tr>n \\<tr>n \\<td align=\"center\">n\n"
-"\n"
-"<a href=\"https://www.odoo.com\" target=\"_blank\"/></td></tr></tbody></table></div>"
+"% set record = ctx.get('record')\n"
+"% set company = record and record.company_id or user.company_id\n"
+"<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-collapse:separate;\" summary=\"o_mail_notification\">\n"
+"<tbody>\n"
+"    <!-- HEADER -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"            <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                <tr>\n"
+"                    <td valign=\"middle\">\n"
+"                        <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                            发票 ${object.record_name}\n"
+"                        </span>\n"
+"                    </td>\n"
+"                    <td valign=\"middle\" align=\"right\">\n"
+"                        <img src=\"/logo.png?company=${company.id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${company.name}\"/>\n"
+"                    </td>\n"
+"                </tr>\n"
+"          </table>\n"
+"    </td>\n"
+"  </tr>\n"
+"  <!-- CONTENT -->\n"
+"  <tr>\n"
+"        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"            <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                <tbody>\n"
+"                    <td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                        ${object.body | safe}\n"
+"                    </td>\n"
+"                </tbody>\n"
+"            </table>\n"
+"        </td>\n"
+"    </tr>\n"
+"    <!-- FOOTER -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"            <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                <tr>\n"
+"                    <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                        ${company.name}<br/>\n"
+"                        ${company.phone or ''}\n"
+"                    </td>\n"
+"                    <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                        % if company.email:\n"
+"                        <a href=\"mailto:${company.email}\" style=\"text-decoration:none; color: white;\">${company.email}</a><br/>\n"
+"                        % endif\n"
+"                        % if company.website:\n"
+"                        <a href=\"${company.website}\" style=\"text-decoration:none; color: white;\">\n"
+"                        ${company.website}\n"
+"                        </a>\n"
+"                        % endif\n"
+"                    </td>\n"
+"                </tr>\n"
+"            </table>\n"
+"        </td>\n"
+"    </tr>\n"
+"    <tr>\n"
+"        <td align=\"center\">\n"
+"            技术支持 <a target=\"_blank\" href=\"https://www.odoo.com\">Odoo</a>。\n"
+"        </td>\n"
+"    </tr>\n"
+"</tbody>\n"
+"</table>\n"
+"</div>"
 
 #. module: account
 #: model:mail.template,body_html:account.email_template_edi_invoice
@@ -348,7 +341,7 @@ msgid ""
 "% if object.origin:\n"
 "(with reference: ${object.origin})\n"
 "% endif\n"
-"amounting in <strong>${object.amount_total} ${object.currency_id.name}</strong>\n"
+"amounting in <strong>${format_amount(object.amount_total, object.currency_id)}</strong>\n"
 "from ${object.company_id.name}.\n"
 "</p>\n"
 "\n"
@@ -374,48 +367,6 @@ msgid ""
 "</p>\n"
 "</div>"
 msgstr ""
-"<div><p>\n"
-"Dear ${object.partner_id.name}\n"
-"% set access_action = object.with_context(force_website=True).get_access_action()\n"
-"% set is_online = access_action 和 access_action['type'] == 'ir.actions.act_url'\n"
-"% set access_url = object.get_mail_url()\n"
-"\n"
-"% if object.partner_id.parent_id:\n"
-" <i>(${object.partner_id.parent_id.name})\n"
-"%</i> endif\n"
-",\n"
-" 这是， 在您的</p><p lilt=\"split=0\">附件中， \n"
-"% if object.number:\n"
-"invoice <strong>${object.number}</strong>\n"
-"% else:\n"
-"invoice\n"
-"% endif\n"
-"% if object.origin:\n"
-"（供参考：</p><p lilt=\"split=1\">${object.origin})\n"
-"% endif\n"
-"amounting <strong>in ${object.amount_total} ${object.currency</strong>_id.name}\n"
-"from</p> ${object.company_id.name}.\n"
-"\n"
-"\n"
-"% <center>if<a class=\"o_default_snippet_text\" href=\"${access_url}\" style=\"background-color: #1abc9c; padding: 20px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 16px;\"/></center> is_online:\n"
-" <br/><br/>\n"
-" \n"
-" View Invoice\n"
-" \n"
-"% endif\\<br/><br/>n \n"
-"\n"
-"% if <p>object</p>.state==“已支付”：\n"
-" 该发票已支付。\\<p>n% 其他：\n"
-" 请在方便的时候</p><p style=\"color:#888888\"/><p>汇款。\n"
-"%</p> endif\n"
-"\n"
-"Thank you,\n"
-"\n"
-"% if object.user_id 和 object.user_id.signature:\n"
-" ${object.user_id.signature | safe}\n"
-"% endif\n"
-"\n"
-"</div>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -425,7 +376,7 @@ msgstr "<span class=\"fa fa-arrow-circle-o-down\"/> 现在安装"
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid "<span class=\"fa\"/> Invite Your Users"
-msgstr "<span class=\"fa\"/>邀请用户"
+msgstr "<span class=\"fa\"/>邀请你的用户"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.portal_my_invoices
@@ -1270,6 +1221,11 @@ msgid "Account"
 msgstr "科目"
 
 #. module: account
+#: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_accountant
+msgid "Account Accountant"
+msgstr "会计"
+
+#. module: account
 #: model:ir.model,name:account.model_account_aged_trial_balance
 msgid "Account Aged Trial balance Report"
 msgstr "试算平衡账龄报表"
@@ -1591,7 +1547,7 @@ msgstr "替代后科目"
 msgid ""
 "Account used as counterpart for the journal entry, for taxes eligible based "
 "on payments."
-msgstr "账户作为日记账分录的对应科目，在支付的基础上，税收是合理的。"
+msgstr "科目与日记账分录相对应，适用于基于付款的税收。"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_accountant
@@ -1908,11 +1864,6 @@ msgid "Allow Cancelling Entries"
 msgstr "允许取消分录"
 
 #. module: account
-#: model:ir.model.fields,field_description:account.field_res_config_settings_module_currency_rate_live
-msgid "Allow Currency Rate Live"
-msgstr "允许实时汇率"
-
-#. module: account
 #: model:ir.model.fields,field_description:account.field_account_account_template_reconcile
 msgid "Allow Invoices & payments Matching"
 msgstr "允许发付款付款匹配"
@@ -1954,6 +1905,7 @@ msgstr "允许使用辅助核算项"
 #: code:addons/account/static/src/xml/account_reconciliation.xml:252
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line_amount
 #: model:ir.model.fields,field_description:account.field_account_invoice_line_price_subtotal
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_price_total
 #: model:ir.model.fields,field_description:account.field_account_invoice_tax_amount
 #: model:ir.model.fields,field_description:account.field_account_invoice_tax_amount_total
 #: model:ir.model.fields,field_description:account.field_account_move_amount
@@ -2264,14 +2216,14 @@ msgid "Automated Entries"
 msgstr "自动分录"
 
 #. module: account
-#: code:addons/account/models/company.py:349
+#: code:addons/account/models/company.py:354
 #: code:addons/account/wizard/setup_wizards.py:79
 #, python-format
 msgid "Automatic Balancing Line"
 msgstr "自动余额明细"
 
 #. module: account
-#: model:ir.ui.view,arch_db:account.res_config_settings_view_form
+#: model:ir.model.fields,field_description:account.field_res_config_settings_module_currency_rate_live
 msgid "Automatic Currency Rates"
 msgstr "自动汇率"
 
@@ -4499,11 +4451,6 @@ msgid "Enable Comparison"
 msgstr "启用比较"
 
 #. module: account
-#: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_reports_followup
-msgid "Enable payment followup management"
-msgstr "启用付款催收管理"
-
-#. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid "End"
 msgstr "结束"
@@ -4851,7 +4798,7 @@ msgid "Follow-up"
 msgstr "催款"
 
 #. module: account
-#: model:ir.ui.view,arch_db:account.res_config_settings_view_form
+#: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_reports_followup
 msgid "Follow-up Levels"
 msgstr "催款等级"
 
@@ -6610,10 +6557,9 @@ msgid ""
 "Electronic: Get paid automatically through a payment acquirer by requesting a transaction on a card saved by the customer when buying or subscribing online (payment token).\n"
 "Batch Deposit: Encase several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo,you are suggested to reconcile the transaction with the batch deposit. Enable this option from the settings."
 msgstr ""
-"手动：通过现金、支票或除 Odoo 以外的其他方法获取报酬。\n"
-" 电子方式：在客户线上购买或订阅时（支付令），在已保存的卡中请求交易，通过付款受让人自动获取报酬。\n"
-" 批量存款：\n"
-" 批量存款：几个客户同时支票付款时，可生成批量存款提交到银行中。当在 Odoo 进行编码银行对账单时，建议您协调批量存款与交易之间的关系。从设置中启用该选项。"
+"手动：通过现金、支票或除 Odoo 以外的任何其他方法获取报酬。\n"
+"电子方式：在线购买或订阅时（支付令牌），通过请求客户保存的卡上的交易，通过付款受让人自动获得付款。\n"
+"批量存款：通过生成批量存款立即兑现几个客户的支票，以便提交给银行。在 Odoo 中编码银行对账单时，建议您将交易与批量存款进行核对。从设置中启用此选项。"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_abstract_payment_payment_method_id
@@ -6626,11 +6572,11 @@ msgid ""
 "Batch Deposit: Encase several customer checks at once by generating a batch deposit to submit to your bank. When encoding the bank statement in Odoo, you are suggested to reconcile the transaction with the batch deposit.To enable batch deposit,module account_batch_deposit must be installed.\n"
 "SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank. To enable sepa credit transfer, module account_sepa must be installed "
 msgstr ""
-"手动：通过现金、支票或除 Odoo 以外的其他方法获取报酬。\n"
-" 电子方式：在客户线上购买或订阅时（支付令），在已保存的卡中请求交易，通过付款受让人自动获取报酬。\n"
-" 支票：通过支票支付账单并从 Odoo 中打印账单。\n"
-" 批量存款：几个客户同时支票付款时，可生成批量存款提交到银行中。当在 Odoo 编码银行对账单时，建议您协调批量存款与交易之间的关系。要启用批量存款，必须安装 module account_batch_deposit。\n"
-"SEPA 信用转账：SEPA 信用转账文件中的支付账单应提交给银行。要启用 sepa 信用转账，必须安装 module account_sepa。"
+"手动：通过现金、支票或除 Odoo 以外的任何其他方法获取报酬。\n"
+"电子方式：在线购买或订阅时（支付令牌），通过请求客户保存的卡上的交易，通过付款受让人自动获得付款。\n"
+"支票：通过支票支付账单并从 Odoo 中打印账单。\n"
+"批量存款：通过生成批量存款立即兑现几个客户的支票，以便提交给银行。在 Odoo 中编码银行对账单时，建议您将交易与批量存款进行核对。要启用批量存款，必须安装模块 account_batch_deposit。\n"
+"SEPA 信用转账：SEPA 信用转账文件中的支付账单应提交给银行。要启用 sepa 信用转账，必须安装 module account_sepa。从您提交给银行的 SEPA 信用转账文件支付账单。要启用 SEPA 信用转账，必须安装模块 account_sepa"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_outbound_payment_method_ids
@@ -6973,14 +6919,6 @@ msgstr "日记账%s中没有启用合适的付款方法"
 #: selection:account.financial.report,display_detail:0
 msgid "No detail"
 msgstr "无详情"
-
-#. module: account
-#: code:addons/account/models/company.py:274
-#, python-format
-msgid ""
-"No miscellaneous journal could be found. Please create one before "
-"proceeding."
-msgstr "未找到杂项日记账，请在处理之前先创建一个"
 
 #. module: account
 #: code:addons/account/models/account.py:116
@@ -8034,6 +7972,7 @@ msgid "Print checks to pay your vendors"
 msgstr "打印支票支付给供应商"
 
 #. module: account
+#: model:ir.model,name:account.model_product_product
 #: model:ir.model.fields,field_description:account.field_account_analytic_line_product_id
 #: model:ir.model.fields,field_description:account.field_account_invoice_line_product_id
 #: model:ir.model.fields,field_description:account.field_account_invoice_report_product_id
@@ -8103,7 +8042,7 @@ msgstr "损益表"
 #, python-format
 msgid ""
 "Programming error: wizard action executed without active_ids in context."
-msgstr "编程错误：在上下文中，执行没有 active_id 的向导操作。"
+msgstr "编程错误：在上下文中执行不带 active_ids 的向导操作。"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.view_account_chart_template_form
@@ -8372,7 +8311,7 @@ msgstr "编号"
 #: model:ir.model.fields,help:account.field_account_invoice_line_origin
 #: model:ir.model.fields,help:account.field_account_invoice_origin
 msgid "Reference of the document that produced this invoice."
-msgstr "产生此发票的单据参考"
+msgstr "生成此发票的来源单据编号"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_payment_payment_reference
@@ -8629,7 +8568,7 @@ msgid "Rounding Tree"
 msgstr "舍入树"
 
 #. module: account
-#: model:ir.ui.view,arch_db:account.res_config_settings_view_form
+#: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_sepa
 msgid "SEPA Credit Transfer (SCT)"
 msgstr "SEPA贷记交易"
 
@@ -9940,6 +9879,13 @@ msgid "The partner reference of this invoice."
 msgstr "这张发票的合作伙伴"
 
 #. module: account
+#: code:addons/account/models/account.py:522
+#, python-format
+msgid ""
+"The partners of the journal's company and the related bank account mismatch."
+msgstr ""
+
+#. module: account
 #: code:addons/account/models/account_payment.py:60
 #, python-format
 msgid "The payment amount cannot be negative."
@@ -10174,7 +10120,7 @@ msgstr "如果有大量的发票，这个功能很有用。"
 msgid ""
 "This field contains the information related to the numbering of the credit "
 "note entries of this journal."
-msgstr "该字段包含此日记账中与信用清单目录数量相关的信息。"
+msgstr "该字段包含与此日记账的信用票据条目编号有关的信息。"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal_sequence_id
@@ -10246,7 +10192,7 @@ msgstr "这个标签将放在报表上用来显示根据比较筛选条件计算
 #, python-format
 msgid ""
 "This method should only be called to process a single invoice's payment."
-msgstr "该方法仅在处理单个发票付款时才调用。"
+msgstr "此方法应仅在处理单个发票付款时调用。"
 
 #. module: account
 #. openerp-web
@@ -10306,7 +10252,7 @@ msgstr "该付款条款江北用来代替采购订单或者供应商账单中默
 msgid ""
 "This payment term will be used instead of the default one for sales orders "
 "and customer invoices"
-msgstr "对于销售订单和客户发票而言，该付款期限将代替默认期限。"
+msgstr "对于销售订单和客户发票，将使用此付款期限而不是默认付款期限"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -10740,11 +10686,6 @@ msgid "Use SEPA Direct Debit"
 msgstr "使用SEPA直接计入借方"
 
 #. module: account
-#: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_sepa
-msgid "Use SEPA payments"
-msgstr "用SEPA付款"
-
-#. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_reversal_journal_id
 msgid "Use Specific Journal"
 msgstr "用特定的日记账"
@@ -10762,7 +10703,7 @@ msgstr "使用批量存款"
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Use depreciation boards, automate amortization entries"
-msgstr "使用折旧版，将摊销项自动化"
+msgstr "使用折旧板，自动摊销分录"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -10784,9 +10725,10 @@ msgid ""
 "                                with the current invoice. A new draft invoice will be created\n"
 "                                so that you can edit it."
 msgstr ""
-"如果您想取消发票并创建新增 \n"
-" 的一个，使用该选项。创建、验证信用证，并与当前的发票相一致。创建新增发票草案 \n"
-"，以便您进行编辑。"
+"如果要取消发票并创建新发票，请使用此选项。 \n"
+"                                将创建、验证信用票据，并与当前发票进行核对。\n"
+"                                被创建新的发票草稿，\n"
+"                                以便您可以对其进行编辑。"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.view_account_invoice_refund
@@ -11199,14 +11141,14 @@ msgid ""
 msgstr "你可以在这里设置你想要的格式。如果你离开自动格式化，它会基于财务报表的层次结构计算（自动计算字段'级别'）"
 
 #. module: account
-#: code:addons/account/models/account_move.py:207
+#: code:addons/account/models/account_move.py:209
 #, python-format
 msgid ""
 "You cannot add/modify entries prior to and inclusive of the lock date %s"
 msgstr "你无法添加/修改已锁定期间的分录%s"
 
 #. module: account
-#: code:addons/account/models/account_move.py:209
+#: code:addons/account/models/account_move.py:211
 #, python-format
 msgid ""
 "You cannot add/modify entries prior to and inclusive of the lock date %s. "
@@ -11214,12 +11156,20 @@ msgid ""
 msgstr "在锁定日期之前，您不能添加/修改分录%s “检查公司的设置，或询问相关顾问”"
 
 #. module: account
-#: code:addons/account/models/account_invoice.py:1208
+#: code:addons/account/models/account_invoice.py:1193
 #, python-format
 msgid ""
 "You cannot cancel an invoice which is partially paid. You need to "
 "unreconcile related payment entries first."
 msgstr "已经部分付款的发票不能被取消，需要先取消调节部分付款的分录　"
+
+#. module: account
+#: code:addons/account/models/company.py:143
+#, python-format
+msgid ""
+"You cannot change the currency of the company since some journal items "
+"already exist"
+msgstr "已经存在 journal items，不能修改公司的币种"
 
 #. module: account
 #: code:addons/account/models/account.py:235
@@ -11308,7 +11258,7 @@ msgstr "一旦设置之后，你无法清空银行账户"
 msgid ""
 "You cannot have a receivable/payable account that is not reconcilable. "
 "(account code: %s)"
-msgstr "您不能有不可调和的应收账款/应付账款。（账号：%s）"
+msgstr "您不能拥有无法核对的应收账款/应付账款。（账号代码：%s）"
 
 #. module: account
 #. openerp-web

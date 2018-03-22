@@ -3,14 +3,14 @@
 # * account_voucher
 # 
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux, 2017
 # Arnis Putniņš <arnis.putnins@its1.lv>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 09:52+0000\n"
-"PO-Revision-Date: 2017-09-20 09:52+0000\n"
+"POT-Creation-Date: 2018-02-19 13:42+0000\n"
+"PO-Revision-Date: 2018-02-19 13:42+0000\n"
 "Last-Translator: Arnis Putniņš <arnis.putnins@its1.lv>, 2018\n"
 "Language-Team: Latvian (https://www.transifex.com/odoo/teams/41243/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -344,7 +344,7 @@ msgstr "Produkts"
 #. module: account_voucher
 #: selection:account.voucher,voucher_type:0
 msgid "Purchase"
-msgstr ""
+msgstr "Iepirkums"
 
 #. module: account_voucher
 #: model:ir.ui.view,arch_db:account_voucher.view_purchase_receipt_form
@@ -370,7 +370,7 @@ msgstr "Daudzums"
 #. module: account_voucher
 #: selection:account.voucher,voucher_type:0
 msgid "Sale"
-msgstr ""
+msgstr "Pārdošana"
 
 #. module: account_voucher
 #: model:ir.ui.view,arch_db:account_voucher.view_sale_receipt_form
@@ -491,7 +491,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:account_voucher.view_voucher_filter_vendor
 #: model:ir.ui.view,arch_db:account_voucher.view_voucher_tree_purchase
 msgid "Vendor"
-msgstr ""
+msgstr "Vendor"
 
 #. module: account_voucher
 #: model:ir.ui.view,arch_db:account_voucher.view_purchase_receipt_form

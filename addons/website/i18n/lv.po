@@ -3,15 +3,15 @@
 # * website
 # 
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux, 2017
 # JanisJanis <jbojars@gmail.com>, 2017
 # Arnis Putniņš <arnis.putnins@its1.lv>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-30 13:11+0000\n"
-"PO-Revision-Date: 2017-11-30 13:11+0000\n"
+"POT-Creation-Date: 2018-02-19 13:42+0000\n"
+"PO-Revision-Date: 2018-02-19 13:42+0000\n"
 "Last-Translator: Arnis Putniņš <arnis.putnins@its1.lv>, 2018\n"
 "Language-Team: Latvian (https://www.transifex.com/odoo/teams/41243/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -951,7 +951,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_form
 msgid "Apply"
-msgstr ""
+msgstr "Apstiprināt"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -961,12 +961,12 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_arch_db
 msgid "Arch Blob"
-msgstr ""
+msgstr "Arch Blob"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_arch_fs
 msgid "Arch Filename"
-msgstr ""
+msgstr "Arch Filename"
 
 #. module: website
 #. openerp-web
@@ -1110,7 +1110,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_field_parent
 msgid "Child Field"
-msgstr ""
+msgstr "Child Field"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_menu_child_id
@@ -1307,7 +1307,7 @@ msgstr ""
 #: code:addons/website/static/src/js/menu/content.js:328
 #, python-format
 msgid "Create Menu"
-msgstr ""
+msgstr "Izveidot Izvēlni"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.page_404
@@ -1444,7 +1444,7 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.pageProperties.xml:32
 #, python-format
 msgid "Dependencies"
-msgstr ""
+msgstr "Atkarīgs no"
 
 #. module: website
 #. openerp-web
@@ -1501,7 +1501,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_form
 msgid "Domain"
-msgstr ""
+msgstr "Filtrs"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -1674,7 +1674,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_xml_id
 msgid "External ID"
-msgstr ""
+msgstr "Ārējais ID"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -1717,6 +1717,11 @@ msgid "Feature Two"
 msgstr ""
 
 #. module: website
+#: model:ir.model,name:website.model_ir_model_fields
+msgid "Fields"
+msgstr "Fields"
+
+#. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid ""
 "Finally don't try to make all your content accessible from the main menu or the footer.\n"
@@ -1741,7 +1746,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Float"
-msgstr ""
+msgstr "Float"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -1975,7 +1980,7 @@ msgstr "Grupēt pēc"
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_groups_id
 msgid "Groups"
-msgstr ""
+msgstr "Grupas"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -1990,7 +1995,7 @@ msgstr ""
 #. module: website
 #: model:ir.model,name:website.model_ir_http
 msgid "HTTP routing"
-msgstr ""
+msgstr "HTTP maršrutēšana"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_cover
@@ -2066,7 +2071,7 @@ msgstr "ID"
 #. module: website
 #: model:ir.model.fields,help:website.field_website_page_xml_id
 msgid "ID of the view defined in xml file"
-msgstr ""
+msgstr "ID of the view defined in xml file"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.500
@@ -2082,6 +2087,8 @@ msgid ""
 "If this field is empty, the view applies to all users. Otherwise, the view "
 "applies to the users of those groups only."
 msgstr ""
+"If this field is empty, the view applies to all users. Otherwise, the view "
+"applies to the users of those groups only."
 
 #. module: website
 #: model:ir.model.fields,help:website.field_website_page_active
@@ -2091,6 +2098,10 @@ msgid ""
 "* if False, the view currently does not extend its parent but can be enabled\n"
 "         "
 msgstr ""
+"If this view is inherited,\n"
+"* if True, the view always extends its parent\n"
+"* if False, the view currently does not extend its parent but can be enabled\n"
+"         "
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -2124,7 +2135,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website.index_management
 #, python-format
 msgid "Indexed"
-msgstr ""
+msgstr "Indexed"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_website_info
@@ -2134,7 +2145,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_inherit_id
 msgid "Inherited View"
-msgstr ""
+msgstr "Inherited View"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -2144,7 +2155,7 @@ msgstr ""
 #. module: website
 #: model:ir.model,name:website.model_base_language_install
 msgid "Install Language"
-msgstr ""
+msgstr "Install Language"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -2180,6 +2191,7 @@ msgid ""
 msgstr ""
 
 #. module: website
+#: model:ir.model.fields,field_description:website.field_website_menu_is_visible
 #: model:ir.model.fields,field_description:website.field_website_page_is_visible
 msgid "Is Visible"
 msgstr ""
@@ -2235,7 +2247,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_key
 msgid "Key"
-msgstr ""
+msgstr "Key"
 
 #. module: website
 #. openerp-web
@@ -2248,7 +2260,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_res_config_settings_language_ids
 #: model:ir.model.fields,field_description:website.field_website_language_ids
 msgid "Languages"
-msgstr ""
+msgstr "Valodas"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -2310,7 +2322,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Launch"
-msgstr ""
+msgstr "Launch"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -2443,7 +2455,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_menu_name
 #, python-format
 msgid "Menu"
-msgstr ""
+msgstr "Izvēlne"
 
 #. module: website
 #. openerp-web
@@ -2456,12 +2468,12 @@ msgstr ""
 #: code:addons/website/models/website.py:243
 #, python-format
 msgid "Menus"
-msgstr ""
+msgstr "Menus"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.template_partner_comment
 msgid "Message"
-msgstr ""
+msgstr "Ziņojums"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_company_team
@@ -2487,12 +2499,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_page_model
 #: model:ir.model.fields,field_description:website.field_website_page_model_ids
 msgid "Model"
-msgstr ""
+msgstr "Modelis"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_model_data_id
 msgid "Model Data"
-msgstr ""
+msgstr "Model Data"
+
+#. module: website
+#: model:ir.model,name:website.model_ir_model
+msgid "Models"
+msgstr "Models"
 
 #. module: website
 #. openerp-web
@@ -2567,7 +2584,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_menu_new_window
 msgid "New Window"
-msgstr ""
+msgstr "New Window"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.external_snippets
@@ -2597,7 +2614,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "None"
-msgstr ""
+msgstr "Nav"
 
 #. module: website
 #. openerp-web
@@ -2712,6 +2729,15 @@ msgid ""
 "(<xpath/>) are applied, and the result is used as if it were this view's\n"
 "actual arch.\n"
 msgstr ""
+"Only applies if this view inherits from an other one (inherit_id is not False/Null).\n"
+"\n"
+"* if extension (default), if this view is requested the closest primary view\n"
+"is looked up (via inherit_id), then all views inheriting from it with this\n"
+"view's model are applied\n"
+"* if primary, the closest primary view is fully resolved (even if it uses a\n"
+"different model than this one), then this view's inheritance specs\n"
+"(<xpath/>) are applied, and the result is used as if it were this view's\n"
+"actual arch.\n"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_website_info
@@ -2862,12 +2888,12 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_menu_parent_left
 msgid "Parent Left"
-msgstr ""
+msgstr "Parent Left"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_menu_parent_id
 msgid "Parent Menu"
-msgstr ""
+msgstr "Parent Menu"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_menu_parent_right
@@ -2882,7 +2908,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,help:website.field_website_partner_id
 msgid "Partner-related data of the user"
-msgstr ""
+msgstr "Partner-related data of the user"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.template_partner_comment
@@ -3040,7 +3066,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.http_error_debug
 msgid "QWeb"
-msgstr ""
+msgstr "QWeb"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -3183,7 +3209,7 @@ msgstr ""
 #: code:addons/website/static/src/js/menu/seo.js:342
 #, python-format
 msgid "Save"
-msgstr ""
+msgstr "Saglabāt"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.menu_search
@@ -3193,7 +3219,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_search_box
 msgid "Search..."
-msgstr ""
+msgstr "Search..."
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_features
@@ -3577,7 +3603,7 @@ msgstr ""
 #: model:ir.model.fields,help:website.field_res_config_settings_default_lang_code
 #: model:ir.model.fields,help:website.field_website_default_lang_code
 msgid "This field is used to set/get locales for user"
-msgstr ""
+msgstr "This field is used to set/get locales for user"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.page_404
@@ -3656,7 +3682,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Translate"
-msgstr ""
+msgstr "Translate"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -3745,7 +3771,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_menu_url
 #: model:ir.ui.view,arch_db:website.edit_website_pages
 msgid "Url"
-msgstr ""
+msgstr "Url"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_faq_collapse
@@ -3796,33 +3822,33 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_view_id
 msgid "View"
-msgstr ""
+msgstr "Skats"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_arch
 #: model:ir.model.fields,field_description:website.field_website_page_arch_base
 msgid "View Architecture"
-msgstr ""
+msgstr "View Architecture"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_name
 msgid "View Name"
-msgstr ""
+msgstr "View Name"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_type
 msgid "View Type"
-msgstr ""
+msgstr "View Type"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_mode
 msgid "View inheritance mode"
-msgstr ""
+msgstr "View inheritance mode"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_page_inherit_children_ids
 msgid "Views which inherit from this one"
-msgstr ""
+msgstr "Views which inherit from this one"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_blog_post_website_published
@@ -4243,7 +4269,7 @@ msgstr ""
 #: model:ir.actions.act_window,help:website.action_module_theme
 #: model:ir.actions.act_window,help:website.action_module_website
 msgid "You should try other search criteria."
-msgstr ""
+msgstr "You should try other search criteria."
 
 #. module: website
 #. openerp-web
@@ -4437,22 +4463,22 @@ msgstr ""
 #. module: website
 #: model:ir.model,name:website.model_ir_actions_server
 msgid "ir.actions.server"
-msgstr ""
+msgstr "ir.actions.server"
 
 #. module: website
 #: model:ir.model,name:website.model_ir_attachment
 msgid "ir.attachment"
-msgstr ""
+msgstr "ir.attachment"
 
 #. module: website
 #: model:ir.model,name:website.model_ir_qweb
 msgid "ir.qweb"
-msgstr ""
+msgstr "ir.qweb"
 
 #. module: website
 #: model:ir.model,name:website.model_ir_ui_view
 msgid "ir.ui.view"
-msgstr ""
+msgstr "ir.ui.view"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -4467,7 +4493,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.menu_search
 msgid "name"
-msgstr ""
+msgstr "name"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.user_navbar
@@ -4564,4 +4590,4 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.500
 msgid "yes"
-msgstr ""
+msgstr "yes"

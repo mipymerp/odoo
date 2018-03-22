@@ -22,12 +22,12 @@ msgstr ""
 #. module: fetchmail
 #: model:ir.ui.view,arch_db:fetchmail.view_email_server_tree
 msgid "# of emails"
-msgstr ""
+msgstr "# di email"
 
 #. module: fetchmail
 #: model:ir.ui.view,arch_db:fetchmail.view_email_server_form
 msgid "Actions to Perform on Incoming Mails"
-msgstr ""
+msgstr "Azione da effettuare sulle mail in entrata"
 
 #. module: fetchmail
 #: model:ir.model.fields,field_description:fetchmail.field_fetchmail_server_active
@@ -196,7 +196,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:fetchmail.act_server_history
 #: model:ir.model.fields,field_description:fetchmail.field_fetchmail_server_message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Messaggi"
 
 #. module: fetchmail
 #: model:ir.model.fields,field_description:fetchmail.field_fetchmail_server_name

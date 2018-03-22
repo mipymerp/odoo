@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-29 15:28+0000\n"
-"PO-Revision-Date: 2018-01-29 15:28+0000\n"
+"POT-Creation-Date: 2018-02-19 13:43+0000\n"
+"PO-Revision-Date: 2018-02-19 13:43+0000\n"
 "Last-Translator: Alina Semeniuk <alinasemeniuk1@gmail.com>, 2017\n"
 "Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -318,7 +318,7 @@ msgstr ""
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.report_saleorder_document
 msgid "<span>Pro-Forma Invoice # </span>"
-msgstr ""
+msgstr "<span>Рахунок № </span>"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.portal_order_page
@@ -492,12 +492,12 @@ msgstr ""
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Allows you to send Pro-Forma Invoice to your customers"
-msgstr ""
+msgstr "Дозволяє вам відправляти рахунки клієнтам"
 
 #. module: sale
 #: model:ir.model.fields,help:sale.field_res_config_settings_group_proforma_sales
 msgid "Allows you to send pro-forma invoice."
-msgstr ""
+msgstr "Дозволяє вам відправляти рахунки."
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.report_saleorder_document
@@ -1282,6 +1282,8 @@ msgid ""
 "It is forbidden to modify the following fields in a locked order:\n"
 "%s"
 msgstr ""
+"У заблокованому порядку забороняється змінювати наступні поля:\n"
+"%s"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_report_all_channels_sales___last_update
@@ -1464,11 +1466,17 @@ msgid "No longer edit orders once confirmed"
 msgstr ""
 
 #. module: sale
-#: model:ir.actions.act_window,help:sale.action_quotations
 #: model:ir.actions.act_window,help:sale.action_quotations_salesteams
 msgid ""
 "Note that once a Quotation becomes a Sales Order, it will be moved\n"
 "                from the Quotations list to the Sales Order list."
+msgstr ""
+
+#. module: sale
+#: model:ir.actions.act_window,help:sale.action_quotations
+msgid ""
+"Note that once a Quotation becomes a Sales Order, it will be moved\n"
+"            from the Quotations list to the Sales Order list."
 msgstr ""
 
 #. module: sale
@@ -1686,7 +1694,7 @@ msgstr "Інша інформація"
 #. module: sale
 #: model:ir.actions.report,name:sale.action_report_pro_forma_invoice
 msgid "PRO-FORMA Invoice"
-msgstr ""
+msgstr "Рахунок"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_report_all_channels_sales_partner_id
@@ -1810,12 +1818,12 @@ msgstr "Друк"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_res_config_settings_group_proforma_sales
 msgid "Pro-Forma Invoice"
-msgstr ""
+msgstr "Рахнок"
 
 #. module: sale
 #: model:res.groups,name:sale.group_proforma_sales
 msgid "Pro-forma Invoices"
-msgstr "Рахунки-проформа"
+msgstr "Рахунки"
 
 #. module: sale
 #: model:ir.model,name:sale.model_product_product
@@ -2243,14 +2251,6 @@ msgid "Sell and purchase products in different units of measure"
 msgstr ""
 
 #. module: sale
-#: model:ir.model.fields,field_description:sale.field_res_config_settings_module_website_sale_digital
-msgid ""
-"Sell digital products - provide downloadable content on your customer portal"
-msgstr ""
-"Продаж цифрових товарів - забезпечте завантаження вмісту на вашому порталі "
-"клієнтів"
-
-#. module: sale
 #: model:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Sell products by multiple of unit # per package"
 msgstr ""
@@ -2258,7 +2258,7 @@ msgstr ""
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_order_form
 msgid "Send PRO-FORMA Invoice"
-msgstr ""
+msgstr "Відправити рахунок"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.res_config_settings_view_form
@@ -2846,11 +2846,17 @@ msgid "Your Order has been confirmed."
 msgstr ""
 
 #. module: sale
-#: model:ir.actions.act_window,help:sale.action_quotations
 #: model:ir.actions.act_window,help:sale.action_quotations_salesteams
 msgid ""
 "Your next actions should flow efficiently: confirm the Quotation\n"
 "                to a Sales Order, then create the Invoice and collect the Payment."
+msgstr ""
+
+#. module: sale
+#: model:ir.actions.act_window,help:sale.action_quotations
+msgid ""
+"Your next actions should flow efficiently: confirm the Quotation\n"
+"            to a Sales Order, then create the Invoice and collect the Payment."
 msgstr ""
 
 #. module: sale

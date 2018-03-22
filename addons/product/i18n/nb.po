@@ -3,15 +3,15 @@
 # * product
 # 
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
-# Jorunn D. Newth <jdn@eyenetworks.no>, 2017
+# Martin Trigaux, 2017
+# Jorunn D. Newth, 2017
 # Viktor Basso <viktor@voit.no>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 11:26+0000\n"
-"PO-Revision-Date: 2017-10-02 11:26+0000\n"
+"POT-Creation-Date: 2018-02-19 13:43+0000\n"
+"PO-Revision-Date: 2018-02-19 13:43+0000\n"
 "Last-Translator: Viktor Basso <viktor@voit.no>, 2017\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/odoo/teams/41243/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -95,6 +95,12 @@ msgid ""
 "                Intel Iris Pro graphics\n"
 "            "
 msgstr ""
+"2.7GHz quad-core Intel Core i5\n"
+"                Turbo Boost opp til 3.2GHz\n"
+"                8GB (to 4GB) minne\n"
+"                1TB harddisk\n"
+"                Intel Iris Pro-grafikk\n"
+"            "
 
 #. module: product
 #: model:product.attribute.value,name:product.product_attribute_value_2
@@ -175,7 +181,7 @@ msgid ""
 "                        will delete and recreate existing variants and lead\n"
 "                        to the loss of their possible customizations."
 msgstr ""
-"<strong>Advarsel</strong>: å legge til og slette attributter vil slette og \n"
+"<strong>Advarsel</strong>: Å legge til og slette attributter vil slette og \n"
 "                        gjenopprette eksisterende varianter og føre til at\n"
 "                        eventuelle tilpasninger av disse blir slettet."
 
@@ -1158,6 +1164,11 @@ msgid "Friendly to the environment."
 msgstr "Miljøvennlig"
 
 #. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Future Activities"
+msgstr "Fremtidige aktiviteter"
+
+#. module: product
 #: model:product.product,name:product.product_product_1
 #: model:product.template,name:product.product_product_1_product_template
 msgid "GAP Analysis Service"
@@ -1503,6 +1514,11 @@ msgstr "Sist oppdatert av"
 #: model:ir.model.fields,field_description:product.field_product_uom_write_date
 msgid "Last Updated on"
 msgstr "Sist oppdatert"
+
+#. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Late Activities"
+msgstr "Forsinkede aktiviteter"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_supplierinfo_delay
@@ -2055,6 +2071,11 @@ msgid "Public Price"
 msgstr "Offentlig pris"
 
 #. module: product
+#: model:product.pricelist,name:product.list0
+msgid "Public Pricelist"
+msgstr "Offentlig prisliste"
+
+#. module: product
 #: model:ir.model.fields,field_description:product.field_product_product_description_purchase
 #: model:ir.model.fields,field_description:product.field_product_template_description_purchase
 msgid "Purchase Description"
@@ -2289,6 +2310,11 @@ msgid ""
 " * Checked : Product are visible for every company, even if a company is defined on the partner.\n"
 " * Unchecked : Each company can see only its product (product where company is defined). Product not related to a company are visible for all companies."
 msgstr ""
+
+#. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Show all records which has next action date is before today"
+msgstr "Vis alle oppføringer som har en neste tiltak-dato før dagen i dag"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_res_config_settings_group_product_pricelist
@@ -2736,6 +2762,11 @@ msgid ""
 msgstr ""
 
 #. module: product
+#: model:ir.ui.view,arch_db:product.product_template_search_view
+msgid "Today Activities"
+msgstr "Dagens aktiviteter"
+
+#. module: product
 #: model:product.product,website_description:product.product_product_7
 #: model:product.template,website_description:product.product_product_7_product_template
 msgid "Two is better than one."
@@ -2753,11 +2784,6 @@ msgid ""
 "USB port allows for software update to ensure ongoing Bluetooth device "
 "compatibility"
 msgstr ""
-
-#. module: product
-#: model:product.pricelist,name:product.list0
-msgid "USD"
-msgstr "USD"
 
 #. module: product
 #: model:product.product,website_description:product.product_product_6

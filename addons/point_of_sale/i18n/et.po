@@ -465,7 +465,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.ui.menu,name:point_of_sale.pos_menu_products_variants_action
 msgid "Attribute Values"
-msgstr ""
+msgstr "Atribuudi väärtused"
 
 #. module: point_of_sale
 #: model:ir.ui.menu,name:point_of_sale.pos_menu_products_attribute_action
@@ -686,7 +686,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.ui.menu,name:point_of_sale.pos_config_menu_catalog
 msgid "Catalog"
-msgstr ""
+msgstr "Kataloog"
 
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -1460,7 +1460,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_order_fiscal_position_id
 #: model:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 msgid "Fiscal Position"
-msgstr "Finantspositsioon"
+msgstr "Maksupositsioon"
 
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -2294,7 +2294,7 @@ msgstr "Ostu viide"
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 msgid "Order Reference"
-msgstr "Korralduse viide"
+msgstr "Tellimuse viide"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_session_sequence_number
@@ -2983,7 +2983,7 @@ msgstr ""
 #. module: point_of_sale
 #: model:ir.ui.menu,name:point_of_sale.menu_point_rep
 msgid "Reporting"
-msgstr "Raporteerimine"
+msgstr "Analüüs"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config_module_pos_reprint
@@ -3055,7 +3055,7 @@ msgstr "Müügiandmik"
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.view_pos_config_kanban
 msgid "Sales Orders"
-msgstr "Müügikorraldused"
+msgstr "Müügitellimused"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_order_user_id
@@ -3084,7 +3084,7 @@ msgstr ""
 #: code:addons/point_of_sale/static/src/js/chrome.js:397
 #, python-format
 msgid "Scale"
-msgstr ""
+msgstr "Skaala"
 
 #. module: point_of_sale
 #. openerp-web
@@ -3530,7 +3530,7 @@ msgstr "Maksud:"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:748
 #, python-format
 msgid "Tel:"
-msgstr ""
+msgstr "Tel:"
 
 #. module: point_of_sale
 #. openerp-web
@@ -4080,7 +4080,7 @@ msgstr "KM:"
 #: code:addons/point_of_sale/static/src/xml/pos.xml:650
 #, python-format
 msgid "Validate"
-msgstr "Valideeri"
+msgstr "Kinnita"
 
 #. module: point_of_sale
 #: model:ir.ui.view,arch_db:point_of_sale.view_pos_session_form
