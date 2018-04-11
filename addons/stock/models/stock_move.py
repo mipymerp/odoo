@@ -1066,10 +1066,7 @@ class StockMove(models.Model):
             if len(result_package.quant_ids.mapped('location_id')) > 1:
                 raise UserError(_('You should not put the contents of a package in different locations.'))
         picking = moves_todo and moves_todo[0].picking_id or False
-        vals = {'state': 'done', 'date': fields.Datetime.now()}
-        if self.env.context.get('no_change_date_done', False):
-            vals.pop('date', False)
-        moves_todo.write(vals)
+        moves_todo.write({'state': 'done', 'date': self.env.context.get('date_for_move') or fields.Datetime.now()})
         moves_todo.mapped('move_dest_ids')._action_assign()
 
         # We don't want to create back order for scrap moves
