@@ -22,7 +22,13 @@ class AccountAnalyticLine(models.Model):
 
     @api.onchange('project_id')
     def onchange_project_id(self):
+        # reset task when changing project
         self.task_id = False
+        # force domain on task when project is set
+        if self.project_id:
+            return {'domain': {
+                'task_id': [('project_id', '=', self.project_id.id)]
+            }}
 
     @api.onchange('employee_id')
     def _onchange_employee_id(self):
@@ -35,6 +41,13 @@ class AccountAnalyticLine(models.Model):
 
     @api.model
     def create(self, vals):
+        # compute employee only for timesheet lines, makes no sense for other lines
+        if not vals.get('employee_id') and vals.get('project_id'):
+            if vals.get('user_id'):
+                ts_user_id = vals['user_id']
+            else:
+                ts_user_id = self._default_user()
+            vals['employee_id'] = self.env['hr.employee'].search([('user_id', '=', ts_user_id)], limit=1).id
         vals = self._timesheet_preprocess(vals)
         return super(AccountAnalyticLine, self).create(vals)
 
@@ -56,11 +69,4 @@ class AccountAnalyticLine(models.Model):
         if vals.get('employee_id') and not vals.get('user_id'):
             employee = self.env['hr.employee'].browse(vals['employee_id'])
             vals['user_id'] = employee.user_id.id
-        # compute employee only for timesheet lines, makes no sense for other lines
-        if not vals.get('employee_id') and vals.get('project_id'):
-            if vals.get('user_id'):
-                ts_user_id = vals['user_id']
-            else:
-                ts_user_id = self._default_user()
-            vals['employee_id'] = self.env['hr.employee'].search([('user_id', '=', ts_user_id)], limit=1).id
         return vals

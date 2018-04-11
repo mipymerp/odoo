@@ -20,6 +20,7 @@ from odoo.tools.safe_eval import safe_eval
 from odoo.osv.expression import FALSE_DOMAIN
 
 from odoo.addons.http_routing.models.ir_http import ModelConverter, _guess_mimetype
+from odoo.addons.portal.controllers.portal import _build_url_w_params
 
 logger = logging.getLogger(__name__)
 
@@ -70,15 +71,15 @@ class Http(models.AbstractModel):
     @classmethod
     def _add_dispatch_parameters(cls, func):
 
-        context = dict(request.context)
-        if not context.get('tz'):
+        context = {}
+        if not request.context.get('tz'):
             context['tz'] = request.session.get('geoip', {}).get('time_zone')
 
         request.website = request.env['website'].get_current_website()  # can use `request.env` since auth methods are called
         context['website_id'] = request.website.id
 
-        # bind modified context
-        request.context = context
+        # modify bound context
+        request.context = dict(request.context, **context)
 
         super(Http, cls)._add_dispatch_parameters(func)
 
@@ -116,7 +117,7 @@ class Http(models.AbstractModel):
         mypage = pages[0] if pages else False
         _, ext = os.path.splitext(req_page)
         if mypage:
-            return request.render(mypage.view_id.id, {
+            return request.render(mypage.get_view_identifier(), {
                 # 'path': req_page[1:],
                 'deletable': True,
                 'main_object': mypage,
@@ -145,7 +146,7 @@ class Http(models.AbstractModel):
 
         redirect = cls._serve_redirect()
         if redirect:
-            return request.redirect(redirect.url_to, code=redirect.type)
+            return request.redirect(_build_url_w_params(redirect.url_to, request.params), code=redirect.type)
 
         return False
 
