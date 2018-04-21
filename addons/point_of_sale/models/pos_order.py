@@ -47,8 +47,7 @@ class PosOrder(models.Model):
 
     def _payment_fields(self, ui_paymentline):
         payment_date = ui_paymentline['name']
-        if len(payment_date) > 10:
-            payment_date = fields.Date.context_today(self, fields.Datetime.from_string(payment_date))
+        payment_date = fields.Date.context_today(self, fields.Datetime.from_string(payment_date))
         return {
             'amount':       ui_paymentline['amount'] or 0.0,
             'payment_date': payment_date,
