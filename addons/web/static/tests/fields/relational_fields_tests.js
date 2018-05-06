@@ -5692,7 +5692,7 @@ QUnit.module('relational_fields', {
                 rpcCount++;
                 if (args.method === 'write') {
                     assert.deepEqual(args.args[1].p, [[0, args.args[1].p[0][1], {
-                        int_field: 123, product_id: 41
+                        foo: false, int_field: 123, product_id: 41,
                     }]]);
                 }
                 return this._super(route, args);
@@ -7070,7 +7070,7 @@ QUnit.module('relational_fields', {
     });
 
     QUnit.test('nested x2many default values', function (assert) {
-        assert.expect(2);
+        assert.expect(3);
 
         var form = createView({
             View: FormView,
@@ -7085,18 +7085,23 @@ QUnit.module('relational_fields', {
                 '</form>',
             mockRPC: function (route, args) {
                 if (args.model === 'partner' && args.method === 'default_get') {
-                    return $.when({turtles: [[0, 0, {
-                        partner_ids: [[6, 0, [4]]],
-                    }]]});
+                    return $.when({
+                        turtles: [
+                            [0, 0, {partner_ids: [[6, 0, [4]]]}],
+                            [0, 0, {partner_ids: [[6, 0, [1]]]}],
+                        ],
+                    });
                 }
                 return this._super.apply(this, arguments);
             },
         });
 
-        assert.strictEqual(form.$('.o_list_view .o_field_many2manytags[name="partner_ids"] .badge').length, 1,
-            "m2mtags should contain one tag");
+        assert.strictEqual(form.$('.o_list_view .o_data_row').length, 2,
+            "one2many list should contain 2 rows");
+        assert.strictEqual(form.$('.o_list_view .o_field_many2manytags[name="partner_ids"] .badge').length, 2,
+            "m2mtags should contain two tags");
         assert.strictEqual(form.$('.o_list_view .o_field_many2manytags[name="partner_ids"] .o_badge_text').text(),
-            'aaa', "tag name should have been correctly loaded");
+            'aaafirst record', "tag names should have been correctly loaded");
 
         form.destroy();
     });
@@ -8804,6 +8809,74 @@ QUnit.module('relational_fields', {
 
         assert.strictEqual(form.$('.o_data_row .o_data_cell').text(),
             'new record editedanother new record', "should display the two records");
+
+        form.destroy();
+    });
+
+    QUnit.test('one2many form view with action button', function (assert) {
+        // once the action button is clicked, the record is reloaded (via the
+        // on_close handler, executed because the python method does not return
+        // any action, or an ir.action.act_window_close) ; this test ensures that
+        // it reloads the fields of the opened view (i.e. the form in this case).
+        // See https://github.com/odoo/odoo/issues/24189
+        assert.expect(7);
+
+        var data = this.data;
+        data.partner.records[0].p = [2];
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: data,
+            res_id: 1,
+            arch: '<form string="Partners">' +
+                    '<field name="p">' +
+                        '<tree><field name="display_name"/></tree>' +
+                        '<form>' +
+                            '<button type="action" string="Set Timmy"/>' +
+                            '<field name="timmy"/>' +
+                        '</form>' +
+                    '</field>' +
+                '</form>',
+            archs: {
+                'partner_type,false,list': '<tree><field name="display_name"/></tree>',
+            },
+            intercepts: {
+                execute_action: function (ev) {
+                    data.partner.records[1].display_name = 'new name';
+                    data.partner.records[1].timmy = [12];
+                    ev.data.on_closed();
+                },
+            },
+            viewOptions: {
+                mode: 'edit',
+            },
+        });
+
+        assert.strictEqual(form.$('.o_data_row').length, 1,
+            "there should be one record in the one2many");
+        assert.strictEqual(form.$('.o_data_cell').text(), 'second record',
+            "initial display_name of o2m record should be correct");
+
+        // open one2many record in form view
+        form.$('.o_data_cell:first').click();
+        assert.strictEqual($('.modal .o_form_view').length, 1,
+            "should have opened the form view in a dialog");
+        assert.strictEqual($('.modal .o_form_view .o_data_row').length, 0,
+            "there should be no record in the many2many");
+
+        // click on the action button
+        $('.modal .o_form_view button').click();
+        assert.strictEqual($('.modal .o_data_row').length, 1,
+            "fields in the o2m form view should have been read");
+        assert.strictEqual($('.modal .o_data_cell').text(), 'gold',
+            "many2many subrecord should have been fetched");
+
+        // save the dialog
+        $('.modal .modal-footer .btn-primary').click();
+
+        assert.strictEqual(form.$('.o_data_cell').text(), 'new name',
+            "fields in the o2m list view should have been read as well");
 
         form.destroy();
     });

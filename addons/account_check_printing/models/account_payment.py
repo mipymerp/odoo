@@ -33,7 +33,6 @@ class AccountRegisterPayments(models.TransientModel):
         if self.payment_method_id == self.env.ref('account_check_printing.account_payment_method_check'):
             res.update({
                 'check_amount_in_words': self.currency_id.amount_to_text(res['amount']) if self.multi else self.check_amount_in_words,
-                'check_manual_sequencing': self.check_manual_sequencing,
             })
         return res
 

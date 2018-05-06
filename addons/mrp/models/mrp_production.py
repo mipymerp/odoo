@@ -389,7 +389,7 @@ class MrpProduction(models.Model):
             source_location = routing.location_id
         else:
             source_location = self.location_src_id
-        original_quantity = self.product_qty - self.qty_produced
+        original_quantity = (self.product_qty - self.qty_produced) or 1.0
         data = {
             'sequence': bom_line.sequence,
             'name': self.name,
@@ -558,7 +558,7 @@ class MrpProduction(models.Model):
             order._cal_price(moves_to_do)
             moves_to_finish = order.move_finished_ids.filtered(lambda x: x.state not in ('done','cancel'))
             moves_to_finish._action_done()
-            #order.action_assign()
+            order.action_assign()
             consume_move_lines = moves_to_do.mapped('active_move_line_ids')
             for moveline in moves_to_finish.mapped('active_move_line_ids'):
                 if moveline.product_id == order.product_id and moveline.move_id.has_tracking != 'none':
