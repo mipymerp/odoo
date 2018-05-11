@@ -1393,6 +1393,9 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
             resaction = [action
                          for action in bindings['action']
                          if view_type == 'tree' or not action.get('multi')]
+            resrelate = []
+            if view_type == 'form':
+                resrelate = bindings['action_form_only']
 
             for res in itertools.chain(resreport, resaction):
                 res['string'] = res['name']
@@ -1400,6 +1403,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
             result['toolbar'] = {
                 'print': resreport,
                 'action': resaction,
+                'relate': resrelate,
             }
         return result
 
@@ -4778,6 +4782,9 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
         recs = self.browse(self._prefetch[self._name])
         ids = [self.id]
         for record_id in self.env.cache.get_missing_ids(recs - self, field):
+            if not record_id:
+                # Do not prefetch `NewId`
+                continue
             ids.append(record_id)
             if limit and limit <= len(ids):
                 break
