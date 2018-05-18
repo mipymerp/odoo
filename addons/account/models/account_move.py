@@ -377,7 +377,7 @@ class AccountMoveLine(models.Model):
             else:
                 move_line.tax_base_amount = 0
 
-    @api.depends('move_id')
+    @api.depends('move_id', 'move_id.state')
     def _compute_parent_state(self):
         for record in self.filtered('move_id'):
             record.parent_state = record.move_id.state
@@ -453,7 +453,7 @@ class AccountMoveLine(models.Model):
     user_type_id = fields.Many2one('account.account.type', related='account_id.user_type_id', index=True, store=True, oldname="user_type")
     tax_exigible = fields.Boolean(string='Appears in VAT report', default=True,
         help="Technical field used to mark a tax line as exigible in the vat report or not (only exigible journal items are displayed). By default all new journal items are directly exigible, but with the feature cash_basis on taxes, some will become exigible only when the payment is recorded.")
-    parent_state = fields.Char(compute="_compute_parent_state", help="State of the parent account.move")
+    parent_state = fields.Selection([('draft', 'Sin Validar'), ('posted', 'Validado')], compute="_compute_parent_state", store=True, help="State of the parent account.move")
 
     #Needed for setup, as a decoration attribute needs to know that for a tree view in one of the popups, and there's no way to reference directly a xml id from there
     is_unaffected_earnings_line = fields.Boolean(string="Is Unaffected Earnings Line", compute="_compute_is_unaffected_earnings_line", help="Tells whether or not this line belongs to an unaffected earnings account")
