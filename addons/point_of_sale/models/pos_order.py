@@ -702,31 +702,43 @@ class PosOrder(models.Model):
             'location_id': location_id if line.qty >= 0 else destination_id,
             'location_dest_id': destination_id if line.qty >= 0 else return_pick_type != picking_type and return_pick_type.default_location_dest_id.id or location_id,
         }
+        
+    def _get_lines_to_picking(self):
+        return self.lines.filtered(lambda l: l.product_id.type in ['product', 'consu'] and not float_is_zero(l.qty, precision_rounding=l.product_id.uom_id.rounding))
+    
+    def _get_picking_type(self):
+        return self.picking_type_id
+    
+    def _get_location(self):
+        return self.location_id
+    
+    def _get_location_dest(self, picking_type):
+        if self.partner_id:
+            location_dest = self.partner_id.property_stock_customer
+        else:
+            if (not picking_type) or (not picking_type.default_location_dest_id):
+                customerloc, supplierloc = self.env['stock.warehouse']._get_partner_locations()
+                location_dest = customerloc
+            else:
+                location_dest = picking_type.default_location_dest_id
+        return location_dest
 
     def create_picking(self):
         """Create a picking for each order and validate it."""
         Picking = self.env['stock.picking']
         Move = self.env['stock.move']
-        StockWarehouse = self.env['stock.warehouse']
         for order in self:
-            if not order.lines.filtered(lambda l: l.product_id.type in ['product', 'consu']):
+            lines_to_picking = order._get_lines_to_picking()
+            if not lines_to_picking:
                 continue
             address = order.partner_id.address_get(['delivery']) or {}
-            picking_type = order.picking_type_id
-            return_pick_type = order.picking_type_id.return_picking_type_id or order.picking_type_id
+            picking_type = order._get_picking_type()
+            return_pick_type = picking_type.return_picking_type_id or picking_type
             order_picking = Picking
             return_picking = Picking
             moves = Move
-            location_id = order.location_id.id
-            if order.partner_id:
-                destination_id = order.partner_id.property_stock_customer.id
-            else:
-                if (not picking_type) or (not picking_type.default_location_dest_id):
-                    customerloc, supplierloc = StockWarehouse._get_partner_locations()
-                    destination_id = customerloc.id
-                else:
-                    destination_id = picking_type.default_location_dest_id.id
-
+            location_id = order._get_location().id
+            destination_id = order._get_location_dest(picking_type).id
             if picking_type:
                 message = _("This transfer has been created from the point of sale session: <a href=# data-oe-model=pos.order data-oe-id=%d>%s</a>") % (order.id, order.name)
                 picking_vals = order._prepare_picking_vals(address.get('delivery', False), picking_type.id, location_id, destination_id)
@@ -745,7 +757,7 @@ class PosOrder(models.Model):
                     return_picking = Picking.create(return_vals)
                     return_picking.message_post(body=message)
 
-            for line in order.lines.filtered(lambda l: l.product_id.type in ['product', 'consu'] and not float_is_zero(l.qty, precision_rounding=l.product_id.uom_id.rounding)):
+            for line in lines_to_picking:
                 moves |= Move.create(order._prepare_stock_move_vals(line, order_picking, return_picking, picking_type, return_pick_type, location_id, destination_id))
 
             # prefer associating the regular order picking, not the return
