@@ -1925,7 +1925,7 @@ msgstr ""
 " * 员工工资单\n"
 " * 每月工资单登记\n"
 " * 整合休假管理\n"
-" * 薪资管理、 社会保险局、须扣税款、育儿补贴 ...\n"
+" * 薪资更新、社会保险局、须扣税款、育儿补贴 ..."
 
 #. module: base
 #: model:ir.module.module,description:base.module_pos_blackbox_be
@@ -10890,7 +10890,7 @@ msgid ""
 "Disabling this option will also uninstall the following modules \n"
 "%s"
 msgstr ""
-"禁用此选项也会卸载以下模块 \\n\n"
+"禁用此选项也会卸载以下模块\n"
 "%s"
 
 #. module: base
@@ -17248,7 +17248,7 @@ msgstr ""
 "\n"
 "### 为提高效率而设计\n"
 "\n"
-"无论用于餐厅还是商店，您可以同时激活多张工单，\n"
+"无论用于餐厅还是商店，您可以同时激活多张订单，\n"
 "无需让您的客户等待。\n"
 "\n"
 "### 极其快速的搜索\n"
@@ -21939,8 +21939,9 @@ msgid ""
 "- deletion: you may be trying to delete a record while other records still reference it\n"
 "- creation/update: a mandatory field is not correctly set"
 msgstr ""
-"该操作无法完成，可能是由于以下原因：\\n - 删除：您可能正试图删除一个记录，但是仍有其它记录引用到它 \\n - "
-"创建/更新：一个强制字段没有正确设置"
+"该操作无法完成，可能是由于以下原因：\n"
+"- 删除：您可能正试图删除一个记录，但是仍有其它记录引用到它 \n"
+"- 创建/更新：一个强制字段没有正确设置"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_fields_domain

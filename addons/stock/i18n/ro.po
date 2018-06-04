@@ -247,6 +247,11 @@ msgid ""
 "                                        <span class=\"small\">Recommended if &gt;100 products</span>\n"
 "                                    </span>"
 msgstr ""
+"<span class=\"panel-title\">\n"
+"                                        <span class=\"fa\" data-icon=\"\"/>\n"
+"                                        <strong>Importă un fișier</strong><br/>\n"
+"                                        <span class=\"small\">Recomandat pentru &gt;100 produse</span>\n"
+"                                    </span>"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
@@ -7303,6 +7308,11 @@ msgid ""
 "valuate your stock or change its rounding precision to a smaller value "
 "(example: 0.00001)."
 msgstr ""
+"Utilizați o unitate de măsură mai mică decât cea utilizată pentru stocarea "
+"produsului. Acest lucru poate duce la o problemă de rotunjire a cantității "
+"rezervate! Ar trebui să utilizați o unitate de măsură mai mică posibilă "
+"pentru stocare sau a schimba precizia de rotunjire la o valoare mai mică "
+"(exemplu: 0.00001)."
 
 #. module: stock
 #: model:ir.actions.act_window,help:stock.action_routes_form
