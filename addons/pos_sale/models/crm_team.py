@@ -36,6 +36,13 @@ class CrmTeam(models.Model):
             team.pos_order_amount_total = sum(self.env['report.pos.order'].search(
                 [('session_id', 'in', team.pos_config_ids.mapped('session_ids').filtered(lambda s: s.state == 'opened').ids)]
             ).mapped('price_total'))
+            
+    def _get_domain_for_pos_report(self, start_date, end_date):
+        return [
+            ('date', '>=', fields.Date.to_string(start_date)),
+            ('date', '<=', fields.Datetime.to_string(datetime.combine(end_date, datetime.max.time()))),
+            ('config_id', 'in', self.pos_config_ids.ids),
+            ('state', 'in', ['paid', 'done', 'invoiced'])]
 
     def _graph_data(self, start_date, end_date):
         """ If the type of the sales team is point of sale ('pos'), the graph will display the sales data.
@@ -43,13 +50,10 @@ class CrmTeam(models.Model):
         """
         if self.team_type == 'pos':
             result = []
+            common_domain = self._get_domain_for_pos_report(start_date, end_date)
             if self.dashboard_graph_group_pos == 'pos':
                 order_data = self.env['report.pos.order'].read_group(
-                    domain=[
-                        ('date', '>=', fields.Date.to_string(start_date)),
-                        ('date', '<=', fields.Datetime.to_string(datetime.combine(end_date, datetime.max.time()))),
-                        ('config_id', 'in', self.pos_config_ids.ids),
-                        ('state', 'in', ['paid', 'done', 'invoiced'])],
+                    domain=common_domain,
                     fields=['config_id', 'price_total'],
                     groupby=['config_id']
                 )
@@ -62,11 +66,7 @@ class CrmTeam(models.Model):
 
             elif self.dashboard_graph_group_pos == 'user':
                 order_data = self.env['report.pos.order'].read_group(
-                    domain=[
-                        ('date', '>=', fields.Date.to_string(start_date)),
-                        ('date', '<=', fields.Datetime.to_string(datetime.combine(end_date, datetime.max.time()))),
-                        ('config_id', 'in', self.pos_config_ids.ids),
-                        ('state', 'in', ['paid', 'done', 'invoiced'])],
+                    domain=common_domain,
                     fields=['user_id', 'price_total'],
                     groupby=['user_id']
                 )
@@ -77,11 +77,7 @@ class CrmTeam(models.Model):
                 # locale en_GB is used to be able to obtain the datetime from the string returned by read_group
                 # /!\ do not use en_US as it's not ISO-standard and does not match datetime's library
                 order_data = self.env['report.pos.order'].with_context(lang='en_GB').read_group(
-                    domain=[
-                        ('date', '>=', fields.Date.to_string(start_date)),
-                        ('date', '<=', fields.Datetime.to_string(datetime.combine(end_date, datetime.max.time()))),
-                        ('config_id', 'in', self.pos_config_ids.ids),
-                        ('state', 'in', ['paid', 'done', 'invoiced'])],
+                    domain=common_domain,
                     fields=['date', 'price_total'],
                     groupby=['date:' + self.dashboard_graph_group_pos]
                 )
