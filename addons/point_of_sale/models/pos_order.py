@@ -464,10 +464,10 @@ class PosOrder(models.Model):
         default=lambda self: self.env.uid,
         states={'done': [('readonly', True)], 'invoiced': [('readonly', True)]},
     )
-    amount_tax = fields.Float(compute='_compute_amount_all', string='Taxes', store=True, digits=0)
-    amount_total = fields.Float(compute='_compute_amount_all', string='Total', store=True, digits=0)
-    amount_paid = fields.Float(compute='_compute_amount_all', string='Paid', states={'draft': [('readonly', False)]}, readonly=True, store=True, digits=0)
-    amount_return = fields.Float(compute='_compute_amount_all', string='Returned', store=True, digits=0)
+    amount_tax = fields.Float(compute='_compute_amount_all', string='Taxes', store=True, copy=False, digits=0)
+    amount_total = fields.Float(compute='_compute_amount_all', string='Total', store=True, copy=False, digits=0)
+    amount_paid = fields.Float(compute='_compute_amount_all', string='Paid', states={'draft': [('readonly', False)]}, readonly=True, store=True, copy=False, digits=0)
+    amount_return = fields.Float(compute='_compute_amount_all', string='Returned', store=True, copy=False, digits=0)
     lines = fields.One2many('pos.order.line', 'order_id', string='Order Lines', states={'draft': [('readonly', False)]}, readonly=True, copy=True)
     statement_ids = fields.One2many('account.bank.statement.line', 'pos_statement_id', string='Payments', states={'draft': [('readonly', False)]}, readonly=True)
     pricelist_id = fields.Many2one('product.pricelist', string='Pricelist', required=True, states={
@@ -955,8 +955,8 @@ class PosOrderLine(models.Model):
     product_id = fields.Many2one('product.product', string='Product', domain=[('sale_ok', '=', True)], required=True, change_default=True)
     price_unit = fields.Float(string='Unit Price', digits=0)
     qty = fields.Float('Quantity', digits=dp.get_precision('Product Unit of Measure'), default=1)
-    price_subtotal = fields.Float(compute='_compute_amount_line_all', digits=0, string='Subtotal w/o Tax')
-    price_subtotal_incl = fields.Float(compute='_compute_amount_line_all', digits=0, string='Subtotal')
+    price_subtotal = fields.Float(compute='_compute_amount_line_all', store=True, copy=False, digits=0, string='Subtotal w/o Tax')
+    price_subtotal_incl = fields.Float(compute='_compute_amount_line_all', store=True, copy=False,digits=0, string='Subtotal')
     discount = fields.Float(string='Discount (%)', digits=0, default=0.0)
     order_id = fields.Many2one('pos.order', string='Order Ref', ondelete='cascade')
     create_date = fields.Datetime(string='Creation Date', readonly=True)
