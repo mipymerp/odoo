@@ -283,19 +283,19 @@
             <search string="Search Sales Order">
                 <field name="name"/>
                 <field name="date_order"/>
-                <filter string="New" domain="[('state','=','draft')]"/>
-                <filter string="Done" domain="[('state','in',('paid','invoiced','done'))]"/>
-                <filter string="Invoiced" domain="[('state','=','invoiced')]"/>
-                <filter string="Posted" domain="[('state','=','done')]"/>
+                <filter name="filter_by_draft" string="New" domain="[('state','=','draft')]"/>
+                <filter name="filter_by_done" string="Done" domain="[('state','in',('paid','invoiced','done'))]"/>
+                <filter name="filter_by_invoiced" string="Invoiced" domain="[('state','=','invoiced')]"/>
+                <filter name="filter_by_posted" string="Posted" domain="[('state','=','done')]"/>
                 <field name="user_id"/>
                 <field name="partner_id"/>
                 <field name="session_id"/>
                 <group expand="0" string="Group By">
-                    <filter string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
-                    <filter string="Salesman" domain="[]" context="{'group_by':'user_id'}"/>
-                    <filter string="Session" domain="[]" context="{'group_by':'session_id'}"/>
-                    <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
-                    <filter string="Order Month" domain="[]" context="{'group_by':'date_order'}"/>
+                    <filter name="group_by_partner" string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
+                    <filter name="group_by_user" string="Salesman" domain="[]" context="{'group_by':'user_id'}"/>
+                    <filter name="group_by_session" string="Session" domain="[]" context="{'group_by':'session_id'}"/>
+                    <filter name="group_by_state" string="Status" domain="[]" context="{'group_by':'state'}"/>
+                    <filter name="group_by_date_order" string="Order Month" domain="[]" context="{'group_by':'date_order'}"/>
                 </group>
             </search>
         </field>
