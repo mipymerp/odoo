@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models, _
 from datetime import datetime
+import pytz
 
 
 class CrmTeam(models.Model):
@@ -37,10 +38,10 @@ class CrmTeam(models.Model):
                 [('session_id', 'in', team.pos_config_ids.mapped('session_ids').filtered(lambda s: s.state == 'opened').ids)]
             ).mapped('price_total'))
             
-    def _get_domain_for_pos_report(self, start_date, end_date):
+    def _get_domain_for_pos_report(self, min_date, max_date):
         return [
-            ('date', '>=', fields.Date.to_string(start_date)),
-            ('date', '<=', fields.Datetime.to_string(datetime.combine(end_date, datetime.max.time()))),
+            ('date', '>=', min_date),
+            ('date', '<=', max_date),
             ('config_id', 'in', self.pos_config_ids.ids),
             ('state', 'in', ['paid', 'done', 'invoiced'])]
 
@@ -48,9 +49,12 @@ class CrmTeam(models.Model):
         """ If the type of the sales team is point of sale ('pos'), the graph will display the sales data.
             The override here is to get data from pos.order instead of sale.order.
         """
+        offset = datetime.now(pytz.timezone(self.env.user.tz or 'UTC')).utcoffset()
+        min_date = fields.Datetime.to_string(datetime.combine(start_date, datetime.min.time()) - offset)
+        max_date = fields.Datetime.to_string(datetime.combine(end_date, datetime.max.time()) - offset)
         if self.team_type == 'pos':
             result = []
-            common_domain = self._get_domain_for_pos_report(start_date, end_date)
+            common_domain = self._get_domain_for_pos_report(min_date, max_date)
             if self.dashboard_graph_group_pos == 'pos':
                 order_data = self.env['report.pos.order'].read_group(
                     domain=common_domain,
