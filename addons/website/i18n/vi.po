@@ -836,6 +836,10 @@ msgid ""
 "field as True to allow users to run this action. If it is set to False the "
 "action cannot be run through the website."
 msgstr ""
+"Một hành động máy chủ mã có thể được thực hiện từ trang web, sử dụng một bộ "
+"điều khiển chuyên dụng. Địa chỉ là <base>/ website / action /<website_path>."
+" Đặt trường này là \"Đúng\" để cho phép người dùng chạy tác vụ này. Nếu nó "
+"được đặt thành \"Sai\" thì hành động không thể chạy qua trang web."
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_text_block
@@ -2729,7 +2733,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Objectives"
-msgstr ""
+msgstr "Mục tiêu"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.layout_footer_copyright
@@ -3617,7 +3621,7 @@ msgstr "URL đầy đủ để truy cập tài liệu thông qua website."
 #. module: website
 #: model:ir.model.fields,help:website.field_ir_act_server_website_url
 msgid "The full URL to access the server action through the website."
-msgstr ""
+msgstr "URL đầy đủ để truy cập hành động máy chủ thông qua trang web."
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.403
@@ -4182,7 +4186,7 @@ msgstr "Trình đơn website"
 #: model:ir.model.fields,field_description:website.field_website_page_website_meta_description
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_website_meta_description
 msgid "Website meta description"
-msgstr ""
+msgstr "Website mô tả dữ liệu"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_blog_blog_website_meta_keywords
@@ -4204,7 +4208,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_page_website_meta_keywords
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_website_meta_keywords
 msgid "Website meta keywords"
-msgstr ""
+msgstr "Website dữ liệu từ khóa"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_blog_blog_website_meta_title
@@ -4226,7 +4230,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_page_website_meta_title
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_website_meta_title
 msgid "Website meta title"
-msgstr ""
+msgstr "Website dữ liệu Tiêu đề"
 
 #. module: website
 #: model:ir.actions.server,name:website.ir_actions_server_website_dashboard
