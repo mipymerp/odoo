@@ -143,6 +143,7 @@ class PosOrder(models.Model):
                 cash_journal_id = cash_journal[0].id
             order.add_payment({
                 'amount': -pos_order['amount_return'],
+                'payment_date': fields.Date.context_today(self),
                 'payment_name': _('return'),
                 'journal': cash_journal_id,
             })
@@ -848,7 +849,10 @@ class PosOrder(models.Model):
                         'lot_id': lot_id,
                     })
                 if not pack_lots and not float_is_zero(qty_done, precision_rounding=move.product_uom.rounding):
-                    move.quantity_done = qty_done
+                    if len(move._get_move_lines()) < 2:
+                        move.quantity_done = qty_done
+                    else:
+                        move._set_quantity_done(qty_done)
         return has_wrong_lots
 
     def _prepare_bank_statement_line_payment_values(self, data):

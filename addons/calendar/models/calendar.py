@@ -630,6 +630,8 @@ class Meeting(models.Model):
                     recurring_date = recurring_date.replace(tzinfo=None)
                 else:
                     recurring_date = todate(meeting.recurrent_id_date)
+                if date_field == "stop":
+                    recurring_date += timedelta(hours=self.duration)
                 rset1.exdate(recurring_date)
             invalidate = True
         return [d.astimezone(pytz.UTC) if d.tzinfo else d for d in rset1 if d.year < MAXYEAR]
@@ -1757,8 +1759,6 @@ class Meeting(models.Model):
     def _fix_rrule(self, values):
         rule_str = values.get('rrule')
         if rule_str:
-            rule = rrule.rrulestr(rule_str)
-            if not rule._until and not rule._count:
-                rule._count = 100
-                rule_str = str(rule).split('RRULE:')[-1]
+            if 'UNTIL' not in rule_str and 'COUNT' not in rule_str:
+                rule_str += ';COUNT=100'
         return rule_str
