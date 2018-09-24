@@ -166,7 +166,7 @@ class PosConfig(models.Model):
 
     @api.depends('journal_id')
     def _compute_is_installed_account_accountant(self):
-        account_accountant = self.env['ir.module.module'].sudo().search([('name', '=', 'account_accountant'), ('state', '=', 'installed')])
+        account_accountant = self.env['ir.module.module'].sudo().search([('name', '=', 'account'), ('state', '=', 'installed')])
         for pos_config in self:
             pos_config.is_installed_account_accountant = account_accountant and account_accountant.id
 
