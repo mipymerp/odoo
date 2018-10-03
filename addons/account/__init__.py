@@ -29,7 +29,9 @@ def _auto_install_l10n(cr, registry):
             module_list.append('l10n_cn_small_business')
             module_list.append('l10n_cn_standard')
         else:
-            if env['ir.module.module'].search([('name', '=', 'l10n_' + country_code.lower())]):
+            if country_code.lower() == 'ec' and env['ir.module.module'].search([('name', '=', 'l10n_ec_niif_pyme')]):
+                module_list.append('l10n_ec_niif_pyme')
+            elif env['ir.module.module'].search([('name', '=', 'l10n_' + country_code.lower())]):
                 module_list.append('l10n_' + country_code.lower())
             else:
                 module_list.append('l10n_generic_coa')
