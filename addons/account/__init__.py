@@ -31,6 +31,8 @@ def _auto_install_l10n(cr, registry):
         else:
             if country_code.lower() == 'ec' and env['ir.module.module'].search([('name', '=', 'l10n_ec_niif_pyme')]):
                 module_list.append('l10n_ec_niif_pyme')
+            elif country_code.lower() == 'cl' and env['ir.module.module'].search([('name', '=', 'l10n_cl_chart_of_account')]):
+                module_list.append('l10n_cl_chart_of_account')
             elif env['ir.module.module'].search([('name', '=', 'l10n_' + country_code.lower())]):
                 module_list.append('l10n_' + country_code.lower())
             else:
