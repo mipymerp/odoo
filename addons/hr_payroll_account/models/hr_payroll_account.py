@@ -50,6 +50,11 @@ class HrPayslip(models.Model):
         moves.filtered(lambda x: x.state == 'posted').button_cancel()
         moves.unlink()
         return super(HrPayslip, self).action_payslip_cancel()
+    
+    @api.multi
+    def _prepare_analytic_account(self, line):
+        '''This method is designed to be inherited in a custom module'''
+        return line.salary_rule_id.analytic_account_id.id
 
     @api.multi
     def action_payslip_done(self):
@@ -85,7 +90,7 @@ class HrPayslip(models.Model):
                         'date': date,
                         'debit': amount > 0.0 and amount or 0.0,
                         'credit': amount < 0.0 and -amount or 0.0,
-                        'analytic_account_id': line.salary_rule_id.analytic_account_id.id,
+                        'analytic_account_id': slip._prepare_analytic_account(line),
                         'tax_line_id': line.salary_rule_id.account_tax_id.id,
                     })
                     line_ids.append(debit_line)
@@ -100,7 +105,7 @@ class HrPayslip(models.Model):
                         'date': date,
                         'debit': amount < 0.0 and -amount or 0.0,
                         'credit': amount > 0.0 and amount or 0.0,
-                        'analytic_account_id': line.salary_rule_id.analytic_account_id.id,
+                        'analytic_account_id': slip._prepare_analytic_account(line),
                         'tax_line_id': line.salary_rule_id.account_tax_id.id,
                     })
                     line_ids.append(credit_line)
