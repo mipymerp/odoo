@@ -1397,6 +1397,8 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
                     view_ref_res = self._cr.fetchone()
                     if view_ref_res:
                         view_id = view_ref_res[0]
+                        if View.browse(view_id).read(['model'])[0]['model'] != self._name:
+                            view_id = False
                 else:
                     _logger.warning('%r requires a fully-qualified external id (got: %r for model %s). '
                         'Please use the complete `module.view_id` form instead.', view_ref_key, view_ref,
