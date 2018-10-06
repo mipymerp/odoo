@@ -623,7 +623,7 @@ class Picking(models.Model):
                     todo_moves |= new_move
                     #'qty_done': ops.qty_done})
         todo_moves._action_done()
-        self.write({'date_done': fields.Datetime.now()})
+        self.write({'date_done': self.env.context.get('date_for_move') or fields.Datetime.now()})
         return True
 
     def _check_move_lines_map_quant_package(self, package):
