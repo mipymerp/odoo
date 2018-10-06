@@ -36,7 +36,7 @@ class ResCompany(models.Model):
     tax_calculation_rounding_method = fields.Selection([
         ('round_per_line', 'Round per Line'),
         ('round_globally', 'Round Globally'),
-        ], default='round_per_line', string='Tax Calculation Rounding Method')
+        ], default='round_globally', string='Tax Calculation Rounding Method')
     currency_exchange_journal_id = fields.Many2one('account.journal', string="Exchange Gain or Loss Journal", domain=[('type', '=', 'general')])
     income_currency_exchange_account_id = fields.Many2one('account.account', related='currency_exchange_journal_id.default_credit_account_id', readonly=False,
         string="Gain Exchange Rate Account", domain="[('internal_type', '=', 'other'), ('deprecated', '=', False), ('company_id', '=', id)]")
