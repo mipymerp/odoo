@@ -724,6 +724,7 @@ class PosOrder(models.Model):
                 raise
             except Exception as e:
                 _logger.error('Could not fully process the POS Order: %s', tools.ustr(e))
+                raise
 
             if to_invoice:
                 pos_order.action_pos_order_invoice()
