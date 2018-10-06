@@ -374,7 +374,7 @@ class AccountInvoice(models.Model):
     invoice_icon = fields.Char(compute='_get_vendor_display_info', store=False)
 
     _sql_constraints = [
-        ('number_uniq', 'unique(number, company_id, journal_id, type)', 'Invoice Number must be unique per Company!'),
+        ('number_uniq', 'unique(number, company_id, journal_id, type, partner_id)', 'Invoice Number must be unique per Company!'),
     ]
 
     @api.depends('partner_id', 'source_email')
