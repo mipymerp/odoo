@@ -146,7 +146,7 @@ class Cursor(object):
             return f(self, *args, **kwargs)
         return wrapper
 
-    def __init__(self, pool, dbname, dsn, serialized=True):
+    def __init__(self, pool, dbname, dsn, serialized=True, cursor_name=None):
         self.sql_from_log = {}
         self.sql_into_log = {}
 
@@ -168,6 +168,11 @@ class Cursor(object):
 
         self._cnx = pool.borrow(dsn)
         self._obj = self._cnx.cursor()
+        if not (cursor_name is None):
+            _logger.debug(u"creating new server cursor %s", cursor_name)
+            self._obj = self._cnx.cursor(cursor_name)
+        else:
+            self._obj = self._cnx.cursor()
         if self.sql_log:
             self.__caller = frame_codeinfo(currentframe(), 2)
         else:
@@ -649,10 +654,10 @@ class Connection(object):
         self.dsn = dsn
         self.__pool = pool
 
-    def cursor(self, serialized=True):
+    def cursor(self, serialized=True, cursor_name=None):
         cursor_type = serialized and 'serialized ' or ''
         _logger.debug('create %scursor to %r', cursor_type, self.dsn)
-        return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized)
+        return Cursor(self.__pool, self.dbname, self.dsn, serialized=serialized, cursor_name=cursor_name)
 
     # serialized_cursor is deprecated - cursors are serialized by default
     serialized_cursor = cursor
