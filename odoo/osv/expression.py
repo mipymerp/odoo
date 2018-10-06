@@ -113,7 +113,9 @@ Finally, to instruct OpenERP to really use the unaccent function, you have to
 start the server specifying the ``--unaccent`` flag.
 
 """
+import pytz
 import collections
+from datetime import datetime
 
 import logging
 import traceback
@@ -125,7 +127,7 @@ import odoo.modules
 from odoo.tools import pycompat
 from ..models import MAGIC_COLUMNS, BaseModel
 import odoo.tools as tools
-
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF
 
 # Domain operators.
 NOT_OPERATOR = '!'
@@ -659,10 +661,59 @@ class expression(object):
             :attr list expression: the domain expression, that will be normalized
                 and prepared
         """
+        
+        def TO_UTC(timestamp, context):
+            if context.get('tz'):
+                tz_name = context['tz']
+            else:
+                model.env.cr.execute("SELECT p.tz FROM res_users u INNER JOIN res_partner p ON p.id = u.partner_id WHERE u.id = %(uid)s", {'uid': model.env.uid})
+                tz_name = model.env.cr.fetchone()
+                tz_name = tz_name and tz_name[0] or False
+            if tz_name: 
+                try:
+                    context_tz = pytz.timezone(tz_name)
+                    timestamp = context_tz.localize(timestamp, is_dst=False) # UTC = no DST
+                    return timestamp.astimezone(pytz.utc)
+                except Exception:
+                    _logger.debug("failed to compute context/client-specific timestamp, "
+                                  "using the UTC value",
+                                  exc_info=True)
+            return timestamp
+         
         self._unaccent = get_unaccent_wrapper(model._cr)
         self.joins = []
         self.root_model = model
-
+        #FIX: fields datetime enter in loop infinite when expresion has operator = and only date is passed as value
+        #i.e. (field_datetime,=,01/01/1900)
+        domains = domain[:]
+        domains_valid = []
+        for dom in domains:
+            if len(dom) != 3:
+                #for domain equal to operators &, |
+                domains_valid.append(dom)
+                continue
+            field, operator, value = dom
+            if field in model._fields and model._fields[field].type == 'datetime':
+                if value and (operator == '=' and len(value) == 10):
+                    #obtain values ​​between 00:00:00 and 23:59:59 for the given date
+                    value_left = TO_UTC(datetime.strptime('%s 00:00:00' % value, DTF), model.env.context)
+                    value_right = TO_UTC(datetime.strptime('%s 23:59:59' % value, DTF), model.env.context)
+                    domains_valid.append('&')
+                    domains_valid.append((field, '>=', value_left.strftime(DTF)))
+                    domains_valid.append((field, '<=', value_right.strftime(DTF)))
+                elif value and (operator in ('>', '>=') and len(value) == 10):
+                    #obtain values ​​00:00:00 for the given date
+                    value_lt = TO_UTC(datetime.strptime('%s 00:00:00' % value, DTF), model.env.context)
+                    domains_valid.append((field, operator, value_lt.strftime(DTF)))
+                elif value and (operator in ('<', '<=') and len(value) == 10):
+                    #obtain values ​​23:59:59 for the given date
+                    value_gt = TO_UTC(datetime.strptime('%s 23:59:59' % value, DTF), model.env.context)
+                    domains_valid.append((field, operator, value_gt.strftime(DTF)))
+                else:
+                    domains_valid.append(dom)
+            else:
+                domains_valid.append(dom)
+        domain = domains_valid[:]
         # normalize and prepare the expression for parsing
         self.expression = distribute_not(normalize_domain(domain))
 
