@@ -218,7 +218,7 @@ class account_journal(models.Model):
         """
         return ("""SELECT state, residual_signed as amount_total, currency_id AS currency, type, date_invoice, company_id
                   FROM account_invoice
-                  WHERE journal_id = %(journal_id)s AND state = 'open';""", {'journal_id':self.id})
+                  WHERE journal_id = %(journal_id)s AND type NOT IN ('out_refund', 'in_refund') AND state = 'open';""", {'journal_id':self.id})
 
     def _get_draft_bills_query(self):
         """
@@ -228,7 +228,7 @@ class account_journal(models.Model):
         """
         return ("""SELECT state, amount_total, currency_id AS currency, type, date_invoice, company_id
                   FROM account_invoice
-                  WHERE journal_id = %(journal_id)s AND state = 'draft';""", {'journal_id':self.id})
+                  WHERE journal_id = %(journal_id)s AND type NOT IN ('out_refund', 'in_refund') AND state = 'draft';""", {'journal_id':self.id})
 
     def _count_results_and_sum_amounts(self, results_dict, target_currency):
         """ Loops on a query result to count the total number of invoices and sum
