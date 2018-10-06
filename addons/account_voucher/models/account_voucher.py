@@ -184,7 +184,7 @@ class AccountVoucher(models.Model):
         sign = debit - credit < 0 and -1 or 1
         #set the first line of the voucher
         move_line = {
-                'name': self.name or '/',
+                'name': self.reference or self.name or '/',
                 'debit': debit,
                 'credit': credit,
                 'account_id': self.account_id.id,
