@@ -219,8 +219,7 @@ class PosOrder(models.Model):
                     values.get('currency_id'))
         return False
 
-    def _action_create_invoice_line(self, line=False, invoice_id=False):
-        InvoiceLine = self.env['account.invoice.line']
+    def _prepare_invoice_line(self, line=False, invoice_id=False):
         inv_name = line.product_id.display_name
         inv_line = {
             'invoice_id': invoice_id,
@@ -229,6 +228,12 @@ class PosOrder(models.Model):
             'account_analytic_id': self._prepare_analytic_account(line),
             'name': inv_name,
         }
+        return inv_line
+        
+    def _action_create_invoice_line(self, line=False, invoice_id=False):
+        InvoiceLine = self.env['account.invoice.line']
+        inv_line = self._prepare_invoice_line(line, invoice_id)
+        inv_name = inv_line['name']
         # Oldlin trick
         invoice_line = InvoiceLine.sudo().new(inv_line)
         invoice_line._onchange_product_id()
