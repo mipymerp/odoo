@@ -116,6 +116,9 @@ var FieldMany2One = AbstractField.extend({
     init: function (parent, name, record, options) {
         this._super.apply(this, arguments);
         this.limit = 7;
+        if (typeof (this.nodeOptions || {}).limit === 'number') {
+        	this.limit = this.nodeOptions.limit;
+        }
         this.orderer = new concurrency.DropMisordered();
 
         // should normally also be set, except in standalone M20
