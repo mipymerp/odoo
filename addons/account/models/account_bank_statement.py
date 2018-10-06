@@ -384,6 +384,7 @@ class AccountBankStatementLine(models.Model):
             moves_to_cancel.button_cancel()
             moves_to_cancel.unlink()
         if payment_to_cancel:
+            payment_to_cancel.cancel()
             payment_to_cancel.unlink()
 
     ####################################################
