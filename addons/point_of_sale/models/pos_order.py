@@ -9,7 +9,7 @@ import pytz
 
 from odoo import api, fields, models, tools, _
 from odoo.tools import float_is_zero
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, AccessError
 from odoo.http import request
 from odoo.addons import decimal_precision as dp
 
@@ -676,6 +676,9 @@ class PosOrder(models.Model):
             try:
                 pos_order.action_pos_order_paid()
             except psycopg2.OperationalError:
+                # do not hide transactional errors, the order(s) won't be saved!
+                raise
+            except AccessError:
                 # do not hide transactional errors, the order(s) won't be saved!
                 raise
             except Exception as e:
