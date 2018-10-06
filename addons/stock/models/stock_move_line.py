@@ -451,7 +451,7 @@ class StockMoveLine(models.Model):
         # Reset the reserved quantity as we just moved it to the destination location.
         (self - ml_to_delete).with_context(bypass_reservation_update=True).write({
             'product_uom_qty': 0.00,
-            'date': fields.Datetime.now(),
+            'date': self.env.context.get('date_for_move') or fields.Datetime.now(),
         })
 
     def _log_message(self, record, move, template, vals):

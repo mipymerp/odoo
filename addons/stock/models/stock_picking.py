@@ -624,7 +624,7 @@ class Picking(models.Model):
                     todo_moves |= new_move
                     #'qty_done': ops.qty_done})
         todo_moves._action_done(cancel_backorder=self.env.context.get('cancel_backorder'))
-        self.write({'date_done': fields.Datetime.now()})
+        self.write({'date_done': self.env.context.get('date_for_move') or fields.Datetime.now()})
         return True
 
     @api.depends('state', 'move_lines', 'move_lines.state', 'move_lines.package_level_id')

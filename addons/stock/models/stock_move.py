@@ -1132,7 +1132,7 @@ class StockMove(models.Model):
             if len(result_package.quant_ids.mapped('location_id')) > 1:
                 raise UserError(_('You cannot move the same package content more than once in the same transfer or split the same package into two location.'))
         picking = moves_todo and moves_todo[0].picking_id or False
-        moves_todo.write({'state': 'done', 'date': fields.Datetime.now()})
+        moves_todo.write({'state': 'done', 'date': self.env.context.get('date_for_move') or fields.Datetime.now()})
         moves_todo.mapped('move_dest_ids')._action_assign()
 
         # We don't want to create back order for scrap moves
