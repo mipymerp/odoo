@@ -633,7 +633,6 @@ class PosOrder(models.Model):
                 self.with_context(local_context)._action_create_invoice_line(line, new_invoice.id)
 
             new_invoice.with_context(local_context).sudo().compute_taxes()
-            order.sudo().write({'state': 'invoiced'})
 
         if not Invoice:
             return {}
