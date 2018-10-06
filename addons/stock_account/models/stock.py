@@ -396,7 +396,9 @@ class StockMove(models.Model):
 
             tmpl_dict[move.product_id.id] += qty_done
             # Write the standard price, as SUPERUSER_ID because a warehouse manager may not have the right to write on products
-            move.product_id.with_context(force_company=move.company_id.id, save_cost_reason=move.origin).sudo().write({'standard_price': new_std_price})
+            # guardar el id del movimiento para cancelaciones sea ese especifico
+            move_origin = "%s_%s" % (move.origin, move.id)
+            move.product_id.with_context(force_company=move.company_id.id, save_cost_reason=move_origin).sudo().write({'standard_price': new_std_price})
             std_price_update[move.company_id.id, move.product_id.id] = new_std_price
 
     @api.model
