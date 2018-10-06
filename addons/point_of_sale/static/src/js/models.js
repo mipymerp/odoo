@@ -2312,7 +2312,7 @@ exports.Order = Backbone.Model.extend({
         var attr = JSON.parse(JSON.stringify(product));
         attr.pos = this.pos;
         attr.order = this;
-        var line = new exports.Orderline({}, {pos: this.pos, order: this, product: product});
+        var line = new exports.Orderline(options, {pos: this.pos, order: this, product: product});
 
         if(options.quantity !== undefined){
             line.set_quantity(options.quantity);
