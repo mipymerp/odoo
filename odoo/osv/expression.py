@@ -694,21 +694,31 @@ class expression(object):
                 continue
             field, operator, value = dom
             if field in model._fields and model._fields[field].type == 'datetime':
-                if value and (operator == '=' and len(value) == 10):
+                from odoo import fields
+                is_only_date = False
+                if isinstance(value, datetime):
+                    if value.time() == time.min:
+                        is_only_date = True
+                elif isinstance(value, date):
+                    is_only_date = True
+                elif isinstance(value, str):
+                    if len(value) == 10:
+                        is_only_date = True
+                if value and (operator == '=' and is_only_date):
                     #obtain values ​​between 00:00:00 and 23:59:59 for the given date
-                    value_left = TO_UTC(datetime.strptime('%s 00:00:00' % value, DTF), model.env.context)
-                    value_right = TO_UTC(datetime.strptime('%s 23:59:59' % value, DTF), model.env.context)
+                    value_left = TO_UTC(datetime.combine(fields.Datetime.to_datetime(value), time.min), model.env.context)
+                    value_right = TO_UTC(datetime.combine(fields.Datetime.to_datetime(value), time.max), model.env.context)
                     domains_valid.append('&')
-                    domains_valid.append((field, '>=', value_left.strftime(DTF)))
-                    domains_valid.append((field, '<=', value_right.strftime(DTF)))
-                elif value and (operator in ('>', '>=') and len(value) == 10):
+                    domains_valid.append((field, '>=', value_left))
+                    domains_valid.append((field, '<=', value_right))
+                elif value and (operator in ('>', '>=') and is_only_date):
                     #obtain values ​​00:00:00 for the given date
-                    value_lt = TO_UTC(datetime.strptime('%s 00:00:00' % value, DTF), model.env.context)
-                    domains_valid.append((field, operator, value_lt.strftime(DTF)))
-                elif value and (operator in ('<', '<=') and len(value) == 10):
+                    value_lt = TO_UTC(datetime.combine(fields.Datetime.to_datetime(value), time.min), model.env.context)
+                    domains_valid.append((field, operator, value_lt))
+                elif value and (operator in ('<', '<=') and is_only_date):
                     #obtain values ​​23:59:59 for the given date
-                    value_gt = TO_UTC(datetime.strptime('%s 23:59:59' % value, DTF), model.env.context)
-                    domains_valid.append((field, operator, value_gt.strftime(DTF)))
+                    value_gt = TO_UTC(datetime.combine(fields.Datetime.to_datetime(value), time.max), model.env.context)
+                    domains_valid.append((field, operator, value_gt))
                 else:
                     domains_valid.append(dom)
             else:
