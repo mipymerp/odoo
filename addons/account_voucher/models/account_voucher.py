@@ -78,8 +78,9 @@ class AccountVoucher(models.Model):
         help='In case we have a rounding problem in the tax, use this field to correct it')
     number = fields.Char(readonly=True, copy=False)
     move_id = fields.Many2one('account.move', 'Journal Entry', copy=False)
+    payment_id = fields.Many2one('account.payment', 'Payment', copy=False)
     partner_id = fields.Many2one('res.partner', 'Partner', change_default=1, readonly=True, states={'draft': [('readonly', False)]})
-    paid = fields.Boolean(compute='_check_paid', help="The Voucher has been totally paid.")
+    paid = fields.Boolean(compute='_check_paid', store=True, help="The Voucher has been totally paid.")
     pay_now = fields.Selection([
             ('pay_now', 'Pay Directly'),
             ('pay_later', 'Pay Later'),
@@ -161,6 +162,7 @@ class AccountVoucher(models.Model):
     @api.multi
     def cancel_voucher(self):
         for voucher in self:
+            voucher.payment_id.cancel()
             voucher.move_id.button_cancel()
             voucher.move_id.unlink()
         self.write({'state': 'cancel', 'move_id': False})
@@ -363,6 +365,7 @@ class AccountVoucher(models.Model):
             line_total = voucher.with_context(ctx).voucher_move_line_create(line_total, move.id, company_currency, current_currency)
 
             # Create a payment to allow the reconciliation when pay_now = 'pay_now'.
+            payment_id = self.env['account.payment'].browse()
             if self.pay_now == 'pay_now':
                 payment_id = self.env['account.payment'].create(self.voucher_pay_now_payment_create())
                 payment_id.post()
@@ -382,7 +385,8 @@ class AccountVoucher(models.Model):
             voucher.write({
                 'move_id': move.id,
                 'state': 'posted',
-                'number': move.name
+                'number': move.name,
+                'payment_id': payment_id.id,
             })
             move.post()
         return True

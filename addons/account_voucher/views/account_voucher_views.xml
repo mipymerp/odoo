@@ -279,6 +279,7 @@
                             <group>
                                 <field name="account_date"/>
                                 <field name="move_id" readonly="1"/>
+                                <field name="payment_id" readonly="1"/>
                             </group>
                         </page>
                     </notebook>
@@ -399,6 +400,7 @@
                             <group>
                                 <field name="account_date"/>
                                 <field name="move_id" readonly="1"/>
+                                <field name="payment_id" readonly="1"/>
                             </group>
                         </page>
                     </notebook>
