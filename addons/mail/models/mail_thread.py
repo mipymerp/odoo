@@ -2146,9 +2146,12 @@ class MailThread(models.AbstractModel):
             author = self.env['res.partner'].sudo().browse(kw_author)
         else:
             author = self.env.user.partner_id
-        if not author.email:
+        email = author.email
+        if not email and self.env.context.get('email_from_to_message_log'):
+            email = self.env.context.get('email_from_to_message_log')
+        if not email:
             raise exceptions.UserError(_("Unable to notify message, please configure the sender's email address."))
-        email_from = formataddr((author.name, author.email))
+        email_from = formataddr((author.name, email))
 
         msg_values = {
             'subject': subject,
@@ -2181,9 +2184,12 @@ class MailThread(models.AbstractModel):
             author = self.env['res.partner'].sudo().browse(kw_author)
         else:
             author = self.env.user.partner_id
-        if not author.email:
+        email = author.email
+        if not email and self.env.context.get('email_from_to_message_log'):
+            email = self.env.context.get('email_from_to_message_log')
+        if not email:
             raise exceptions.UserError(_("Unable to log message, please configure the sender's email address."))
-        email_from = formataddr((author.name, author.email))
+        email_from = formataddr((author.name, email))
 
         message_values = {
             'subject': subject,
