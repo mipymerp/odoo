@@ -376,6 +376,8 @@ class IrActionsReport(models.Model):
         :return: Content of the pdf as a string
         '''
         paperformat_id = self.get_paperformat()
+        if specific_paperformat_args.get('data-report-paperformat_id'):
+            paperformat_id = self.env['report.paperformat'].browse(int(specific_paperformat_args.get('data-report-paperformat_id')))
 
         # Build the base command args for wkhtmltopdf bin
         command_args = self._build_wkhtmltopdf_args(
