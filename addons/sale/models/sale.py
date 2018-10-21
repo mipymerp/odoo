@@ -498,10 +498,18 @@ class SaleOrder(models.Model):
 
             # We only want to create sections that have at least one invoiceable line
             pending_section = None
+            counter = 0
 
             for line in order.order_line:
+                counter += 1
                 if line.display_type == 'line_section':
                     pending_section = line
+                    continue
+                if line.display_type == 'line_note':
+                    previous_line = order.order_line[counter-2] if counter > 1 else self.env['sale.order.line'].browse()
+                    if previous_line and previous_line.qty_invoiced > 0 or (previous_line.qty_invoiced < 0 and final):
+                        if not line.invoice_lines:
+                            line.invoice_line_create(invoices[group_key].id, line.qty_to_invoice)
                     continue
                 if float_is_zero(line.qty_to_invoice, precision_digits=precision):
                     continue
