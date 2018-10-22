@@ -37,6 +37,8 @@ class CustomerPortal(CustomerPortal):
         values = {
             'order': order,
             'resize_to_48': resize_to_48,
+            'purchase_order': order,
+            'page_name': 'purchase',
         }
         return self._get_page_view_values(order, access_token, values, 'my_purchases_history', True, **kwargs)
 
