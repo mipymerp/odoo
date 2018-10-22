@@ -88,11 +88,14 @@ class UoM(models.Model):
                 AND U.active = 't'
             GROUP BY C.id
         """, (tuple(category_ids),))
-        for uom_data in self._cr.dictfetchall():
+        uom_datas = self._cr.dictfetchall()
+        for uom_data in uom_datas:
             if uom_data['uom_count'] == 0:
                 raise ValidationError(_("UoM category %s should have a reference unit of measure. If you just created a new category, please record the 'reference' unit first.") % (self.env['uom.category'].browse(uom_data['category_id']).name,))
             if uom_data['uom_count'] > 1:
                 raise ValidationError(_("UoM category %s should only have one reference unit of measure.") % (self.env['uom.category'].browse(uom_data['category_id']).name,))
+        if not uom_datas:
+            raise ValidationError(_("UoM category %s should have a reference unit of measure. If you just created a new category, please record the 'reference' unit first.") % (self.category_id.name,))
 
     @api.model_create_multi
     def create(self, vals_list):
