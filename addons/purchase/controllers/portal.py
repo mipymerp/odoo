@@ -27,6 +27,8 @@ class CustomerPortal(CustomerPortal):
     def _purchase_order_get_page_view_values(self, order, access_token, **kwargs):
         values = {
             'order': order,
+            'purchase_order': order,
+            'page_name': 'purchase',
         }
         return self._get_page_view_values(order, access_token, values, 'my_purchases_history', True, **kwargs)
 
