@@ -12,8 +12,7 @@ class PortalAccount(CustomerPortal):
 
     def _get_account_invoice_domain(self):
         domain = [
-            ('type', 'in', ['out_invoice', 'out_refund']),
-            ('state', 'in', ['open', 'paid', 'cancel'])
+            ('state', 'not in', ['draft', 'cancel'])
         ]
         return domain
     
