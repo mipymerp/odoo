@@ -226,7 +226,7 @@ class AccountInvoice(models.Model):
         for line in self.move_id.line_ids.filtered(lambda l: l.account_id.id == self.account_id.id):
             payment_lines.update(line.mapped('matched_credit_ids.credit_move_id.id'))
             payment_lines.update(line.mapped('matched_debit_ids.debit_move_id.id'))
-        self.payment_move_line_ids = self.env['account.move.line'].browse(list(payment_lines))
+        self.payment_move_line_ids = self.env['account.move.line'].browse(list(payment_lines)).sorted()
 
     name = fields.Char(string='Reference/Description', index=True,
         readonly=True, states={'draft': [('readonly', False)]}, copy=False, help='The name that will be used on account move lines')
@@ -381,10 +381,15 @@ class AccountInvoice(models.Model):
     def _get_vendor_display_info(self):
         for invoice in self:
             vendor_display_name = invoice.partner_id.name
-            if not vendor_display_name and invoice.source_email:
-                vendor_display_name = _('From: ') + invoice.source_email
+            invoice.invoice_icon = ''
+            if not vendor_display_name:
+                if invoice.source_email:
+                    vendor_display_name = _('From: ') + invoice.source_email
+                    invoice.invoice_icon = '@'
+                else:
+                    vendor_display_name = ('Created by: ') + invoice.create_uid.name
+                    invoice.invoice_icon = '#'
             invoice.vendor_display_name = vendor_display_name
-            invoice.invoice_icon = invoice.source_email and '@' or ''
 
     @api.multi
     def _get_computed_reference(self):

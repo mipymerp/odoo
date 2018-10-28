@@ -100,6 +100,9 @@ class BaseWSGIServerNoBind(LoggingBaseWSGIServerMixIn, werkzeug.serving.BaseWSGI
 
 class RequestHandler(werkzeug.serving.WSGIRequestHandler):
     def setup(self):
+        # timeout to avoid chrome headless preconnect during tests
+        if config['test_enable'] or config['test_file']:
+            self.timeout = 5
         # flag the current thread as handling a http request
         super(RequestHandler, self).setup()
         me = threading.currentThread()
@@ -180,6 +183,8 @@ class FSWatcher(object):
                     try:
                         source = open(path, 'rb').read() + b'\n'
                         compile(source, path, 'exec')
+                    except FileNotFoundError:
+                        _logger.error('autoreload: python code change detected, FileNotFound for %s', path)
                     except SyntaxError:
                         _logger.error('autoreload: python code change detected, SyntaxError in %s', path)
                     else:

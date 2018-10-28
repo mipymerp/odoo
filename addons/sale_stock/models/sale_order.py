@@ -187,7 +187,7 @@ class SaleOrderLine(models.Model):
                 qty = 0.0
                 for move in line.move_ids.filtered(lambda r: r.state == 'done' and not r.scrapped):
                     if move.location_dest_id.usage == "customer":
-                        if not move.origin_returned_move_id:
+                        if not move.origin_returned_move_id or (move.origin_returned_move_id and move.to_refund):
                             qty += move.product_uom._compute_quantity(move.product_uom_qty, line.product_uom)
                     elif move.location_dest_id.usage != "customer" and move.to_refund:
                         qty -= move.product_uom._compute_quantity(move.product_uom_qty, line.product_uom)
@@ -415,7 +415,7 @@ class SaleOrderLine(models.Model):
         else:
             mto_route = False
             try:
-                mto_route = self.env['stock.warehouse']._find_global_route('stock.route_warehouse0_mto', 'Make To Order')
+                mto_route = self.env['stock.warehouse']._find_global_route('stock.route_warehouse0_mto', _('Make To Order'))
             except UserError:
                 # if route MTO not found in ir_model_data, we treat the product as in MTS
                 pass
