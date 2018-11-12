@@ -2,10 +2,12 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from collections import OrderedDict
+from functools import partial
 
 from odoo import http
 from odoo.exceptions import AccessError, MissingError
 from odoo.http import request
+from odoo.tools import image_resize_image
 from odoo.tools.translate import _
 from odoo.addons.portal.controllers.portal import pager as portal_pager, CustomerPortal
 
@@ -27,6 +29,7 @@ class CustomerPortal(CustomerPortal):
     def _purchase_order_get_page_view_values(self, order, access_token, **kwargs):
         values = {
             'order': order,
+            'resize_to_48': partial(image_resize_image, size=(48, 48)),
             'purchase_order': order,
             'page_name': 'purchase',
         }
