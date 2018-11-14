@@ -537,12 +537,33 @@ class PurchaseOrderLine(models.Model):
     @api.depends('product_qty', 'price_unit', 'taxes_id')
     def _compute_amount(self):
         for line in self:
-            taxes = line.taxes_id.compute_all(line.price_unit, line.order_id.currency_id, line.product_qty, product=line.product_id, partner=line.order_id.partner_id)
+            vals = line._prepare_compute_all_values()
+            taxes = line.taxes_id.compute_all(
+                vals['price_unit'],
+                vals['currency_id'],
+                vals['product_qty'],
+                vals['product'],
+                vals['partner'])
             line.update({
                 'price_tax': sum(t.get('amount', 0.0) for t in taxes.get('taxes', [])),
                 'price_total': taxes['total_included'],
                 'price_subtotal': taxes['total_excluded'],
             })
+
+    def _prepare_compute_all_values(self):
+        # Hook method to returns the different argument values for the
+        # compute_all method, due to the fact that discounts mechanism
+        # is not implemented yet on the purchase orders.
+        # This method should disappear as soon as this feature is
+        # also introduced like in the sales module.
+        self.ensure_one()
+        return {
+            'price_unit': self.price_unit,
+            'currency_id': self.order_id.currency_id,
+            'product_qty': self.product_qty,
+            'product': self.product_id,
+            'partner': self.order_id.partner_id,
+        }
 
     @api.multi
     def _compute_tax_id(self):
