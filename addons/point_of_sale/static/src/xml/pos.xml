@@ -1586,12 +1586,14 @@
                     <t t-esc="widget.format_currency(order.get_change())"/>
                     </td></tr>
             </table>
+            <div class='before-footer' />
             <t t-if="receipt.footer">
                 <br />
                 <div style='text-align:center'>
                     <t t-esc="receipt.footer" />
                 </div>
             </t>
+            <div class='after-footer' />
         </div>
     </t>
 
