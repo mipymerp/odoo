@@ -462,16 +462,24 @@ class PosOrder(models.Model):
 
             order.write({'state': 'done', 'account_move': move.id})
 
-        if self and order.company_id.anglo_saxon_accounting:
-            add_anglosaxon_lines(grouped_data)
-
-        all_lines = []
-        for group_key, group_data in grouped_data.items():
-            for value in group_data:
-                all_lines.append((0, 0, value),)
-        if move:  # In case no order was changed
-            move.sudo().write({'line_ids': all_lines})
-            move.sudo().post()
+            if self and order.company_id.anglo_saxon_accounting:
+                add_anglosaxon_lines(grouped_data)
+    
+            all_lines = []
+            for group_key, group_data in grouped_data.items():
+                for value in group_data:
+                    all_lines.append((0, 0, value),)
+            if move:  # In case no order was changed
+                date_tz_user = fields.Datetime.context_timestamp(self, fields.Datetime.from_string(order.date_order))
+                move.sudo().write({
+                    'date': fields.Date.to_string(date_tz_user),
+                    'line_ids': all_lines
+                })
+                move.sudo().post()
+            #forzar a crear un asiento contable por cada pedido
+            #para que al cerrar sesion se concilien los pagos por orden
+            move = None
+            grouped_data  = {}
         return True
 
     def _get_pos_anglo_saxon_price_unit(self, product, partner_id, quantity):
