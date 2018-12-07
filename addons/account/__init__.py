@@ -29,12 +29,16 @@ def _auto_install_l10n(cr, registry):
             module_list.append('l10n_cn_small_business')
             module_list.append('l10n_cn_standard')
         else:
-            if country_code.lower() == 'ec' and env['ir.module.module'].search([('name', '=', 'l10n_ec_niif_pyme')]):
-                module_list.append('l10n_ec_niif_pyme')
-            elif country_code.lower() == 'cl' and env['ir.module.module'].search([('name', '=', 'l10n_cl_chart_of_account')]):
-                module_list.append('l10n_cl_chart_of_account')
-            elif env['ir.module.module'].search([('name', '=', 'l10n_' + country_code.lower())]):
-                module_list.append('l10n_' + country_code.lower())
+            modules_by_country = env['ir.module.module'].search([
+                ('name', 'like', 'l10n_' + country_code.lower()),
+                ('category_id.name', '=', 'Localization'),
+            ], limit=1, order="sequence")
+            if not modules_by_country:
+                modules_by_country = env['ir.module.module'].search([
+                    ('name', '=', 'l10n_' + country_code.lower())
+                ], limit=1, order="sequence")
+            if modules_by_country:
+                module_list.append(modules_by_country.name)
             else:
                 module_list.append('l10n_generic_coa')
         if country_code == 'US':
