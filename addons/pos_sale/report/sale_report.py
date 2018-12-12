@@ -26,6 +26,7 @@ class SaleReport(models.Model):
             CASE WHEN pos.state != 'invoiced' THEN sum(qty) ELSE 0 END AS qty_to_invoice,
             COALESCE((l.price_subtotal_incl * u.factor), l.price_subtotal_incl / MIN(CASE COALESCE(pos.currency_rate, 0) WHEN 0 THEN 1.0 ELSE pos.currency_rate END)) AS price_total,
             COALESCE((l.price_subtotal * u.factor), l.price_subtotal / MIN(CASE COALESCE(pos.currency_rate, 0) WHEN 0 THEN 1.0 ELSE pos.currency_rate END)) AS price_subtotal,
+            COALESCE(((l.price_subtotal_incl-l.price_subtotal) * u.factor), (l.price_subtotal_incl-l.price_subtotal) / MIN(CASE COALESCE(pos.currency_rate, 0) WHEN 0 THEN 1.0 ELSE pos.currency_rate END)) AS price_tax,
             CASE WHEN pos.state != 'invoiced' THEN COALESCE((l.price_subtotal * u.factor), l.price_subtotal) ELSE 0 END / MIN(CASE COALESCE(pos.currency_rate, 0) WHEN 0 THEN 1.0 ELSE pos.currency_rate END) AS amount_to_invoice,
             CASE WHEN pos.state = 'invoiced' THEN COALESCE((l.price_subtotal * u.factor), l.price_subtotal) ELSE 0 END / MIN(CASE COALESCE(pos.currency_rate, 0) WHEN 0 THEN 1.0 ELSE pos.currency_rate END) AS amount_invoiced,
             count(*) AS nbr,

@@ -26,6 +26,7 @@ class SaleReport(models.Model):
     user_id = fields.Many2one('res.users', 'Salesperson', readonly=True)
     price_total = fields.Float('Total', readonly=True)
     price_subtotal = fields.Float('Untaxed Total', readonly=True)
+    price_tax = fields.Float('Amount Tax', readonly=True)
     untaxed_amount_to_invoice = fields.Float('Untaxed Amount To Invoice', readonly=True)
     untaxed_amount_invoiced = fields.Float('Untaxed Amount Invoiced', readonly=True)
     product_tmpl_id = fields.Many2one('product.template', 'Product', readonly=True)
@@ -72,6 +73,7 @@ class SaleReport(models.Model):
             sum(l.qty_to_invoice / u.factor * u2.factor) as qty_to_invoice,
             sum(l.price_total / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as price_total,
             sum(l.price_subtotal / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as price_subtotal,
+            sum(l.price_tax / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as price_tax,
             sum(l.untaxed_amount_to_invoice / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as untaxed_amount_to_invoice,
             sum(l.untaxed_amount_invoiced / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as untaxed_amount_invoiced,
             count(*) as nbr,
@@ -145,6 +147,7 @@ class SaleReport(models.Model):
             sum(0) as qty_to_invoice,
             sum(-ail.price_total) as price_total,
             sum(-ail.price_subtotal) as price_subtotal,
+            sum(-(ail.price_total-ail.price_subtotal)) as price_tax,
             0 as untaxed_amount_to_invoice,
             sum(-ail.price_subtotal) as untaxed_amount_invoiced,
             count(*) as nbr,
