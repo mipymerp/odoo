@@ -29,6 +29,7 @@ class SaleReport(models.Model):
             CASE WHEN pos.state != 'invoiced' THEN COALESCE((l.price_subtotal * u.factor), l.price_subtotal) ELSE 0 END / MIN(CASE COALESCE(pos.currency_rate, 0) WHEN 0 THEN 1.0 ELSE pos.currency_rate END) AS amount_to_invoice,
             CASE WHEN pos.state = 'invoiced' THEN COALESCE((l.price_subtotal * u.factor), l.price_subtotal) ELSE 0 END / MIN(CASE COALESCE(pos.currency_rate, 0) WHEN 0 THEN 1.0 ELSE pos.currency_rate END) AS amount_invoiced,
             count(*) AS nbr,
+            'pos_order' AS document_type, 
             pos.name AS name,
             pos.date_order AS date,
             pos.date_order AS confirmation_date,

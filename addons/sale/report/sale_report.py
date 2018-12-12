@@ -50,6 +50,10 @@ class SaleReport(models.Model):
     discount_amount = fields.Float('Discount Amount', readonly=True)
 
     order_id = fields.Many2one('sale.order', 'Order #', readonly=True)
+    document_type = fields.Selection([
+        ('sale_order', 'Invoice'),
+        ('pos_order', 'Pos Order'),
+        ], string='Document Type', readonly=True)
 
     def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
         with_ = ("WITH %s" % with_clause) if with_clause else ""
@@ -67,6 +71,7 @@ class SaleReport(models.Model):
             sum(l.untaxed_amount_to_invoice / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as untaxed_amount_to_invoice,
             sum(l.untaxed_amount_invoiced / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as untaxed_amount_invoiced,
             count(*) as nbr,
+            'sale_order' AS document_type,
             s.name as name,
             s.date_order as date,
             s.confirmation_date as confirmation_date,
