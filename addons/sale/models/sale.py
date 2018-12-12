@@ -1308,9 +1308,9 @@ class SaleOrderLine(models.Model):
                 # reduce (to include discount) without using `compute_all()` method on taxes.
                 price_subtotal = 0.0
                 if line.product_id.invoice_policy == 'delivery':
-                    price_subtotal = line.price_reduce * line.qty_delivered
+                    price_subtotal = line.price_reduce_taxexcl * line.qty_delivered
                 else:
-                    price_subtotal = line.price_reduce * line.product_uom_qty
+                    price_subtotal = line.price_reduce_taxexcl * line.product_uom_qty
 
                 amount_to_invoice = price_subtotal - line.untaxed_amount_invoiced
             line.untaxed_amount_to_invoice = amount_to_invoice
