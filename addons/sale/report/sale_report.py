@@ -136,38 +136,38 @@ class SaleReport(models.Model):
         """ % (groupby)
         
         select_refund = """
-            min(l.id) as id,
-            l.product_id as product_id,
+            min(ail.id) as id,
+            ail.product_id as product_id,
             t.uom_id as product_uom,
-            sum(-l.quantity / u.factor * u2.factor) as product_uom_qty,
-            sum(-l.quantity / u.factor * u2.factor) as qty_delivered,
-            sum(-l.quantity / u.factor * u2.factor) as qty_invoiced,
+            sum(-ail.quantity / u.factor * u2.factor) as product_uom_qty,
+            sum(-ail.quantity / u.factor * u2.factor) as qty_delivered,
+            sum(-ail.quantity / u.factor * u2.factor) as qty_invoiced,
             sum(0) as qty_to_invoice,
-            sum(-l.price_total) as price_total,
-            sum(-l.price_subtotal) as price_subtotal,
+            sum(-ail.price_total) as price_total,
+            sum(-ail.price_subtotal) as price_subtotal,
             0 as untaxed_amount_to_invoice,
-            sum(-l.price_subtotal) as untaxed_amount_invoiced,
+            sum(-ail.price_subtotal) as untaxed_amount_invoiced,
             count(*) as nbr,
             'refund' AS document_type,
-            s.name as name,
-            s.date_invoice as date,
-            s.date_invoice as confirmation_date,
-            s.state as state,
-            s.partner_id as partner_id,
-            s.user_id as user_id,
-            s.company_id as company_id,
-            extract(epoch from avg(date_trunc('day',s.date_invoice)-date_trunc('day',s.create_date)))/(24*60*60)::decimal(16,2) as delay,
+            ai.name as name,
+            ai.date_invoice as date,
+            ai.date_invoice as confirmation_date,
+            ai.state as state,
+            ai.partner_id as partner_id,
+            ai.user_id as user_id,
+            ai.company_id as company_id,
+            extract(epoch from avg(date_trunc('day',ai.date_invoice)-date_trunc('day',ai.create_date)))/(24*60*60)::decimal(16,2) as delay,
             t.categ_id as categ_id,
             NULL as pricelist_id,
-            l.account_analytic_id as analytic_account_id,
-            s.team_id as team_id,
+            ail.account_analytic_id as analytic_account_id,
+            ai.team_id as team_id,
             p.product_tmpl_id,
-            partner.country_id as country_id,
-            partner.commercial_partner_id as commercial_partner_id,
-            sum(p.weight * l.quantity / u.factor * u2.factor) as weight,
-            sum(p.volume * l.quantity / u.factor * u2.factor) as volume,
-            l.discount as discount,
-            sum(l.price_unit * l.discount / 100.0) as discount_amount,
+            ai_partner.country_id as country_id,
+            ai_partner.commercial_partner_id as commercial_partner_id,
+            sum(p.weight * ail.quantity / u.factor * u2.factor) as weight,
+            sum(p.volume * ail.quantity / u.factor * u2.factor) as volume,
+            ail.discount as discount,
+            sum(ail.price_unit * ail.discount / 100.0) as discount_amount,
             NULL as order_id
         """
 
@@ -175,36 +175,36 @@ class SaleReport(models.Model):
             select_refund += ', NULL AS %s' % (field)
 
         from_refund = """
-                account_invoice_line l
-                      join account_invoice s on (l.invoice_id=s.id)
-                      join res_partner partner on s.partner_id = partner.id
-                        left join product_product p on (l.product_id=p.id)
+                account_invoice_line ail
+                      join account_invoice ai on (ail.invoice_id=ai.id)
+                      join res_partner ai_partner on ai.partner_id = ai_partner.id
+                        left join product_product p on (ail.product_id=p.id)
                             left join product_template t on (p.product_tmpl_id=t.id)
-                    left join uom_uom u on (u.id=l.uom_id)
+                    left join uom_uom u on (u.id=ail.uom_id)
                     left join uom_uom u2 on (u2.id=t.uom_id)
         """
 
         groupby_refund = """
-            l.product_id,
-            l.invoice_id,
+            ail.product_id,
+            ail.invoice_id,
             t.uom_id,
             t.categ_id,
-            s.name,
-            s.date_invoice,
-            s.partner_id,
-            s.user_id,
-            s.state,
-            s.company_id,
-            l.account_analytic_id,
-            s.team_id,
+            ai.name,
+            ai.date_invoice,
+            ai.partner_id,
+            ai.user_id,
+            ai.state,
+            ai.company_id,
+            ail.account_analytic_id,
+            ai.team_id,
             p.product_tmpl_id,
-            partner.country_id,
-            partner.commercial_partner_id,
-            l.discount,
-            s.id
+            ai_partner.country_id,
+            ai_partner.commercial_partner_id,
+            ail.discount,
+            ai.id
         """
         where_refund = """
-            WHERE l.product_id IS NOT NULL AND s.type = 'out_refund'
+            WHERE ail.product_id IS NOT NULL AND ai.type = 'out_refund'
         """
         refund = '(SELECT %s FROM %s %s GROUP BY %s)' % (select_refund, from_refund, where_refund, groupby_refund)
 
