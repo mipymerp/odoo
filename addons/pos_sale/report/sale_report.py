@@ -14,11 +14,6 @@ class SaleReport(models.Model):
                                             ('invoiced', 'Invoiced')], string='Status', readonly=True)
 
     def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
-        with_clause += '''pol_tax AS (SELECT line_tax.pos_order_line_id AS pol_id,sum(tax.amount/100) AS amount
-                       FROM account_tax_pos_order_line_rel line_tax
-                         JOIN account_tax tax ON line_tax.account_tax_id = tax.id
-                      GROUP BY line_tax.pos_order_line_id)'''
-
         res = super(SaleReport, self)._query(with_clause, fields, groupby, from_clause)
 
         select_ = '''
@@ -69,7 +64,6 @@ class SaleReport(models.Model):
             pos_order_line l
                   join pos_order pos on (l.order_id=pos.id)
                   left join res_partner partner ON (pos.partner_id = partner.id OR pos.partner_id = NULL)
-                    left join pol_tax pol_tax on pol_tax.pol_id=l.id
                     left join product_product p on (l.product_id=p.id)
                     left join product_template t on (p.product_tmpl_id=t.id)
                     LEFT JOIN uom_uom u ON (u.id=t.uom_id)
@@ -98,7 +92,6 @@ class SaleReport(models.Model):
             p.product_tmpl_id,
             partner.country_id,
             partner.commercial_partner_id,
-            pol_tax.amount,
             u.factor,
             config.crm_team_id
         '''
