@@ -164,6 +164,15 @@ class AccountBankStatement(models.Model):
     @api.onchange('journal_id')
     def onchange_journal_id(self):
         self._set_opening_balance(self.journal_id.id)
+        
+    @api.multi
+    def _prepare_statement_for_difference(self, account, name):
+        return {
+            'statement_id': self.id,
+            'account_id': account.id,
+            'amount': self.difference,
+            'name': name,
+        }
 
     @api.multi
     def _balance_check(self):
@@ -180,12 +189,7 @@ class AccountBankStatement(models.Model):
                     if not account:
                         raise UserError(_('There is no account defined on the journal %s for %s involved in a cash difference.') % (stmt.journal_id.name, name))
 
-                    values = {
-                        'statement_id': stmt.id,
-                        'account_id': account.id,
-                        'amount': stmt.difference,
-                        'name': _("Cash difference observed during the counting (%s)") % name,
-                    }
+                    values = stmt._prepare_statement_for_difference(account, _("Cash difference observed during the counting (%s)") % name)
                     self.env['account.bank.statement.line'].create(values)
                 else:
                     balance_end_real = formatLang(self.env, stmt.balance_end_real, currency_obj=stmt.currency_id)
