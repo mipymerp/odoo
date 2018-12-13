@@ -207,7 +207,7 @@ class SaleReport(models.Model):
             ai.id
         """
         where_refund = """
-            WHERE ail.product_id IS NOT NULL AND ai.type = 'out_refund'
+            WHERE ail.account_id IS NOT NULL AND ai.type = 'out_refund'
         """
         refund = '(SELECT %s FROM %s %s GROUP BY %s)' % (select_refund, from_refund, where_refund, groupby_refund)
 
