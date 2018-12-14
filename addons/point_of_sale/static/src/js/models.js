@@ -628,7 +628,7 @@ exports.PosModel = Backbone.Model.extend({
     // returns the user who is currently the cashier for this point of sale
     get_cashier: function(){
         // reset the cashier to the current user if session is new
-        if (this.db.load('pos_session_id') !== this.pos_session.id) {
+        if (this.db.load('pos_session_id') !== (this.pos_session || {}).id) {
             this.set_cashier(this.employee);
         }
         return this.db.get_cashier() || this.get('cashier') || this.employee;
