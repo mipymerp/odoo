@@ -31,7 +31,7 @@ class Team(models.Model):
         compute='_compute_overdue_opportunities',
         string='Overdue Opportunities Revenues')
 
-    alias_user_id = fields.Many2one(domain=lambda self: [
+    alias_user_id = fields.Many2one('res.users', domain=lambda self: [
         ('groups_id', 'in', self.env.ref('sales_team.group_sale_salesman_all_leads').id)])
 
     def _compute_unassigned_leads_count(self):
