@@ -60,10 +60,8 @@ class SaleReport(models.Model):
         ('refund', 'Credit Note'),
         ], string='Document Type', readonly=True)
 
-    def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
-        with_ = ("WITH %s" % with_clause) if with_clause else ""
-
-        select_ = """
+    def _select_sales(self, fields={}):
+        select_sales = """
             min(l.id) as id,
             l.product_id as product_id,
             t.uom_id as product_uom,
@@ -101,21 +99,29 @@ class SaleReport(models.Model):
         """
 
         for field in fields.values():
-            select_ += field
+            select_sales += field
+        return select_sales
 
-        from_ = """
-                sale_order_line l
-                      join sale_order s on (l.order_id=s.id)
-                      join res_partner partner on s.partner_id = partner.id
-                        left join product_product p on (l.product_id=p.id)
-                            left join product_template t on (p.product_tmpl_id=t.id)
-                    left join uom_uom u on (u.id=l.product_uom)
-                    left join uom_uom u2 on (u2.id=t.uom_id)
-                    left join product_pricelist pp on (s.pricelist_id = pp.id)
-                %s
+    def _from_sales(self, from_clause=''):
+        from_sales = """
+            sale_order_line l
+                  join sale_order s on (l.order_id=s.id)
+                  join res_partner partner on s.partner_id = partner.id
+                    left join product_product p on (l.product_id=p.id)
+                        left join product_template t on (p.product_tmpl_id=t.id)
+                left join uom_uom u on (u.id=l.product_uom)
+                left join uom_uom u2 on (u2.id=t.uom_id)
+                left join product_pricelist pp on (s.pricelist_id = pp.id)
+            %s
         """ % from_clause
+        return from_sales
 
-        groupby_ = """
+    def _where_sales(self):
+        where_sales = "WHERE l.product_id IS NOT NULL"
+        return where_sales
+
+    def _groupby_sales(self, groupby=''):
+        groupby_sales = """
             l.product_id,
             l.order_id,
             t.uom_id,
@@ -136,7 +142,9 @@ class SaleReport(models.Model):
             l.discount,
             s.id %s
         """ % (groupby)
-        
+        return groupby_sales
+
+    def _select_refund(self, fields={}):
         select_refund = """
             min(ail.id) as id,
             ail.product_id as product_id,
@@ -176,17 +184,27 @@ class SaleReport(models.Model):
 
         for field in fields.keys():
             select_refund += ', NULL AS %s' % (field)
+        return select_refund
 
+    def _from_refund(self, from_clause=''):
         from_refund = """
-                account_invoice_line ail
-                      join account_invoice ai on (ail.invoice_id=ai.id)
-                      join res_partner ai_partner on ai.partner_id = ai_partner.id
-                        left join product_product p on (ail.product_id=p.id)
-                            left join product_template t on (p.product_tmpl_id=t.id)
-                    left join uom_uom u on (u.id=ail.uom_id)
-                    left join uom_uom u2 on (u2.id=t.uom_id)
+            account_invoice_line ail
+                  join account_invoice ai on (ail.invoice_id=ai.id)
+                  join res_partner ai_partner on ai.partner_id = ai_partner.id
+                    left join product_product p on (ail.product_id=p.id)
+                        left join product_template t on (p.product_tmpl_id=t.id)
+                left join uom_uom u on (u.id=ail.uom_id)
+                left join uom_uom u2 on (u2.id=t.uom_id)
         """
+        return from_refund
 
+    def _where_refund(self):
+        where_refund = """
+            WHERE ail.account_id IS NOT NULL AND ai.type = 'out_refund'
+        """
+        return where_refund
+
+    def _groupby_refund(self, groupby=''):
         groupby_refund = """
             ail.product_id,
             ail.invoice_id,
@@ -206,12 +224,24 @@ class SaleReport(models.Model):
             ail.discount,
             ai.id
         """
-        where_refund = """
-            WHERE ail.account_id IS NOT NULL AND ai.type = 'out_refund'
-        """
-        refund = '(SELECT %s FROM %s %s GROUP BY %s)' % (select_refund, from_refund, where_refund, groupby_refund)
+        return groupby_refund
 
-        return '%s (SELECT %s FROM %s WHERE l.product_id IS NOT NULL GROUP BY %s UNION ALL %s)' % (with_, select_, from_, groupby_, refund)
+    def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
+        with_ = ("WITH %s" % with_clause) if with_clause else ""
+        select_ = self._select_sales(fields)
+        from_ = self._from_sales(from_clause)
+        where_ = self._where_sales()
+        groupby_ = self._groupby_sales(groupby)
+
+        select_refund = self._select_refund(fields)
+        from_refund = self._from_refund(from_clause)
+        where_refund = self._where_refund()
+        groupby_refund = self._groupby_refund(groupby)
+
+        sql_invoice = '(SELECT %s FROM %s %s GROUP BY %s)' % (select_, from_, where_, groupby_)
+        sql_refund = '(SELECT %s FROM %s %s GROUP BY %s)' % (select_refund, from_refund, where_refund, groupby_refund)
+
+        return '%s (%s UNION ALL %s)' % (with_, sql_invoice, sql_refund)
 
     @api.model_cr
     def init(self):

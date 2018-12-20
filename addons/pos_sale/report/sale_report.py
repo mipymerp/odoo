@@ -13,10 +13,8 @@ class SaleReport(models.Model):
                                             ('pos_done', 'Posted'),
                                             ('invoiced', 'Invoiced')], string='Status', readonly=True)
 
-    def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
-        res = super(SaleReport, self)._query(with_clause, fields, groupby, from_clause)
-
-        select_ = '''
+    def _select_pos(self, fields={}):
+        select_pos = '''
             MIN(l.id) AS id,
             l.product_id AS product_id,
             t.uom_id AS product_uom,
@@ -60,21 +58,29 @@ class SaleReport(models.Model):
         '''
 
         for field in fields.keys():
-            select_ += ', NULL AS %s' % (field)
+            select_pos += ', NULL AS %s' % (field)
+        return select_pos
 
-        from_ = '''
+    def _from_pos(self, from_clause=''):
+        from_pos = '''
             pos_order_line l
-                  join pos_order pos on (l.order_id=pos.id)
-                  left join res_partner partner ON (pos.partner_id = partner.id OR pos.partner_id = NULL)
-                    left join product_product p on (l.product_id=p.id)
-                    left join product_template t on (p.product_tmpl_id=t.id)
-                    LEFT JOIN uom_uom u ON (u.id=t.uom_id)
-                    LEFT JOIN pos_session session ON (session.id = pos.session_id)
-                    LEFT JOIN pos_config config ON (config.id = session.config_id)
+                join pos_order pos on (l.order_id=pos.id)
+                left join res_partner partner ON (pos.partner_id = partner.id OR pos.partner_id = NULL)
+                left join product_product p on (l.product_id=p.id)
+                left join product_template t on (p.product_tmpl_id=t.id)
+                LEFT JOIN uom_uom u ON (u.id=t.uom_id)
+                LEFT JOIN pos_session session ON (session.id = pos.session_id)
+                LEFT JOIN pos_config config ON (config.id = session.config_id)
                 left join product_pricelist pp on (pos.pricelist_id = pp.id)
         '''
+        return from_pos
 
-        groupby_ = '''
+    def _where_pos(self):
+        where_pos = ""
+        return where_pos
+
+    def _groupby_pos(self, groupby):
+        groupby_pos = '''
             l.order_id,
             l.product_id,
             l.price_unit,
@@ -97,7 +103,14 @@ class SaleReport(models.Model):
             u.factor,
             config.crm_team_id
         '''
+        return groupby_pos
 
-        current = '(SELECT %s FROM %s GROUP BY %s)' % (select_, from_, groupby_)
+    def _query(self, with_clause='', fields={}, groupby='', from_clause=''):
+        res = super(SaleReport, self)._query(with_clause, fields, groupby, from_clause)
+        select_pos = self._select_pos(fields)
+        from_pos = self._from_pos(from_clause)
+        where_pos = self._where_pos()
+        groupby_pos = self._groupby_pos(groupby)
 
-        return '%s UNION ALL %s' % (res, current)
+        sql_pos = '(SELECT %s FROM %s %s GROUP BY %s)' % (select_pos, from_pos, where_pos, groupby_pos)
+        return '%s UNION ALL %s' % (res, sql_pos)
