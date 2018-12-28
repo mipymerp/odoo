@@ -716,8 +716,10 @@ class PosOrder(models.Model):
         existing_references = set([o['pos_reference'] for o in existing_orders])
         orders_to_save = [o for o in orders if o['data']['name'] not in existing_references]
         order_ids = []
-
+        total = len(orders_to_save)
+        count = 0
         for tmp_order in orders_to_save:
+            count += 1
             to_invoice = tmp_order['to_invoice']
             order = tmp_order['data']
             if to_invoice:
@@ -736,11 +738,12 @@ class PosOrder(models.Model):
             except Exception as e:
                 _logger.error('Could not fully process the POS Order: %s', tools.ustr(e))
                 raise
-
+            _logger.info("Procesando %s de %s, TPV: %s", count, total, pos_order.session_id.config_id.display_name)
             if to_invoice:
                 pos_order.action_pos_order_invoice()
                 pos_order.invoice_id.sudo().action_invoice_open()
                 pos_order.account_move = pos_order.invoice_id.move_id
+        _logger.info(u"Proceso terminado con exito")
         return order_ids
 
     def test_paid(self):
