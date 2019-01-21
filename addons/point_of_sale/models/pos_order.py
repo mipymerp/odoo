@@ -973,35 +973,41 @@ class PosOrder(models.Model):
         self.env['account.bank.statement.line'].with_context(context).create(args)
         self.amount_paid = sum(payment.amount for payment in self.statement_ids)
         return args.get('statement_id', False)
+    
+    @api.model
+    def _find_session_for_refund(self):
+        current_session = self.env['pos.session'].search([('state', '!=', 'closed'), ('user_id', '=', self.env.uid)], limit=1)
+        if not current_session:
+            raise UserError(_('To return product(s), you need to open a session that will be used to register the refund.'))
+        return current_session
+    
+    @api.multi
+    def _prepare_refund(self, current_session):
+        return {
+            # ot used, name forced by create
+            'name': self.name + _(' REFUND'),
+            'session_id': current_session.id,
+            'date_order': fields.Datetime.now(),
+            'pos_reference': self.pos_reference,
+            'lines': False,
+            'amount_tax': -self.amount_tax,
+            'amount_total': -self.amount_total,
+            'amount_paid': 0,
+        }
+        
+    @api.multi
+    def _refund(self, default_values):
+        return self.copy(default_values)
 
     @api.multi
     def refund(self):
         """Create a copy of order  for refund order"""
         PosOrder = self.env['pos.order']
-        current_session = self.env['pos.session'].search([('state', '!=', 'closed'), ('user_id', '=', self.env.uid)], limit=1)
-        if not current_session:
-            raise UserError(_('To return product(s), you need to open a session that will be used to register the refund.'))
+        current_session = self._find_session_for_refund()
         for order in self:
-            clone = order.copy({
-                # ot used, name forced by create
-                'name': order.name + _(' REFUND'),
-                'session_id': current_session.id,
-                'date_order': fields.Datetime.now(),
-                'pos_reference': order.pos_reference,
-                'lines': False,
-                'amount_tax': -order.amount_tax,
-                'amount_total': -order.amount_total,
-                'amount_paid': 0,
-            })
+            clone = order._refund(order._prepare_refund(current_session))
             for line in order.lines:
-                clone_line = line.copy({
-                    # required=True, copy=False
-                    'name': line.name + _(' REFUND'),
-                    'order_id': clone.id,
-                    'qty': -line.qty,
-                    'price_subtotal': -line.price_subtotal,
-                    'price_subtotal_incl': -line.price_subtotal_incl,
-                })
+                clone_line = line._refund(line._prepare_refund_line(clone))
             PosOrder += clone
 
         return {
@@ -1126,6 +1132,21 @@ class PosOrderLine(models.Model):
     def _get_tax_ids_after_fiscal_position(self):
         for line in self:
             line.tax_ids_after_fiscal_position = line.order_id.fiscal_position_id.map_tax(line.tax_ids, line.product_id, line.order_id.partner_id)
+            
+    @api.multi
+    def _prepare_refund_line(self, new_order):
+        return {
+            # required=True, copy=False
+            'name': self.name + _(' REFUND'),
+            'order_id': new_order.id,
+            'qty': -self.qty,
+            'price_subtotal': -self.price_subtotal,
+            'price_subtotal_incl': -self.price_subtotal_incl,
+        }
+        
+    @api.multi
+    def _refund(self, default_values):
+        return self.copy(default_values)
 
 
 class PosOrderLineLot(models.Model):
