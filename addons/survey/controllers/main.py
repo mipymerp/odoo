@@ -49,7 +49,7 @@ class Survey(http.Controller):
         return None
 
     @http.route('/survey/test/<model("survey.survey"):survey>', type='http', auth='user', website=True)
-    def survey_test(self, survey, token=None):
+    def survey_test(self, survey, token=None, **kwargs):
         """ Test mode for surveys: create a test answer, only for managers or officers
         testing their surveys """
         if request.env.user.has_group('survey.group_survey_manager') or \
@@ -254,6 +254,10 @@ class Survey(http.Controller):
     def print_survey(self, survey, token=None, **post):
         '''Display an survey in printable view; if <token> is set, it will
         grab the answers of the user_input_id that has <token>.'''
+
+        if survey.auth_required and request.env.user == request.website.user_id:
+            return request.render("survey.auth_required", {'survey': survey, 'token': token})
+
         return request.render('survey.survey_print',
                                       {'survey': survey,
                                        'token': token,

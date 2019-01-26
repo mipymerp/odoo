@@ -2127,18 +2127,35 @@ QUnit.module('ActionManager', {
     });
 
     QUnit.test('sidebar is present in list view', function (assert) {
-        assert.expect(2);
+        assert.expect(5);
 
         var actionManager = createActionManager({
             actions: this.actions,
             archs: this.archs,
             data: this.data,
+            mockRPC: function (route, args) {
+                var res = this._super.apply(this, arguments);
+                if (args.method === 'load_views') {
+                    assert.strictEqual(args.kwargs.options.toolbar, true,
+                        "should ask for toolbar information");
+                    return res.then(function (fieldsViews) {
+                        fieldsViews.list.toolbar = {
+                            print: [{name: "Print that record"}],
+                        };
+                        return fieldsViews;
+                    });
+                }
+                return res;
+            },
         });
         actionManager.doAction(3);
 
+        assert.isNotVisible(actionManager.$('.o_cp_sidebar button.o_dropdown_toggler_btn:contains("Print")'));
         assert.isNotVisible(actionManager.$('.o_cp_sidebar button.o_dropdown_toggler_btn:contains("Action")'));
         testUtils.dom.clickFirst(actionManager.$('input.custom-control-input'));
+        assert.isVisible(actionManager.$('.o_cp_sidebar button.o_dropdown_toggler_btn:contains("Print")'));
         assert.isVisible(actionManager.$('.o_cp_sidebar button.o_dropdown_toggler_btn:contains("Action")'));
+
         actionManager.destroy();
     });
 
@@ -3413,6 +3430,79 @@ QUnit.module('ActionManager', {
             '/web/dataset/search_read',
             'toggle_fullscreen',
         ]);
+
+        actionManager.destroy();
+    });
+
+    QUnit.test('fullscreen on action change: back to a "current" action', function (assert) {
+        assert.expect(3);
+
+        this.actions[0].target = 'fullscreen';
+        this.archs['partner,false,form'] = '<form>' +
+                                            '<button name="1" type="action" class="oe_stat_button" />' +
+                                        '</form>';
+
+        var actionManager = createActionManager({
+            actions: this.actions,
+            archs: this.archs,
+            data: this.data,
+            intercepts: {
+                toggle_fullscreen: function (ev) {
+                    var fullscreen = ev.data.fullscreen;
+
+                    switch (toggleFullscreenCalls) {
+                        case 0:
+                            assert.strictEqual(fullscreen, false);
+                            break;
+                        case 1:
+                            assert.strictEqual(fullscreen, true);
+                            break;
+                        case 2:
+                            assert.strictEqual(fullscreen, false);
+                            break;
+                    }
+                },
+            },
+
+        });
+
+        var toggleFullscreenCalls = 0;
+        actionManager.doAction(6);
+
+        toggleFullscreenCalls = 1;
+        actionManager.$('button[name=1]').click();
+
+        toggleFullscreenCalls = 2;
+        $('.breadcrumb li a:first').click();
+
+        actionManager.destroy();
+    });
+
+    QUnit.test('fullscreen on action change: all "fullscreen" actions', function (assert) {
+        assert.expect(3);
+
+        this.actions[5].target = 'fullscreen';
+        this.archs['partner,false,form'] = '<form>' +
+                                            '<button name="1" type="action" class="oe_stat_button" />' +
+                                        '</form>';
+
+        var actionManager = createActionManager({
+            actions: this.actions,
+            archs: this.archs,
+            data: this.data,
+            intercepts: {
+                toggle_fullscreen: function (ev) {
+                    var fullscreen = ev.data.fullscreen;
+                    assert.strictEqual(fullscreen, true);
+                },
+            },
+        });
+
+        actionManager.doAction(6);
+
+        actionManager.$('button[name=1]').click();
+
+        $('.breadcrumb li a:first').click();
 
         actionManager.destroy();
     });

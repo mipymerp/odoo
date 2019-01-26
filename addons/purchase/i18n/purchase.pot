@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.5\n"
+"Project-Id-Version: Odoo Server saas~12.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-21 13:17+0000\n"
-"PO-Revision-Date: 2018-09-21 13:17+0000\n"
+"POT-Creation-Date: 2019-01-16 07:59+0000\n"
+"PO-Revision-Date: 2019-01-16 07:59+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -94,6 +94,11 @@ msgid "<i class=\"fa fa-arrow-right\"/>\n"
 msgstr ""
 
 #. module: purchase
+#: model_terms:ir.ui.view,arch_db:purchase.purchase_partner_kanban_view
+msgid "<i class=\"fa fa-fw fa-shopping-cart\" role=\"img\" aria-label=\"Shopping cart\" title=\"Shopping cart\"/>"
+msgstr ""
+
+#. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
 msgid "<span class=\"badge badge-info\"><i class=\"fa fa-fw fa-file-text\"/> Waiting for Bill</span>"
 msgstr ""
@@ -101,6 +106,17 @@ msgstr ""
 #. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
 msgid "<span class=\"badge badge-secondary\"><i class=\"fa fa-fw fa-remove\"/> Cancelled</span>"
+msgstr ""
+
+#. module: purchase
+#: model_terms:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
+msgstr ""
+
+#. module: purchase
+#: model_terms:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "<span class=\"o_form_label\" string=\"Request for Quotation \" attrs=\"{'invisible': [('state','not in',('draft','sent'))]}\"/>\n"
+"                        <span class=\"o_form_label\" string=\"Purchase Order \" attrs=\"{'invisible': [('state','in',('draft','sent'))]}\"/>"
 msgstr ""
 
 #. module: purchase
@@ -222,6 +238,14 @@ msgid "Access warning"
 msgstr ""
 
 #. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_line__qty_received_method
+msgid "According to product configuration, the recieved quantity can be automatically computed by mechanism :\n"
+"  - Manual: the quantity is set manually on the line\n"
+"  - Stock Moves: the quantity comes from confirmed pickings\n"
+""
+msgstr ""
+
+#. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__message_needaction
 msgid "Action Needed"
 msgstr ""
@@ -242,7 +266,7 @@ msgid "Add Purchase Order"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/controllers/portal.py:50
+#: code:addons/purchase/controllers/portal.py:62
 #, python-format
 msgid "All"
 msgstr ""
@@ -266,11 +290,6 @@ msgstr ""
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order_line__analytic_tag_ids
 msgid "Analytic Tags"
-msgstr ""
-
-#. module: purchase
-#: model:ir.model.fields,field_description:purchase.field_purchase_order__date_approve
-msgid "Approval Date"
 msgstr ""
 
 #. module: purchase
@@ -370,7 +389,7 @@ msgid "Cancel"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/controllers/portal.py:52
+#: code:addons/purchase/controllers/portal.py:64
 #: selection:purchase.order,state:0
 #: selection:purchase.report,state:0
 #, python-format
@@ -383,7 +402,7 @@ msgid "Cancelled Purchase Order #"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/models/purchase.py:509
+#: code:addons/purchase/models/purchase.py:558
 #, python-format
 msgid "Cannot delete a purchase order line which is in state '%s'."
 msgstr ""
@@ -413,7 +432,7 @@ msgid "Company Currency"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/models/purchase.py:268
+#: code:addons/purchase/models/purchase.py:284
 #, python-format
 msgid "Compose Email"
 msgstr ""
@@ -436,6 +455,11 @@ msgstr ""
 #. module: purchase
 #: selection:res.company,po_double_validation:0
 msgid "Confirm purchase orders in one step"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order__date_approve
+msgid "Confirmation Date"
 msgstr ""
 
 #. module: purchase
@@ -545,11 +569,6 @@ msgid "Define your terms and conditions ..."
 msgstr ""
 
 #. module: purchase
-#: selection:res.config.settings,default_purchase_method:0
-msgid "Delivered quantities"
-msgstr ""
-
-#. module: purchase
 #: model:ir.model.fields,help:purchase.field_purchase_order__date_order
 #: model:ir.model.fields,help:purchase.field_purchase_order_line__date_order
 msgid "Depicts the date where the Quotation should be validated and converted into a purchase order."
@@ -604,7 +623,7 @@ msgid "Extended Filters"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/models/purchase.py:491
+#: code:addons/purchase/models/purchase.py:540
 #, python-format
 msgid "Extra line with %s "
 msgstr ""
@@ -629,6 +648,11 @@ msgstr ""
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__message_partner_ids
 msgid "Followers (Partners)"
+msgstr ""
+
+#. module: purchase
+#: selection:purchase.order,invoice_status:0
+msgid "Fully Billed"
 msgstr ""
 
 #. module: purchase
@@ -692,7 +716,7 @@ msgid "If enabled, activates 3-way matching on vendor bills : the items must be 
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/models/product.py:38
+#: code:addons/purchase/models/product.py:37
 #, python-format
 msgid "Import Template for Products"
 msgstr ""
@@ -799,7 +823,7 @@ msgid "Lock Confirmed Orders"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/controllers/portal.py:53
+#: code:addons/purchase/controllers/portal.py:65
 #: selection:purchase.order,state:0
 #, python-format
 msgid "Locked"
@@ -836,8 +860,18 @@ msgid "Managers must approve orders"
 msgstr ""
 
 #. module: purchase
+#: selection:purchase.order.line,qty_received_method:0
+msgid "Manual"
+msgstr ""
+
+#. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.purchase_order_line_form2
 msgid "Manual Invoices"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line__qty_received_manual
+msgid "Manual Received Qty"
 msgstr ""
 
 #. module: purchase
@@ -900,7 +934,7 @@ msgid "My Purchases"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/controllers/portal.py:41
+#: code:addons/purchase/controllers/portal.py:53
 #, python-format
 msgid "Name"
 msgstr ""
@@ -911,7 +945,7 @@ msgid "Name, TIN, Email, or Reference"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/controllers/portal.py:40
+#: code:addons/purchase/controllers/portal.py:52
 #, python-format
 msgid "Newest"
 msgstr ""
@@ -929,11 +963,6 @@ msgstr ""
 #. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
-
-#. module: purchase
-#: selection:purchase.order,invoice_status:0
-msgid "No Bill to Receive"
 msgstr ""
 
 #. module: purchase
@@ -1207,7 +1236,8 @@ msgid "Purchase Lead Time"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/controllers/portal.py:51
+#: code:addons/purchase/controllers/portal.py:63
+#: code:addons/purchase/models/purchase.py:281
 #: model:ir.actions.report,name:purchase.action_report_purchase_order
 #: model:ir.model,name:purchase.model_purchase_order
 #: model:ir.model.fields,field_description:purchase.field_account_invoice_line__purchase_id
@@ -1347,11 +1377,6 @@ msgid "Purchased"
 msgstr ""
 
 #. module: purchase
-#: model_terms:ir.ui.view,arch_db:purchase.view_purchase_order_search
-msgid "Purchased Last 365 Days"
-msgstr ""
-
-#. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.product_normal_form_view_inherit_purchase
 #: model_terms:ir.ui.view,arch_db:purchase.view_product_template_purchase_buttons_from
 msgid "Purchased in the last 365 days"
@@ -1435,8 +1460,18 @@ msgid "Received Qty"
 msgstr ""
 
 #. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line__qty_received_method
+msgid "Received Qty Method"
+msgstr ""
+
+#. module: purchase
 #: model_terms:ir.ui.view,arch_db:purchase.track_po_line_template
 msgid "Received Quantity:"
+msgstr ""
+
+#. module: purchase
+#: selection:res.config.settings,default_purchase_method:0
+msgid "Received quantities"
 msgstr ""
 
 #. module: purchase
@@ -1483,8 +1518,9 @@ msgid "Reporting"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/models/purchase.py:276
+#: code:addons/purchase/models/purchase.py:279
 #: model:ir.actions.report,name:purchase.report_purchase_quotation
+#: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_order
 #: model_terms:ir.ui.view,arch_db:purchase.report_purchasequotation_document
 #, python-format
 msgid "Request for Quotation"
@@ -1614,6 +1650,11 @@ msgid "Status based on activities\n"
 msgstr ""
 
 #. module: purchase
+#: selection:purchase.order.line,qty_received_method:0
+msgid "Stock Moves"
+msgstr ""
+
+#. module: purchase
 #: model:ir.model.fields,field_description:purchase.field_purchase_order_line__price_subtotal
 msgid "Subtotal"
 msgstr ""
@@ -1727,7 +1768,7 @@ msgid "Today Activities"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/controllers/portal.py:42
+#: code:addons/purchase/controllers/portal.py:54
 #: model:ir.model.fields,field_description:purchase.field_purchase_order__amount_total
 #: model:ir.model.fields,field_description:purchase.field_purchase_order_line__price_total
 #: model_terms:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
@@ -1756,7 +1797,7 @@ msgid "Total amount"
 msgstr ""
 
 #. module: purchase
-#: code:addons/purchase/models/purchase.py:324
+#: code:addons/purchase/models/purchase.py:340
 #, python-format
 msgid "Unable to cancel this purchase order. You must first cancel the related vendor bills."
 msgstr ""
@@ -1900,7 +1941,7 @@ msgstr ""
 
 #. module: purchase
 #: code:addons/purchase/models/purchase.py:227
-#: code:addons/purchase/models/purchase.py:574
+#: code:addons/purchase/models/purchase.py:624
 #, python-format
 msgid "Warning for %s"
 msgstr ""

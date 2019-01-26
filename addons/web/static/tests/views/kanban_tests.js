@@ -2110,6 +2110,67 @@ QUnit.module('Views', {
         kanban.destroy();
     });
 
+    QUnit.test('quick create record while adding a new column', function (assert) {
+        assert.expect(10);
+
+        var def = $.Deferred();
+        var kanban = createView({
+            View: KanbanView,
+            model: 'partner',
+            data: this.data,
+            arch: '<kanban on_create="quick_create">' +
+                        '<templates><t t-name="kanban-box">' +
+                            '<div><field name="foo"/></div>' +
+                        '</t></templates>' +
+                    '</kanban>',
+            groupBy: ['product_id'],
+            mockRPC: function (route, args) {
+                var result = this._super.apply(this, arguments);
+                if (args.method === 'name_create' && args.model === 'product') {
+                    return def.then(_.constant(result));
+                }
+                return result;
+            },
+        });
+
+        assert.containsN(kanban, '.o_kanban_group', 2);
+        assert.containsN(kanban, '.o_kanban_group:first .o_kanban_record', 2);
+
+        // add a new column
+        assert.containsOnce(kanban, '.o_column_quick_create');
+        assert.isNotVisible(kanban.$('.o_column_quick_create input'));
+
+        testUtils.dom.click(kanban.$('.o_quick_create_folded'));
+
+        assert.isVisible(kanban.$('.o_column_quick_create input'));
+
+        testUtils.fields.editInput(kanban.$('.o_column_quick_create input'), 'new column');
+        testUtils.dom.click(kanban.$('.o_column_quick_create button.o_kanban_add'));
+
+        assert.containsN(kanban, '.o_kanban_group', 2);
+
+        // click to add a new record
+        testUtils.dom.click(kanban.$buttons.find('.o-kanban-button-new'));
+
+        // should wait for the column to be created (and view to be re-rendered
+        // before opening the quick create
+        assert.containsNone(kanban, '.o_kanban_quick_create');
+
+        // unlock column creation
+        def.resolve();
+
+        assert.containsN(kanban, '.o_kanban_group', 3);
+        assert.containsOnce(kanban, '.o_kanban_quick_create');
+
+        // quick create record in first column
+        testUtils.fields.editInput(kanban.$('.o_kanban_quick_create input'), 'new record');
+        testUtils.dom.click(kanban.$('.o_kanban_quick_create .o_kanban_add'));
+
+        assert.containsN(kanban, '.o_kanban_group:first .o_kanban_record', 3);
+
+        kanban.destroy();
+    });
+
     QUnit.test('many2many_tags in kanban views', function (assert) {
         assert.expect(12);
 
@@ -2426,6 +2487,12 @@ QUnit.module('Views', {
     QUnit.test('can drag and drop a record from one column to the next', function (assert) {
         assert.expect(9);
 
+        // @todo: remove this resequenceDef whenever the jquery upgrade branch
+        // is merged.  This is currently necessary to simulate the reality: we
+        // need the click handlers to be executed after the end of the drag and
+        // drop operation, not before.
+        var resequenceDef = $.Deferred();
+
         var envIDs = [1, 3, 2, 4]; // the ids that should be in the environment during this test
         this.data.partner.fields.sequence = {type: 'number', string: "Sequence"};
         var kanban = createView({
@@ -2435,7 +2502,7 @@ QUnit.module('Views', {
             arch: '<kanban class="o_kanban_test" on_create="quick_create">' +
                         '<field name="product_id"/>' +
                         '<templates><t t-name="kanban-box">' +
-                            '<div><field name="foo"/>' +
+                            '<div class="oe_kanban_global_click"><field name="foo"/>' +
                                 '<t t-if="widget.editable"><span class="thisiseditable">edit</span></t>' +
                             '</div>' +
                         '</t></templates>' +
@@ -2444,7 +2511,7 @@ QUnit.module('Views', {
             mockRPC: function (route, args) {
                 if (route === '/web/dataset/resequence') {
                     assert.ok(true, "should call resequence");
-                    return $.when(true);
+                    return resequenceDef.then(_.constant(true));
                 }
                 return this._super(route, args);
             },
@@ -2457,13 +2524,15 @@ QUnit.module('Views', {
         var $record = kanban.$('.o_kanban_group:nth-child(1) .o_kanban_record:first');
         var $group = kanban.$('.o_kanban_group:nth-child(2)');
         envIDs = [3, 2, 4, 1]; // first record of first column moved to the bottom of second column
-        testUtils.dom.dragAndDrop($record, $group);
+        testUtils.dom.dragAndDrop($record, $group, {withTrailingClick: true});
 
+        resequenceDef.resolve();
         assert.containsOnce(kanban, '.o_kanban_group:nth-child(1) .o_kanban_record');
         assert.containsN(kanban, '.o_kanban_group:nth-child(2) .o_kanban_record', 3);
         assert.containsN(kanban, '.thisiseditable', 4);
         assert.deepEqual(kanban.exportState().resIds, envIDs);
 
+        resequenceDef.resolve();
         kanban.destroy();
     });
 
@@ -2569,6 +2638,45 @@ QUnit.module('Views', {
         assert.strictEqual(kanban.$('.o_kanban_group:nth-child(2) .o_kanban_record:eq(1)').text(), "blipDEF",
             "records should have been resequenced");
 
+        kanban.destroy();
+    });
+
+    QUnit.test('prevent drag and drop if grouped by date/datetime field', function (assert) {
+        assert.expect(5);
+
+        this.data.partner.records[0].date = '2017-01-08';
+        this.data.partner.records[1].date = '2017-01-09';
+        this.data.partner.records[2].date = '2017-02-08';
+        this.data.partner.records[3].date = '2017-02-10';
+
+        var kanban = createView({
+            View: KanbanView,
+            model: 'partner',
+            data: this.data,
+            arch: '<kanban class="o_kanban_test">' +
+                        '<field name="bar"/>' +
+                        '<templates><t t-name="kanban-box">' +
+                        '<div><field name="foo"/></div>' +
+                    '</t></templates></kanban>',
+            groupBy: ['date:month'],
+        });
+
+        assert.strictEqual(kanban.$('.o_kanban_group').length, 2, "should have 2 columns");
+        assert.strictEqual(kanban.$('.o_kanban_group:nth-child(1) .o_kanban_record').length, 2,
+                        "1st column should contain 2 records of January month");
+        assert.strictEqual(kanban.$('.o_kanban_group:nth-child(2) .o_kanban_record').length , 2,
+                        "2nd column should contain 2 records of February month");
+
+        // drag&drop a record in another column
+        var $record = kanban.$('.o_kanban_group:nth-child(1) .o_kanban_record:first');
+        var $group = kanban.$('.o_kanban_group:nth-child(2)');
+        testUtils.dragAndDrop($record, $group);
+
+        // should not drag&drop record
+        assert.strictEqual(kanban.$('.o_kanban_group:nth-child(1) .o_kanban_record').length , 2,
+                        "Should remain same records in first column(2 records)");
+        assert.strictEqual(kanban.$('.o_kanban_group:nth-child(2) .o_kanban_record').length , 2,
+                        "Should remain same records in 2nd column(2 record)");
         kanban.destroy();
     });
 

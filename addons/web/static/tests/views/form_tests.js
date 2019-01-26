@@ -17,6 +17,7 @@ var Widget = require('web.Widget');
 var _t = core._t;
 var createView = testUtils.createView;
 var createAsyncView = testUtils.createAsyncView;
+var createActionManager = testUtils.createActionManager;
 
 QUnit.module('Views', {
     beforeEach: function () {
@@ -299,7 +300,78 @@ QUnit.module('Views', {
 
         form.destroy();
     });
+    QUnit.test('Form and subview with _view_ref contexts', function (assert) {
+        assert.expect(2);
 
+        this.data.product.fields.partner_type_ids = {string: "one2many field", type: "one2many", relation: "partner_type"},
+        this.data.product.records = [{id: 1, name: 'Tromblon', partner_type_ids: [12,14]}];
+        this.data.partner.records[0].product_id = 1;
+
+        var actionManager = createActionManager({
+            data: this.data,
+            archs: {
+                'product,false,form': '<form>'+
+                                            '<field name="name"/>'+
+                                            '<field name="partner_type_ids" context="{\'tree_view_ref\': \'some_other_tree_view\'}"/>' +
+                                        '</form>',
+
+                'partner_type,false,list': '<tree>'+
+                                                '<field name="color"/>'+
+                                            '</tree>',
+                'product,false,search': '<search></search>',
+            },
+            mockRPC: function (route, args) {
+                if (args.method === 'load_views') {
+                    var context = args.kwargs.context;
+                    if (args.model === 'product') {
+                        assert.deepEqual(context, {tree_view_ref: 'some_tree_view'},
+                            'The correct _view_ref should have been sent to the server, first time');
+                    }
+                    if (args.model === 'partner_type') {
+                        assert.deepEqual(context, {tree_view_ref: 'some_other_tree_view'},
+                            'The correct _view_ref should have been sent to the server for the subview');
+                    }
+                }
+                return this._super.apply(this, arguments);
+            },
+        });
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form>' +
+                     '<field name="name"/>' +
+                     '<field name="product_id" context="{\'tree_view_ref\': \'some_tree_view\'}"/>' +
+                  '</form>',
+            res_id: 1,
+
+            mockRPC: function(route, args) {
+                if (args.method === 'get_formview_action') {
+                    return $.when({
+                        res_id: 1,
+                        type: 'ir.actions.act_window',
+                        target: 'current',
+                        res_model: args.model,
+                        context: args.kwargs.context,
+                        'view_type': 'form',
+                        'view_mode': 'form',
+                        'views': [[false, 'form']],
+                    });
+                }
+                return this._super(route, args);
+            },
+
+            interceptsPropagate: {
+                do_action: function (ev) {
+                    actionManager.doAction(ev.data.action);
+                },
+            },
+        });
+        form.$('.o_field_widget[name="product_id"]').click();
+        form.destroy();
+        actionManager.destroy();
+    });
     QUnit.test('invisible fields are properly hidden', function (assert) {
         assert.expect(4);
 
@@ -7113,6 +7185,69 @@ QUnit.module('Views', {
         onchangeDef.resolve();
 
         assert.verifySteps(['resolve', 'create']);
+
+        form.destroy();
+    });
+
+    QUnit.test('call canBeRemoved while saving', function (assert) {
+        assert.expect(10);
+
+        this.data.partner.onchanges = {
+            foo: function (obj) {
+                obj.display_name = obj.foo === 'trigger onchange' ? 'changed' : 'default';
+            },
+        };
+
+        var onchangeDef;
+        var createDef = $.Deferred();
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form><field name="display_name"/><field name="foo"/></form>',
+            mockRPC: function (route, args) {
+                var result = this._super.apply(this, arguments);
+                if (args.method === 'onchange') {
+                    return $.when(onchangeDef).then(_.constant(result));
+                }
+                if (args.method === 'create') {
+                    return $.when(createDef).then(_.constant(result));
+                }
+                return result;
+            },
+        });
+
+        // edit foo to trigger a delayed onchange
+        onchangeDef = $.Deferred();
+        testUtils.fields.editInput(form.$('.o_field_widget[name=foo]'), 'trigger onchange');
+
+        assert.strictEqual(form.$('.o_field_widget[name=display_name]').val(), 'default');
+
+        // save (will wait for the onchange to return), and will be delayed as well
+        testUtils.dom.click(form.$buttons.find('.o_form_button_save'));
+
+        assert.hasClass(form.$('.o_form_view'), 'o_form_editable');
+        assert.strictEqual(form.$('.o_field_widget[name=display_name]').val(), 'default');
+
+        // simulate a click on the breadcrumbs to leave the form view
+        form.canBeRemoved();
+
+        assert.hasClass(form.$('.o_form_view'), 'o_form_editable');
+        assert.strictEqual(form.$('.o_field_widget[name=display_name]').val(), 'default');
+
+        // unlock the onchange
+        onchangeDef.resolve();
+
+        assert.hasClass(form.$('.o_form_view'), 'o_form_editable');
+        assert.strictEqual(form.$('.o_field_widget[name=display_name]').val(), 'changed');
+
+        // unlock the create
+        createDef.resolve();
+
+        assert.hasClass(form.$('.o_form_view'), 'o_form_readonly');
+        assert.strictEqual(form.$('.o_field_widget[name=display_name]').text(), 'changed');
+        assert.containsNone(document.body, '.modal',
+            "should not display the 'Changes will be discarded' dialog");
 
         form.destroy();
     });

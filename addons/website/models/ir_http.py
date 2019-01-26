@@ -74,7 +74,9 @@ class Http(models.AbstractModel):
 
         # Force website with query string paramater, typically set from website selector in frontend navbar
         force_website_id = request.httprequest.args.get('fw')
-        if force_website_id and request.session.get('force_website_id') != force_website_id:
+        if (force_website_id and request.session.get('force_website_id') != force_website_id and
+                request.env.user.has_group('website.group_multi_website') and
+                request.env.user.has_group('website.group_website_publisher')):
             request.env['website']._force_website(request.httprequest.args.get('fw'))
 
         context = {}
@@ -162,7 +164,7 @@ class Http(models.AbstractModel):
 
         redirect = cls._serve_redirect()
         if redirect:
-            return request.redirect(_build_url_w_params(redirect.url_to, request.params), code=redirect.type)
+            return request.redirect(_build_url_w_params(redirect.url_to, request.params), code=redirect.redirect_type)
 
         return False
 
